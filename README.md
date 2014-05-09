@@ -1,3 +1,4 @@
+[![Stories in Ready](https://badge.waffle.io/stevetjoa/stanford-mir.png?label=ready&title=Ready)](https://waffle.io/stevetjoa/stanford-mir)
 stanford-mir
 ============
 
