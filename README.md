@@ -5,7 +5,7 @@ stanford-mir
 
 Instruction for the Music Information Retrieval Workshop at CCRMA, Stanford University, 2014.
 
-For a list of open issues, click on the blue "Ready" button above.
+For a list of open issues, click on the blue "[Ready](https://waffle.io/stevetjoa/stanford-mir)" button above.
 
 Your contributions are very welcome! You can contribute in two ways:
 
