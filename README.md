@@ -34,11 +34,11 @@ Optional: create an account at <https://github.com>. A GitHub account allows you
 
 1.  Click "Fork" in the top-right corner.
 
-2.  Clone this repository onto your local machine:
+2.  Clone this repo onto your local machine:
 
         macbook:~$ git clone https://github.com/your_github_username/stanford-mir
 
-Otherwise, without a GitHub account, to clone this repository onto your local machine:
+Otherwise, without a GitHub account, to clone this repo onto your local machine:
 
     macbook:~$ git clone https://github.com/stevetjoa/stanford-mir
 
@@ -58,7 +58,7 @@ Vagrant is available for all major operating systems, including Windows, Mac OS 
 
         macbook:~/stanford-mir$ vagrant up
 
-    If this is your first time running `vagrant up`, this step may take five minutes to download the vagrant box.
+    If this is your first time running `vagrant up`, this step may take five minutes to download the Vagrant box.
 
 3.  Finally, login to the new virtual machine:
 
@@ -72,7 +72,7 @@ Using IPython
 
 A majority of our instruction and laboratory work will occur inside the [IPython notebook](http://ipython.org/notebook.html). You can think of the IPython notebook like the Mathematica or Matlab desktop, except it's in Python and it runs inside your web browser.
 
-1.  In your vagrant box, go to the `stanford-mir` directory, and start the IPython notebook server:
+1.  In your Vagrant box, go to the `stanford-mir` directory, and start the IPython notebook server:
 
         vagrant@stanford-mir:~$ cd stanford-mir
         vagrant@stanford-mir:~/stanford-mir$ ipython notebook
