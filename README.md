@@ -10,7 +10,7 @@ Contributions
 
 Your contributions are very welcome! You can contribute in two ways:
 
-1. Submit an issue. Click on "[Issues](https://github.com/stevetjoa/stanford-mir/issues)" in the right navigation bar, then "New Issue".  For a prioritized list of open issues awaiting contribution, click on the blue "[Ready](https://waffle.io/stevetjoa/stanford-mir)" button above.
+1. Submit an issue. Click on "[Issues](https://github.com/stevetjoa/stanford-mir/issues)" in the right navigation bar, then "New Issue".  Issues can include Python bugs, spelling mistakes, broken links, requests for new content, and more.  For a prioritized list of open issues awaiting contribution, click on the blue "[Ready](https://waffle.io/stevetjoa/stanford-mir)" button above.
 
 2. Submit changes to source code or documentation. [Fork this repo](https://help.github.com/articles/fork-a-repo), make edits, then [submit a pull request](https://help.github.com/articles/using-pull-requests).
 
@@ -30,7 +30,7 @@ Install Git
 
 If you don't have Git, [download Git here](http://git-scm.com), and install it on your local machine.
 
-Optional: create an account at <https://github.com>. A GitHub account allows you to contribute code back into this repo. Then, fork this repo: 
+*Optional*: create an account at <https://github.com>. A GitHub account allows you to contribute code back into this repo. Then, fork this repo: 
 
 1.  Click "Fork" in the top-right corner.
 
