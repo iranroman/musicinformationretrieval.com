@@ -60,12 +60,13 @@ Vagrant is available for all major operating systems, including Windows, Mac OS 
 
 A majority of our instruction and laboratory work will occur inside the [IPython notebook](http://ipython.org/notebook.html). You can think of the IPython notebook like the Mathematica or Matlab desktop, except it's in Python and it runs inside your web browser.
 
-1.  In your Vagrant box, go to the `stanford-mir` directory, and start the IPython notebook server:
+1.  In your Vagrant box, start the IPython notebook server:
 
-        vagrant@stanford-mir:~$ cd stanford-mir
-        vagrant@stanford-mir:~/stanford-mir$ ipython notebook
+        vagrant@stanford-mir:~$ ipython notebook
 
 2.  On your *host* machine, visit <http://localhost:8888>. 
+
+3.  Open the notebook `stanford-mir/Table_of_Contents.ipynb`.
 
 Congratulations, you are now running an IPython notebook, and you can get started with the workshop material.
 
