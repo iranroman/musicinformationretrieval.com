@@ -11,9 +11,9 @@ How to Use this Repo
 
 Basically, this repo contains a bunch of IPython notebooks related to music information retrieval.
 
-If you're a visitor, [browse this repo at nbviewer.ipython.org](http://nbviewer.ipython.org/github/stevetjoa/stanford-mir) which renders the notebooks in this repo so they can be viewed in a web browser.
+If you're a **visitor**, [browse this repo at nbviewer.ipython.org](http://nbviewer.ipython.org/github/stevetjoa/stanford-mir) which renders the notebooks in this repo so they can be viewed in a web browser.
 
-If you're a workshop participant, follow the steps below to get started with Git, Vagrant, and IPython.
+If you're a **workshop participant**, follow the steps below to get started with Git, Vagrant, and IPython.
 
 
 ### Install Git
@@ -28,7 +28,7 @@ If you don't have Git, [download Git here](http://git-scm.com), and install it o
 
         macbook:~$ git clone https://github.com/your_github_username/stanford-mir
 
-Otherwise, without a GitHub account, to clone this repo onto your local machine:
+Otherwise, without a GitHub account, clone this repo onto your local machine:
 
     macbook:~$ git clone https://github.com/stevetjoa/stanford-mir
 
