@@ -88,7 +88,7 @@ def crossValidateKNN(features, labels):
     print('cross validation accuracy: %f' % (1.0 - errors.mean()))
 
 
-def processCorpus(corpusURL):
+def process_corpus(corpusURL):
     """Read a list of files to process from the text file at corpusURL. Return a list of URLs""" 
     # Open and read each line
     urlListTextData = urllib2.urlopen(corpusURL) # it's a file like object and works just like a file
