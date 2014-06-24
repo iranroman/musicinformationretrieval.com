@@ -9,6 +9,9 @@ from sklearn import cross_validation
 from sklearn.neighbors import KNeighborsClassifier
 from sklearn import preprocessing
 import urllib2  # the lib that handles the url stuff
+import urllib
+from essentia.standard import MonoLoader
+from essentia.standard import ZeroCrossingRate, CentralMoments, Spectrum, Windowing, Centroid
 
 # Here are examples of how scaling functions would be written, however nowdays SciKit
 # Learn will do it for you with the MinMaxScaler!
@@ -86,6 +89,7 @@ def crossValidateKNN(features, labels):
         errors[foldIndex] = matches.mean()
     print('cross validation error: %f' % errors.mean())
     print('cross validation accuracy: %f' % (1.0 - errors.mean()))
+    return errors
 
 
 def process_corpus(corpusURL):
@@ -96,6 +100,39 @@ def process_corpus(corpusURL):
         yield fileURL.rstrip()
     # return [fileURL.rstrip() for fileURL in urlListTextData]
 
-# audioFileURLs = processCorpus("https://ccrma.stanford.edu/workshops/mir2014/SmallCorpus.txt")
-# for audioFileURL in processCorpus("https://ccrma.stanford.edu/workshops/mir2014/SmallCorpus.txt"):
+# audioFileURLs = process_corpus("https://ccrma.stanford.edu/workshops/mir2014/SmallCorpus.txt")
+# for audioFileURL in process_corpus("https://ccrma.stanford.edu/workshops/mir2014/SmallCorpus.txt"):
 # print audioFileURL
+
+def spectral_features(filelist):
+    """
+    Given a list of files, retrieve them, analyse the first 100mS of each file and return
+    a feature table.
+    """
+    number_of_files = len(filelist)
+    number_of_features = 5
+    features = np.zeros([number_of_files, number_of_features])
+    sample_rate = 44100
+
+    for file_index, url in enumerate(filelist):
+        print url
+        urllib.urlretrieve(url, filename='/tmp/localfile.wav')
+        audio = MonoLoader(filename = '/tmp/localfile.wav', sampleRate = sample_rate)()
+        zcr = ZeroCrossingRate()
+        hamming_window = Windowing(type = 'hamming') # we need to window the frame to avoid FFT artifacts.
+        spectrum = Spectrum()
+        central_moments = CentralMoments()
+        spectral_centroid = Centroid()
+
+        frame_size = int(round(0.100 * sample_rate))   # 100ms
+        # Only do the first frame for now.
+        # TODO we should generate values for the entire file, probably by averaging the features.
+        current_frame = audio[0 : frame_size]
+        features[file_index, 0] = zcr(current_frame)
+        spectral_magnitude = spectrum(hamming_window(current_frame))
+        centroid = spectral_centroid(spectral_magnitude)
+        spectral_moments = central_moments(spectral_magnitude)
+        features[file_index, 1] = centroid
+        features[file_index, 2:5] = spectral_moments[2:5]
+    return features
+
