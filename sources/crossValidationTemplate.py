@@ -11,7 +11,7 @@ from sklearn import preprocessing
 import urllib2  # the lib that handles the url stuff
 import urllib
 from essentia.standard import MonoLoader
-from essentia.standard import ZeroCrossingRate, CentralMoments, Spectrum, Windowing, Centroid
+from essentia.standard import ZeroCrossingRate, CentralMoments, Spectrum, Windowing, Centroid, DistributionShape
 
 # Here are examples of how scaling functions would be written, however nowdays SciKit
 # Learn will do it for you with the MinMaxScaler!
@@ -122,6 +122,7 @@ def spectral_features(filelist):
         hamming_window = Windowing(type = 'hamming') # we need to window the frame to avoid FFT artifacts.
         spectrum = Spectrum()
         central_moments = CentralMoments()
+        distributionshape = DistributionShape()
         spectral_centroid = Centroid()
 
         frame_size = int(round(0.100 * sample_rate))   # 100ms
@@ -131,8 +132,8 @@ def spectral_features(filelist):
         features[file_index, 0] = zcr(current_frame)
         spectral_magnitude = spectrum(hamming_window(current_frame))
         centroid = spectral_centroid(spectral_magnitude)
-        spectral_moments = central_moments(spectral_magnitude)
+        spectral_moments = distributionshape(central_moments(spectral_magnitude))
         features[file_index, 1] = centroid
-        features[file_index, 2:5] = spectral_moments[2:5]
+        features[file_index, 2:5] = spectral_moments
     return features
 
