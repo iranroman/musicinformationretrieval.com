@@ -6,7 +6,7 @@ stanford-mir
 Instructional material for the [Music Information Retrieval Workshop](https://ccrma.stanford.edu/workshops/music-information-retrieval-mir) at CCRMA, Stanford University, 2014.
 
 
-How to Use this Repo
+How to Use This Repo
 --------------------
 
 This repo contains a bunch of IPython notebooks related to music information retrieval.
@@ -18,11 +18,13 @@ If you're a **workshop participant**, follow the steps below to get started with
 
 ### Install Git
 
-If you don't have Git, [download Git here](http://git-scm.com), and install it on your local machine.
+Git is a version control system. You will use Git to retrieve the latest version of our IPython notebooks and to track changes that you make to these notebooks.
 
-Clone this repo onto your local machine:
+1.  If you don't have Git, [download Git here](http://git-scm.com), and install it on your local machine.
 
-    macbook:~$ git clone https://github.com/stevetjoa/stanford-mir
+2.  Clone this repo onto your local machine:
+
+        macbook:~$ git clone https://github.com/stevetjoa/stanford-mir
 
 
 ### Install Vagrant
