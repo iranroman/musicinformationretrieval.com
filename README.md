@@ -9,7 +9,7 @@ Instructional material for the [Music Information Retrieval Workshop](https://cc
 How to Use this Repo
 --------------------
 
-Basically, this repo contains a bunch of IPython notebooks related to music information retrieval.
+This repo contains a bunch of IPython notebooks related to music information retrieval.
 
 If you're a **visitor**, [browse this repo at nbviewer.ipython.org](http://nbviewer.ipython.org/github/stevetjoa/stanford-mir) which renders the notebooks in this repo so they can be viewed in a web browser.
 
@@ -20,24 +20,14 @@ If you're a **workshop participant**, follow the steps below to get started with
 
 If you don't have Git, [download Git here](http://git-scm.com), and install it on your local machine.
 
-*Optional*: create an account at <https://github.com>. A GitHub account allows you to contribute code back into this repo. Then, fork this repo: 
-
-1.  Click "Fork" in the top-right corner.
-
-2.  Clone this repo onto your local machine:
-
-        macbook:~$ git clone https://github.com/your_github_username/stanford-mir
-
-Otherwise, without a GitHub account, clone this repo onto your local machine:
+Clone this repo onto your local machine:
 
     macbook:~$ git clone https://github.com/stevetjoa/stanford-mir
 
 
 ### Install Vagrant
 
-In previous workshops, a major difficulty was installing software prequisites and handling dependencies. Everyone has a different computing setup, and we would often run into problems when installed packages conflict or prerequisites aren't met. 
-
-This year, we will use [Vagrant](http://vagrantup.com) to create a local virtual development environment running Ubuntu 12.04. Vagrant will ensure that every person has exactly the same development environment with the same installed packages. 
+We use [Vagrant](http://vagrantup.com) to create a local virtual machine running Ubuntu 12.04. Vagrant ensures that every person has exactly the same development environment with the same installed packages. 
 
 Vagrant is available for all major operating systems, including Windows, Mac OS X, and Linux. It's a breeze to install.
 
@@ -54,6 +44,8 @@ Vagrant is available for all major operating systems, including Windows, Mac OS 
         macbook:~/stanford-mir$ vagrant ssh
 
     This step logs you in to Ubuntu locally as user `vagrant` with default password `vagrant`.
+
+Note: outdated versions of Mac OS X may yield problems with `vagrant ssh`. To avoid such problems, please upgrade (for free) to the latest version of Mac OS X.
 
 
 ### Start IPython
