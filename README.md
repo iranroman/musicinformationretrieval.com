@@ -20,11 +20,18 @@ If you're a **workshop participant**, follow the steps below to get started with
 
 Git is a version control system. You will use Git to retrieve the latest version of our IPython notebooks and to track changes that you make to these notebooks.
 
-1.  If you don't have Git, [download Git here](http://git-scm.com), and install it on your local machine.
+1.  [Download Git](http://git-scm.com), and install it on your local machine.
 
 2.  Clone this repo onto your local machine:
 
         macbook:~$ git clone https://github.com/stevetjoa/stanford-mir
+
+3.  Create a branch called `develop`. You will make changes to this branch.
+
+        macbook:~$ cd stanford-mir
+        macbook:~/stanford-mir$ git branch develop
+        macbook:~/stanford-mir$ git checkout develop
+        Switched to branch 'develop'
 
 
 ### Install Vagrant
