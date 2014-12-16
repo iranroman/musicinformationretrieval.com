@@ -5,6 +5,7 @@ stanford-mir
 
 Instructional material for the [Music Information Retrieval Workshop](https://ccrma.stanford.edu/workshops/music-information-retrieval-mir) at CCRMA, Stanford University, 2014.
 
+**To be notified when registration for the 2015 workshop is available, [click here](https://docs.google.com/forms/d/1OcSda5f5fY_jhx1dEC02GNY2UAX1OveSoBf49QYa1rE/viewform?usp=send_form).**
 
 How to Use This Repo
 --------------------
