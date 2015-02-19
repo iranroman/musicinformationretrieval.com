@@ -55,6 +55,8 @@ Vagrant is available for all major operating systems, including Windows, Mac OS 
 
     This step logs you in to Ubuntu locally as user `vagrant` with default password `vagrant`.
 
+    Note: do *not* upgrade the virtual machine to Ubuntu 14.04 when prompted.
+
 Note: outdated versions of Mac OS X may yield problems with `vagrant ssh`. To avoid such problems, please upgrade (for free) to the latest version of Mac OS X.
 
 
