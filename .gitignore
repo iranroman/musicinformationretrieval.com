@@ -1,4 +1,5 @@
 *.wav
+*.mp3
 *.ogg
 .ipynb_checkpoints
 .vagrant
