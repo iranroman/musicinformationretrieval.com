@@ -57,8 +57,17 @@ Vagrant is available for all major operating systems, including Windows, Mac OS 
 
     Note: do *not* upgrade the virtual machine to Ubuntu 14.04 when prompted.
 
-Note: outdated versions of Mac OS X may yield problems with `vagrant ssh`. To avoid such problems, please upgrade (for free) to the latest version of Mac OS X.
+    Note: outdated versions of Mac OS X may yield problems with `vagrant ssh`. To avoid such problems, please upgrade (for free) to the latest version of Mac OS X.
 
+#### Troubleshooting Vagrant
+
+    Problem: When on a Windows host machine, `vagrant ssh` results in a timeout error: `ssh_exchange_identification: read: Connection reset by peer`.
+
+    Solution: Go into the BIOS, and make sure that Hardware Virtualization is enabled. For details, see [this answer on Stack Overflow](http://stackoverflow.com/questions/22575261/vagrant-stuck-connection-timeout-retrying/25504245#25504245). 
+
+    Problem: The folder `stanford-mir` on the guest machine is empty.
+
+    Solution: Vagrant probably failed to sync folders between the host and the guest machines. Try `vagrant provision` or `vagrant reload` from the host machine.
 
 ### Start IPython
 
