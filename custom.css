@@ -1,1 +1,8 @@
+h1, h2, h3, h4,
+p, li
+{
+    font-family: Optima, Candara, Calibri, sans-serif;
+    font-weight: 400;
+}
+
 h1 { font-size: 300% !important; }
