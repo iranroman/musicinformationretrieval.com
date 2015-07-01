@@ -227,11 +227,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-
-<pre><code>1. `IPython.display.Audio`
-2. `librosa`
-3. `essentia.standard`</code></pre>
-
+<h3 id="1.-IPython.display.Audio">1. IPython.display.Audio<a class="anchor-link" href="#1.-IPython.display.Audio">&#182;</a></h3><h3 id="2.-librosa">2. librosa<a class="anchor-link" href="#2.-librosa">&#182;</a></h3><h3 id="3.-essentia.standard">3. essentia.standard<a class="anchor-link" href="#3.-essentia.standard">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -302,7 +298,10 @@ Although Essentia is written in C++, we will use the Python bindings for Essenti
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">urllib</span>
-<span class="n">urllib</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="s">&#39;http://audio.musicinformationretrieval.com/simpleLoop.wav&#39;</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="s">&#39;simpleLoop.wav&#39;</span><span class="p">)</span>
+<span class="n">urllib</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span>
+    <span class="s">&#39;http://audio.musicinformationretrieval.com/simpleLoop.wav&#39;</span><span class="p">,</span> 
+    <span class="n">filename</span><span class="o">=</span><span class="s">&#39;simpleLoop.wav&#39;</span>
+<span class="p">)</span>
 </pre></div>
 
 </div>
@@ -317,7 +316,7 @@ Although Essentia is written in C++, we will use the Python bindings for Essenti
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>(&apos;simpleLoop.wav&apos;, &lt;httplib.HTTPMessage instance at 0x10f2c20e0&gt;)</pre>
+<pre>(&apos;simpleLoop.wav&apos;, &lt;httplib.HTTPMessage instance at 0x1114350e0&gt;)</pre>
 </div>
 
 </div>
@@ -451,7 +450,7 @@ Although Essentia is written in C++, we will use the Python bindings for Essenti
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>[&lt;matplotlib.lines.Line2D at 0x10f7cbc50&gt;]</pre>
+<pre>[&lt;matplotlib.lines.Line2D at 0x1119c1c90&gt;]</pre>
 </div>
 
 </div>
@@ -705,7 +704,7 @@ MBiIiCiAwUBERAH/C0x6moC8tB4uAAAAAElFTkSuQmCC
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.text.Text at 0x110155950&gt;</pre>
+<pre>&lt;matplotlib.text.Text at 0x112355990&gt;</pre>
 </div>
 
 </div>
@@ -945,7 +944,8 @@ JyLKGQY/EVHOMPiJiHLm/wFYjI+ZAP24wgAAAABJRU5ErkJggg==
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="kn">from</span> <span class="nn">IPython.display</span> <span class="kn">import</span> <span class="n">Audio</span>
-<span class="n">Audio</span><span class="p">(</span><span class="s">&#39;https://ccrma.stanford.edu/workshops/mir2014/audio/CongaGroove-mono.wav&#39;</span><span class="p">)</span> <span class="c"># remote WAV file</span>
+<span class="c"># load a remote WAV file</span>
+<span class="n">Audio</span><span class="p">(</span><span class="s">&#39;https://ccrma.stanford.edu/workshops/mir2014/audio/CongaGroove-mono.wav&#39;</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -978,7 +978,8 @@ JyLKGQY/EVHOMPiJiHLm/wFYjI+ZAP24wgAAAABJRU5ErkJggg==
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span class="n">Audio</span><span class="p">(</span><span class="s">&#39;simpleLoop.wav&#39;</span><span class="p">)</span>  <span class="c"># local WAV file</span>
+<div class=" highlight hl-ipython2"><pre><span class="c"># load a local WAV file</span>
+<span class="n">Audio</span><span class="p">(</span><span class="s">&#39;simpleLoop.wav&#39;</span><span class="p">)</span>  
 </pre></div>
 
 </div>
@@ -1025,6 +1026,8 @@ JyLKGQY/EVHOMPiJiHLm/wFYjI+ZAP24wgAAAABJRU5ErkJggg==
 <span class="n">T</span> <span class="o">=</span> <span class="mf">1.5</span>    <span class="c"># seconds</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="n">fs</span><span class="p">),</span> <span class="n">endpoint</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c"># time variable</span>
 <span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">440</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>                <span class="c"># pure sine wave at 440 Hz</span>
+
+<span class="c"># load a NumPy array</span>
 <span class="n">Audio</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">rate</span><span class="o">=</span><span class="n">fs</span><span class="p">)</span>
 </pre></div>
 
@@ -1067,9 +1070,20 @@ JyLKGQY/EVHOMPiJiHLm/wFYjI+ZAP24wgAAAABJRU5ErkJggg==
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>To play audio from the command line, we recommend SoX (included in the <code>stanford-mir</code> Vagrant box).</p>
+<p>To play or record audio from the command line, we recommend SoX (included in the <code>stanford-mir</code> Vagrant box).</p>
 
-<pre><code>$ play simpleLoop.wav</code></pre>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+
+<pre><code>$ rec test.wav
+
+$ play test.wav</code></pre>
 
 </div>
 </div>
@@ -1101,7 +1115,9 @@ JyLKGQY/EVHOMPiJiHLm/wFYjI+ZAP24wgAAAABJRU5ErkJggg==
 <div class=" highlight hl-ipython2"><pre><span class="n">T</span> <span class="o">=</span> <span class="mf">0.001</span>    <span class="c"># seconds</span>
 <span class="n">fs</span> <span class="o">=</span> <span class="mi">44100</span>   <span class="c"># sampling frequency</span>
 <span class="n">t</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">T</span><span class="p">,</span> <span class="nb">int</span><span class="p">(</span><span class="n">T</span><span class="o">*</span><span class="n">fs</span><span class="p">),</span> <span class="n">endpoint</span><span class="o">=</span><span class="bp">False</span><span class="p">)</span> <span class="c"># time variable</span>
-<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">3000</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>     
+<span class="n">x</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">sin</span><span class="p">(</span><span class="mi">2</span><span class="o">*</span><span class="n">numpy</span><span class="o">.</span><span class="n">pi</span><span class="o">*</span><span class="mi">3000</span><span class="o">*</span><span class="n">t</span><span class="p">)</span>
+
+<span class="c"># Plot a sine wave</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">t</span><span class="p">,</span> <span class="n">x</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time (seconds)&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1118,7 +1134,7 @@ JyLKGQY/EVHOMPiJiHLm/wFYjI+ZAP24wgAAAABJRU5ErkJggg==
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.text.Text at 0x10a6ba9d0&gt;</pre>
+<pre>&lt;matplotlib.text.Text at 0x10c823a90&gt;</pre>
 </div>
 
 </div>
@@ -1377,6 +1393,8 @@ AZ1zgeU64Jbc9v8P2AaszI0x2zl3EPgXYF5uP0eBn+Wxs/l7uAV4T27fH6Hpwn86sCTn2vpWzg5y
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">S</span><span class="p">,</span> <span class="n">freqs</span><span class="p">,</span> <span class="n">bins</span><span class="p">,</span> <span class="n">im</span> <span class="o">=</span> <span class="n">plt</span><span class="o">.</span><span class="n">specgram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">NFFT</span><span class="o">=</span><span class="mi">1024</span><span class="p">,</span> <span class="n">Fs</span><span class="o">=</span><span class="n">fs</span><span class="p">,</span> <span class="n">noverlap</span><span class="o">=</span><span class="mi">512</span><span class="p">)</span>
+
+<span class="c"># Plot a spectrogram</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;Time&#39;</span><span class="p">)</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;Frequency&#39;</span><span class="p">)</span>
 </pre></div>
@@ -1393,7 +1411,7 @@ AZ1zgeU64Jbc9v8P2AaszI0x2zl3EPgXYF5uP0eBn+Wxs/l7uAV4T27fH6Hpwn86sCTn2vpWzg5y
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.text.Text at 0x114cfc3d0&gt;</pre>
+<pre>&lt;matplotlib.text.Text at 0x10c8313d0&gt;</pre>
 </div>
 
 </div>
@@ -1562,6 +1580,8 @@ SVInDBxJUicMHElSJwwcSVInDBxJUif+P7bUps/p4VPaAAAAAElFTkSuQmCC
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span class="n">noise</span> <span class="o">=</span> <span class="mf">0.1</span><span class="o">*</span><span class="n">scipy</span><span class="o">.</span><span class="n">randn</span><span class="p">(</span><span class="mi">44100</span><span class="p">)</span>
+
+<span class="c"># Write an array to a wav file</span>
 <span class="n">librosa</span><span class="o">.</span><span class="n">output</span><span class="o">.</span><span class="n">write_wav</span><span class="p">(</span><span class="s">&#39;noise2.wav&#39;</span><span class="p">,</span> <span class="n">noise</span><span class="p">,</span> <span class="mi">44100</span><span class="p">)</span>
 <span class="o">%</span><span class="k">ls</span> *.wav
 </pre></div>
