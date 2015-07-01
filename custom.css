@@ -6,3 +6,11 @@ p, li
 }
 
 h1 { font-size: 300% !important; }
+h2 { font-size: 220% !important; }
+h3 { font-size: 180% !important; }
+
+p, li 
+{
+    font-size: 120% !important; 
+    line-height: 1.4;
+}
