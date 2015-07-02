@@ -15,5 +15,15 @@ p, li
     line-height: 1.5;
 }
 
-a { text-decoration: none !important; }
-a:focus, a:hover { text-decoration: underline !important; }
+code { font-weight: bold; }
+
+a, a code { 
+    color: #337ab7 !important;
+    text-decoration: none !important; 
+}
+a:focus, a:hover,
+a:focus code, a:hover code
+{
+    color: #336699 !important;
+    text-decoration: underline !important; 
+}
