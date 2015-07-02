@@ -1,12 +1,41 @@
+
 <!DOCTYPE html>
 <html>
 <head>
 
 <meta charset="utf-8" />
-<title>signal_representations</title>
+<meta http-equiv="X-UA-Compatible" content="chrome=1" />
+
+<meta name="apple-mobile-web-app-capable" content="yes" />
+<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+<title>signal_representations slides</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
+
+<!-- General and theme style sheets -->
+<link rel="stylesheet" href="reveal.js/css/reveal.css">
+<link rel="stylesheet" href="reveal.js/css/theme/simple.css" id="theme">
+
+<!-- If the query includes 'print-pdf', include the PDF print sheet -->
+<script>
+if( window.location.search.match( /print-pdf/gi ) ) {
+        var link = document.createElement( 'link' );
+        link.rel = 'stylesheet';
+        link.type = 'text/css';
+        link.href = 'reveal.js/css/print/pdf.css';
+        document.getElementsByTagName( 'head' )[0].appendChild( link );
+}
+
+</script>
+
+<!--[if lt IE 9]>
+<script src="reveal.js/lib/js/html5shiv.js"></script>
+<![endif]-->
+
+<!-- Get Font-awesome from cdn -->
+<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.css">
 
 <style type="text/css">
     /*!
@@ -124,63 +153,78 @@ This will always be an empty file in IPython
 
 <style type="text/css">
 /* Overrides of notebook CSS for static HTML export */
-body {
-  overflow: visible;
-  padding: 8px;
+html {
+  overflow-y: auto;
 }
-
-div#notebook {
-  overflow: visible;
-  border-top: none;
+.reveal {
+  font-size: 160%;
 }
-
-@media print {
-  div.cell {
-    display: block;
-    page-break-inside: avoid;
-  } 
-  div.output_wrapper { 
-    display: block;
-    page-break-inside: avoid; 
-  }
-  div.output { 
-    display: block;
-    page-break-inside: avoid; 
-  }
+.reveal pre {
+  width: inherit;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  box-shadow: 0px 0px 0px rgba(0, 0, 0, 0);
+}
+.reveal pre code {
+  padding: 0px;
+}
+.reveal section img {
+  border: 0px solid black;
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0);
+}
+.reveal i {
+  font-style: normal;
+  font-family: FontAwesome;
+  font-size: 2em;
+}
+.reveal .slides {
+  text-align: left;
+}
+.reveal.fade {
+  opacity: 1;
+}
+.reveal .progress {
+  position: static;
+}
+div.input_area {
+  padding: 0.06em;
+}
+div.code_cell {
+  background-color: transparent;
+}
+div.prompt {
+  width: 11ex;
+  padding: 0.4em;
+  margin: 0px;
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+  text-align: right;
+}
+div.output_area pre {
+  font-family: monospace, sans-serif;
+  font-size: 80%;
+}
+div.output_prompt {
+  /* 5px right shift to account for margin in parent container */
+  margin: 5px 5px 0 0;
+}
+.rendered_html p {
+  text-align: inherit;
 }
 </style>
 
 <!-- Custom stylesheet, it must be in the same directory as the html file -->
 <link rel="stylesheet" href="custom.css">
 
-<!-- Loading mathjax macro -->
-<!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
-    <!-- MathJax configuration -->
-    <script type="text/x-mathjax-config">
-    MathJax.Hub.Config({
-        tex2jax: {
-            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
-            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
-            processEscapes: true,
-            processEnvironments: true
-        },
-        // Center justify equations in code and markdown cells. Elsewhere
-        // we use CSS to left justify single line equations in code cells.
-        displayAlign: 'center',
-        "HTML-CSS": {
-            styles: {'.MathJax_Display': {"margin": 0}},
-            linebreaks: { automatic: true }
-        }
-    });
-    </script>
-    <!-- End of mathjax configuration -->
-
 </head>
-<body>
-  <div tabindex="-1" id="notebook" class="border-box-sizing">
-    <div class="container" id="notebook-container">
 
+<body>
+<div class="reveal">
+<div class="slides">
+<div style=display:none>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
@@ -194,6 +238,8 @@ div#notebook {
 </div>
 
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -204,6 +250,10 @@ div#notebook {
 </div>
 </div>
 </div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -212,7 +262,10 @@ div#notebook {
 <h1 id="Signal-Representations">Signal Representations<a class="anchor-link" href="#Signal-Representations">&#182;</a></h1>
 </div>
 </div>
-</div>
+</div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -221,7 +274,8 @@ div#notebook {
 <h2 id="Time-Domain">Time Domain<a class="anchor-link" href="#Time-Domain">&#182;</a></h2>
 </div>
 </div>
-</div>
+</div><aside class="notes">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -233,6 +287,8 @@ div#notebook {
 </div>
 </div>
 </div>
+    </aside><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -243,6 +299,8 @@ div#notebook {
 </div>
 </div>
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
@@ -281,7 +339,8 @@ div#notebook {
 </div>
 </div>
 
-</div>
+</div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -292,6 +351,8 @@ div#notebook {
 </div>
 </div>
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[3]:</div>
@@ -1045,7 +1106,8 @@ DMMwzADz/wNpBOuKInpVwgAAAABJRU5ErkJggg==
 </div>
 </div>
 
-</div>
+</div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1056,6 +1118,8 @@ DMMwzADz/wNpBOuKInpVwgAAAABJRU5ErkJggg==
 </div>
 </div>
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[4]:</div>
@@ -1510,7 +1574,8 @@ QmCC
 </div>
 </div>
 
-</div>
+</div><aside class="notes">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1521,6 +1586,10 @@ QmCC
 </div>
 </div>
 </div>
+    </aside></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1529,7 +1598,8 @@ QmCC
 <h2 id="Fourier-Transform">Fourier Transform<a class="anchor-link" href="#Fourier-Transform">&#182;</a></h2>
 </div>
 </div>
-</div>
+</div><aside class="notes">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1541,6 +1611,8 @@ QmCC
 </div>
 </div>
 </div>
+    </aside><aside class="notes">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1551,6 +1623,8 @@ QmCC
 </div>
 </div>
 </div>
+    </aside></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[5]:</div>
@@ -1738,7 +1812,8 @@ CD0AAAYj9AAAGIzQAwBgsP8PRSJEkVF7zO8AAAAASUVORK5CYII=
 </div>
 </div>
 
-</div>
+</div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -1749,6 +1824,8 @@ CD0AAAYj9AAAGIzQAwBgsP8PRSJEkVF7zO8AAAAASUVORK5CYII=
 </div>
 </div>
 </div>
+    </div></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[6]:</div>
@@ -2038,7 +2115,8 @@ RERkAAx0IiIiA2CgExERGcD/Bwc6nfgjPLlYAAAAAElFTkSuQmCC
 </div>
 </div>
 
-</div>
+</div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2049,6 +2127,10 @@ RERkAAx0IiIiA2CgExERGcD/Bwc6nfgjPLlYAAAAAElFTkSuQmCC
 </div>
 </div>
 </div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2057,7 +2139,8 @@ RERkAAx0IiIiA2CgExERGcD/Bwc6nfgjPLlYAAAAAElFTkSuQmCC
 <h2 id="Spectrogram">Spectrogram<a class="anchor-link" href="#Spectrogram">&#182;</a></h2>
 </div>
 </div>
-</div>
+</div><aside class="notes">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2069,6 +2152,8 @@ RERkAAx0IiIiA2CgExERGcD/Bwc6nfgjPLlYAAAAAElFTkSuQmCC
 </div>
 </div>
 </div>
+    </aside></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2077,7 +2162,8 @@ RERkAAx0IiIiA2CgExERGcD/Bwc6nfgjPLlYAAAAAElFTkSuQmCC
 <h3 id="matplotlib.specgram"><code>matplotlib.specgram</code><a class="anchor-link" href="#matplotlib.specgram">&#182;</a></h3>
 </div>
 </div>
-</div>
+</div><aside class="notes">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -2088,6 +2174,8 @@ RERkAAx0IiIiA2CgExERGcD/Bwc6nfgjPLlYAAAAAElFTkSuQmCC
 </div>
 </div>
 </div>
+    </aside></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[7]:</div>
@@ -4480,7 +4568,8 @@ iqK0QFQBUBRFUZQWiCoAiqIoitIC+T/x9P/hkP+8kQAAAABJRU5ErkJggg==
 </div>
 </div>
 
-</div>
+</div></section><section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -4489,7 +4578,8 @@ iqK0QFQBUBRFUZQWiCoAiqIoitIC+T/x9P/hkP+8kQAAAABJRU5ErkJggg==
 <h3 id="librosa.feature.melspectrogram"><code>librosa.feature.melspectrogram</code><a class="anchor-link" href="#librosa.feature.melspectrogram">&#182;</a></h3>
 </div>
 </div>
-</div>
+</div><aside class="notes">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -4500,6 +4590,8 @@ iqK0QFQBUBRFUZQWiCoAiqIoitIC+T/x9P/hkP+8kQAAAABJRU5ErkJggg==
 </div>
 </div>
 </div>
+    </aside></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[8]:</div>
@@ -4513,7 +4605,8 @@ iqK0QFQBUBRFUZQWiCoAiqIoitIC+T/x9P/hkP+8kQAAAABJRU5ErkJggg==
 </div>
 </div>
 
-</div>
+</div><aside class="notes">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -4524,6 +4617,8 @@ iqK0QFQBUBRFUZQWiCoAiqIoitIC+T/x9P/hkP+8kQAAAABJRU5ErkJggg==
 </div>
 </div>
 </div>
+    </aside><div class="fragment" data-fragment-index="28">
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[9]:</div>
@@ -5668,6 +5763,10 @@ TkSuQmCC
 </div>
 
 </div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -5676,7 +5775,8 @@ TkSuQmCC
 <h2 id="Autocorrelation">Autocorrelation<a class="anchor-link" href="#Autocorrelation">&#182;</a></h2>
 </div>
 </div>
-</div>
+</div><aside class="notes">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -5687,6 +5787,8 @@ TkSuQmCC
 </div>
 </div>
 </div>
+    </aside><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -5697,6 +5799,8 @@ TkSuQmCC
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[10]:</div>
@@ -6522,6 +6626,8 @@ h8PhcOoAbvA5HA6Hw6kDuMHncDgcDqcO4Aafw+FwOJw64P8Dg5j1AYLyuioAAAAASUVORK5CYII=
 </div>
 
 </div>
+    </div><aside class="notes">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -6532,6 +6638,8 @@ h8PhcOoAbvA5HA6Hw6kDuMHncDgcDqcO4Aafw+FwOJw64P8Dg5j1AYLyuioAAAAASUVORK5CYII=
 </div>
 </div>
 </div>
+    </aside></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[11]:</div>
@@ -7348,7 +7456,8 @@ gg==
 </div>
 </div>
 
-</div>
+</div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -7359,6 +7468,8 @@ gg==
 </div>
 </div>
 </div>
+    </div><div style=display:none>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[12]:</div>
@@ -8178,6 +8289,10 @@ gg==
 </div>
 
 </div>
+    </div></section>
+    </section><section>
+    <section>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -8186,7 +8301,8 @@ gg==
 <h2 id="librosa.cqt"><code>librosa.cqt</code><a class="anchor-link" href="#librosa.cqt">&#182;</a></h2>
 </div>
 </div>
-</div>
+</div><aside class="notes">
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -8198,6 +8314,8 @@ gg==
 </div>
 </div>
 </div>
+    </aside></section><section>
+    
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[13]:</div>
@@ -9168,7 +9286,8 @@ QRAEYQyRCwBBEARBGEP+P/TgVyknHeOAAAAAAElFTkSuQmCC
 </div>
 </div>
 
-</div>
+</div><div style=display:none>
+    
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -9180,6 +9299,62 @@ QRAEYQyRCwBBEARBGEP+P/TgVyknHeOAAAAAAElFTkSuQmCC
 </div>
 </div>
     </div>
-  </div>
+</div>
+</div>
+
+<script src="reveal.js/lib/js/head.min.js"></script>
+
+<script src="reveal.js/js/reveal.js"></script>
+
+<script>
+
+// Full list of configuration options available here: https://github.com/hakimel/reveal.js#configuration
+Reveal.initialize({
+controls: true,
+progress: true,
+history: true,
+
+theme: Reveal.getQueryHash().theme, // available themes are in /css/theme
+transition: Reveal.getQueryHash().transition || 'linear', // default/cube/page/concave/zoom/linear/none
+
+// Optional libraries used to extend on reveal.js
+dependencies: [
+{ src: "reveal.js/lib/js/classList.js", condition: function() { return !document.body.classList; } },
+{ src: "reveal.js/plugin/notes/notes.js", async: true, condition: function() { return !!document.body.classList; } }
+]
+});
+</script>
+
+<!-- Loading mathjax macro -->
+<!-- Load mathjax -->
+    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <!-- MathJax configuration -->
+    <script type="text/x-mathjax-config">
+    MathJax.Hub.Config({
+        tex2jax: {
+            inlineMath: [ ['$','$'], ["\\(","\\)"] ],
+            displayMath: [ ['$$','$$'], ["\\[","\\]"] ],
+            processEscapes: true,
+            processEnvironments: true
+        },
+        // Center justify equations in code and markdown cells. Elsewhere
+        // we use CSS to left justify single line equations in code cells.
+        displayAlign: 'center',
+        "HTML-CSS": {
+            styles: {'.MathJax_Display': {"margin": 0}},
+            linebreaks: { automatic: true }
+        }
+    });
+    </script>
+    <!-- End of mathjax configuration -->
+
+<script>
+Reveal.addEventListener( 'slidechanged', function( event ) {
+  window.scrollTo(0,0);
+  MathJax.Hub.Rerender(event.currentSlide);
+});
+</script>
+
 </body>
+
 </html>
