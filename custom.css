@@ -14,3 +14,6 @@ p, li
     font-size: 120% !important; 
     line-height: 1.5;
 }
+
+a { text-decoration: none !important; }
+a:focus, a:hover { text-decoration: underline !important; }
