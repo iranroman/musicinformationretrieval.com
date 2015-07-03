@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="utf-8" />
-<title>index</title>
+<title>spectral_features</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -186,7 +186,16 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://github.com/stevetjoa/stanford-mir"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a></p>
+<h1 id="Spectral-Features">Spectral Features<a class="anchor-link" href="#Spectral-Features">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For classification, we're going to be using the new features in our arsenal: cherishing those "spectral moments" (centroid, bandwidth, skewness, kurtosis) and also examining other spectral statistics.</p>
 
 </div>
 </div>
@@ -196,31 +205,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Notes-on-Music-Information-Retrieval">Notes on Music Information Retrieval<a class="anchor-link" href="#Notes-on-Music-Information-Retrieval">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="about.html">About This Site</a></li>
-<li><a href="python_basics.html">Python Basics</a></li>
-<li><a href="get_good_at_ipython.html">Getting Good at IPython</a> (<a href="get_good_at_ipython.ipynb">ipynb</a>)</li>
-<li><a href="ipython_audio.html">Using Audio in IPython</a> (<a href="ipython_audio.ipynb">ipynb</a>)</li>
-<li><a href="numpy_basics.html">NumPy and SciPy Basics</a> (<a href="numpy_basics.ipynb">ipynb</a>)</li>
-</ol>
+<p><em>Moments</em> is a term used in physics and statistics. There are raw moments and central moments. The first raw moment is known as the mean. The second central moment is known as the variance.</p>
 
 </div>
 </div>
@@ -230,7 +215,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-1:-Basic-Signal-Manipulation">Chapter 1: Basic Signal Manipulation<a class="anchor-link" href="#Chapter-1:-Basic-Signal-Manipulation">&#182;</a></h2>
+<h2 id="essentia.standard.Centroid"><code>essentia.standard.Centroid</code><a class="anchor-link" href="#essentia.standard.Centroid">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -239,12 +224,51 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="signal_representations.html">Signal Representations</a> (<a href="signal_representations.ipynb">ipynb</a>)</li>
-<li><a href="onset_detection.html">Onset Detection</a> (<a href="onset_detection.ipynb">ipynb</a>)</li>
-<li><a href="beat_tracking.html">Beat Tracking</a> (<a href="beat_tracking.ipynb">ipynb</a>)</li>
-<li><a href="feature_sonification.html">Exercise: Understanding Audio Features through Sonification</a> (<a href="feature_sonification.ipynb">ipynb</a>)</li>
-</ol>
+<p>To compute the spectral centroid, we will use <a href="http://essentia.upf.edu/documentation/reference/std_Centroid.html"><code>essentia.standard.Centroid</code></a>:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">essentia</span>
+<span class="kn">from</span> <span class="nn">essentia.standard</span> <span class="k">import</span> <span class="n">Spectrum</span><span class="p">,</span> <span class="n">Centroid</span>
+<span class="n">spectrum</span> <span class="o">=</span> <span class="n">Spectrum</span><span class="p">()</span>
+<span class="n">centroid</span> <span class="o">=</span> <span class="n">Centroid</span><span class="p">()</span>
+<span class="n">x</span> <span class="o">=</span> <span class="n">essentia</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">randn</span><span class="p">(</span><span class="mi">1024</span><span class="p">))</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">spectrum</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+<span class="n">spectral_centroid</span> <span class="o">=</span> <span class="n">centroid</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">spectral_centroid</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.510950088501
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This value is normalized between 0 and 1. If 0, then the centroid is at zero. If 1, then the centroid is all the way to the "right", i.e., equal to <code>fs/2</code>, the Nyquist frequency, or the highest frequency a digital signal can possibly have.</p>
 
 </div>
 </div>
@@ -254,52 +278,46 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-2:-Spectral-Feature-Extraction-and-Classification">Chapter 2: Spectral Feature Extraction and Classification<a class="anchor-link" href="#Chapter-2:-Spectral-Feature-Extraction-and-Classification">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="spectral_features.html">Spectral Features</a> (<a href="spectral_features.ipynb">ipynb</a>)</li>
-<li><a href="mfcc.html">Mel-Frequency Cepstral Coefficients</a> (<a href="mfcc.ipynb">ipynb</a>)</li>
-<li><a href="knn_instrument_classification.html">K-Nearest Neighbor Instrument Classification</a> (<a href="knn_instrument_classification.ipynb">ipynb</a>)</li>
-</ol>
+<p>Here is a sanity check:</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[47]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-3:-Unsupervised-Classification">Chapter 3: Unsupervised Classification<a class="anchor-link" href="#Chapter-3:-Unsupervised-Classification">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="notebooks/kmeans.ipynb">K-Means Clustering</a></li>
-<li><a href="exercises/kmeans_instrument_classification.ipynb">Exercise: Unsupervised Instrument Classification using K-Means</a></li>
-</ol>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="nb">sum</span><span class="p">((</span><span class="n">X</span><span class="o">/</span><span class="nb">sum</span><span class="p">(</span><span class="n">X</span><span class="p">))</span><span class="o">*</span><span class="n">linspace</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">X</span><span class="p">)))</span>
+</pre></div>
 
 </div>
 </div>
 </div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[47]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.51095009882361531</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-4:-Matrix-Factorization-and-Evaluation">Chapter 4: Matrix Factorization and Evaluation<a class="anchor-link" href="#Chapter-4:-Matrix-Factorization-and-Evaluation">&#182;</a></h2>
+<h2 id="essentia.standard.CentralMoments"><code>essentia.standard.CentralMoments</code><a class="anchor-link" href="#essentia.standard.CentralMoments">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -308,44 +326,47 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="notebooks/nmf.ipynb">Nonnegative Matrix Factorization</a></li>
-<li><a href="exercises/nmf_source_separation.ipynb">Exercise: Source Separation using NMF</a></li>
-<li><a href="notebooks/classify_separated_signals.ipynb">Classification of Separated Signals</a></li>
-<li><a href="notebooks/cross_validation.ipynb">Cross Validation</a></li>
-<li><a href="notebooks/evaluation.ipynb">Evaluation</a></li>
-</ol>
+<p>The first step to computing the other three spectral moments (spread, skewness, and kurtosis) is to compute the central moments of a spectrum:</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-5:-Music-Fingerprinting">Chapter 5: Music Fingerprinting<a class="anchor-link" href="#Chapter-5:-Music-Fingerprinting">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="notebooks/lsh_fingerprinting.ipynb">Locality Sensitive Hashing</a></li>
-</ol>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">essentia.standard</span> <span class="k">import</span> <span class="n">CentralMoments</span>
+<span class="n">central_moments</span> <span class="o">=</span> <span class="n">CentralMoments</span><span class="p">()</span>
+<span class="nb">print</span> <span class="n">central_moments</span><span class="p">(</span><span class="n">X</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
 </div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[  1.00000000e+00   0.00000000e+00   8.45586956e-02  -9.95449489e-04
+   1.29118226e-02]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Appendix">Appendix<a class="anchor-link" href="#Appendix">&#182;</a></h2>
+<h2 id="essentia.standard.DistributionShape"><code>essentia.standard.DistributionShape</code><a class="anchor-link" href="#essentia.standard.DistributionShape">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -354,36 +375,40 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="segmentation.html">Segmentation</a> (<a href="segmentation.ipynb">ipynb</a>)</li>
-<li><a href="beat_tracking_essentia.html">Beat Tracking in Essentia</a> (<a href="beat_tracking_essentia.ipynb">ipynb</a>)</li>
-</ol>
+<p>To compute the spectral spread, skewness, and kurtosis, we use <a href="http://essentia.upf.edu/documentation/reference/std_DistributionShape.html"><code>essentia.standard.DistributionShape</code></a>:</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[49]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="More-(work-in-progress)">More (work in progress)<a class="anchor-link" href="#More-(work-in-progress)">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="notebooks/tonal.ipynb">Tonal Descriptors: Pitch and Chroma</a></li>
-<li><a href="notebooks/feature_extraction.ipynb">Feature Extraction</a></li>
-<li><a href="notebooks/tempo_estimation.ipynb">Tempo Estimation</a></li>
-</ol>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">essentia.standard</span> <span class="k">import</span> <span class="n">DistributionShape</span>
+<span class="n">distributionshape</span> <span class="o">=</span> <span class="n">DistributionShape</span><span class="p">()</span>
+<span class="n">spectral_moments</span> <span class="o">=</span> <span class="n">distributionshape</span><span class="p">(</span><span class="n">central_moments</span><span class="p">(</span><span class="n">X</span><span class="p">))</span>
+<span class="nb">print</span> <span class="n">spectral_moments</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>(0.08455869555473328, -0.04048385098576546, -1.1941944360733032)
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
 </div>
     </div>
   </div>
