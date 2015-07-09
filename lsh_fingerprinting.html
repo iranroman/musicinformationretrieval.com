@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="utf-8" />
-<title>index</title>
+<title>lsh_fingerprinting</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -186,7 +186,16 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://github.com/stevetjoa/stanford-mir"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a></p>
+<h1 id="Music-Fingerprinting-using-Locality-Sensitive-Hashing">Music Fingerprinting using Locality Sensitive Hashing<a class="anchor-link" href="#Music-Fingerprinting-using-Locality-Sensitive-Hashing">&#182;</a></h1>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This notebook shows a simple system for performing retrieval of musical tracks using LSH.</p>
 
 </div>
 </div>
@@ -196,198 +205,463 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Notes-on-Music-Information-Retrieval">Notes on Music Information Retrieval<a class="anchor-link" href="#Notes-on-Music-Information-Retrieval">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="about.html">About This Site</a></li>
-<li><a href="python_basics.html">Python Basics</a></li>
-<li><a href="get_good_at_ipython.html">Getting Good at IPython</a> (<a href="get_good_at_ipython.ipynb">ipynb</a>)</li>
-<li><a href="ipython_audio.html">Using Audio in IPython</a> (<a href="ipython_audio.ipynb">ipynb</a>)</li>
-<li><a href="numpy_basics.html">NumPy and SciPy Basics</a> (<a href="numpy_basics.ipynb">ipynb</a>)</li>
-</ol>
+<p>Import libraries:</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-1:-Basic-Signal-Manipulation">Chapter 1: Basic Signal Manipulation<a class="anchor-link" href="#Chapter-1:-Basic-Signal-Manipulation">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="signal_representations.html">Signal Representations</a> (<a href="signal_representations.ipynb">ipynb</a>)</li>
-<li><a href="onset_detection.html">Onset Detection</a> (<a href="onset_detection.ipynb">ipynb</a>)</li>
-<li><a href="beat_tracking.html">Beat Tracking</a> (<a href="beat_tracking.ipynb">ipynb</a>)</li>
-<li><a href="tempo_estimation.html">Tempo Estimation</a> (<a href="tempo_estimation.ipynb">ipynb</a>)</li>
-<li><a href="feature_sonification.html">Exercise: Understanding Audio Features through Sonification</a> (<a href="feature_sonification.ipynb">ipynb</a>)</li>
-</ol>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">librosa</span>
+<span class="kn">import</span> <span class="nn">os</span>
+<span class="kn">import</span> <span class="nn">os.path</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-2:-Feature-Extraction">Chapter 2: Feature Extraction<a class="anchor-link" href="#Chapter-2:-Feature-Extraction">&#182;</a></h2>
-</div>
-</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="basic_feature_extraction.html">Basic Feature Extraction</a> (<a href="basic_feature_extraction.ipynb">ipynb</a>)</li>
-<li><a href="spectral_features.html">Spectral Features</a> (<a href="spectral_features.ipynb">ipynb</a>)</li>
-<li><a href="mfcc.html">Mel-Frequency Cepstral Coefficients</a> (<a href="mfcc.ipynb">ipynb</a>)</li>
-</ol>
+<p>Set figure size:</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[27]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-3:-Classification">Chapter 3: Classification<a class="anchor-link" href="#Chapter-3:-Classification">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="basic_supervised_classification.html">Basic Supervised Classification</a> (<a href="basic_supervised_classification.ipynb">ipynb</a>)</li>
-<li><a href="knn.html">K-Nearest Neighbor Classification</a> (<a href="knn.ipynb">ipynb</a>)</li>
-<li><a href="knn_instrument_classification.html">Exercise: K-Nearest Neighbor Instrument Classification</a> (<a href="knn_instrument_classification.ipynb">ipynb</a>)</li>
-<li><a href="kmeans.html">K-Means Clustering</a> (<a href="kmeans.ipynb">ipynb</a>)</li>
-<li><a href="kmeans_instrument_classification.html">Exercise: Unsupervised Instrument Classification using K-Means</a> (<a href="kmeans_instrument_classification.ipynb">ipynb</a>)</li>
-</ol>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">rcParams</span><span class="p">[</span><span class="s">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">15</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-4:-Matrix-Factorization-and-Evaluation">Chapter 4: Matrix Factorization and Evaluation<a class="anchor-link" href="#Chapter-4:-Matrix-Factorization-and-Evaluation">&#182;</a></h2>
-</div>
-</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="nmf.html">Nonnegative Matrix Factorization</a> (<a href="nmf.ipynb">ipynb</a>)</li>
-<li><a href="nmf_source_separation.html">Exercise: Source Separation using NMF</a> (<a href="nmf_source_separation.ipynb">ipynb</a>)</li>
-<li><a href="notebooks/classify_separated_signals.ipynb">Classification of Separated Signals</a></li>
-<li><a href="notebooks/cross_validation.ipynb">Cross Validation</a></li>
-<li><a href="notebooks/evaluation.ipynb">Evaluation</a></li>
-</ol>
+<p>Select training data:</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-5:-Music-Fingerprinting">Chapter 5: Music Fingerprinting<a class="anchor-link" href="#Chapter-5:-Music-Fingerprinting">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="lsh_fingerprinting.html">Locality Sensitive Hashing</a> (<a href="lsh_fingerprinting.ipynb">ipynb</a>)</li>
-</ol>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">training_dir</span> <span class="o">=</span> <span class="s">&#39;../train/&#39;</span>
+<span class="n">training_files</span> <span class="o">=</span> <span class="p">[</span><span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">training_dir</span><span class="p">,</span> <span class="n">f</span><span class="p">)</span> <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="n">os</span><span class="o">.</span><span class="n">listdir</span><span class="p">(</span><span class="n">training_dir</span><span class="p">)]</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Appendix">Appendix<a class="anchor-link" href="#Appendix">&#182;</a></h2>
-</div>
-</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="segmentation.html">Segmentation</a> (<a href="segmentation.ipynb">ipynb</a>)</li>
-<li><a href="beat_tracking_essentia.html">Beat Tracking in Essentia</a> (<a href="beat_tracking_essentia.ipynb">ipynb</a>)</li>
-<li><a href="spectral_features_essentia.html">Spectral Features in Essentia</a> (<a href="spectral_features_essentia.ipynb">ipynb</a>)</li>
-<li><a href="feature_extraction_essentia.html">Feature Extraction in Essentia</a> (<a href="feature_extraction_essentia.ipynb">ipynb</a>)</li>
-</ol>
+<p>Define a hash function:</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="More-(work-in-progress)">More (work in progress)<a class="anchor-link" href="#More-(work-in-progress)">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="notebooks/tonal.ipynb">Tonal Descriptors: Pitch and Chroma</a></li>
-</ol>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">hash_func</span><span class="p">(</span><span class="n">vecs</span><span class="p">,</span> <span class="n">projections</span><span class="p">):</span>
+    <span class="n">bools</span> <span class="o">=</span> <span class="n">dot</span><span class="p">(</span><span class="n">vecs</span><span class="p">,</span> <span class="n">projections</span><span class="o">.</span><span class="n">T</span><span class="p">)</span> <span class="o">&gt;</span> <span class="mi">0</span>
+    <span class="k">return</span> <span class="p">[</span><span class="n">bool2int</span><span class="p">(</span><span class="n">bool_vec</span><span class="p">)</span> <span class="k">for</span> <span class="n">bool_vec</span> <span class="ow">in</span> <span class="n">bools</span><span class="p">]</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">def</span> <span class="nf">bool2int</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+    <span class="n">y</span> <span class="o">=</span> <span class="mi">0</span>
+    <span class="k">for</span> <span class="n">i</span><span class="p">,</span><span class="n">j</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">x</span><span class="p">):</span>
+        <span class="k">if</span> <span class="n">j</span><span class="p">:</span> <span class="n">y</span> <span class="o">+=</span> <span class="mi">1</span><span class="o">&lt;&lt;</span><span class="n">i</span>
+    <span class="k">return</span> <span class="n">y</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[31]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">bool2int</span><span class="p">([</span><span class="k">False</span><span class="p">,</span> <span class="k">True</span><span class="p">,</span> <span class="k">False</span><span class="p">,</span> <span class="k">True</span><span class="p">])</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[31]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>10</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[32]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">X</span> <span class="o">=</span> <span class="n">randn</span><span class="p">(</span><span class="mi">10</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">P</span> <span class="o">=</span> <span class="n">randn</span><span class="p">(</span><span class="mi">3</span><span class="p">,</span><span class="mi">100</span><span class="p">)</span>
+<span class="n">hash_func</span><span class="p">(</span><span class="n">X</span><span class="p">,</span> <span class="n">P</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[32]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[6, 7, 4, 6, 3, 0, 0, 4, 0, 3]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h3 id="Create-three-LSH-structures:-Table,-LSH,-and-MusicSearch:">Create three LSH structures: Table, LSH, and MusicSearch:<a class="anchor-link" href="#Create-three-LSH-structures:-Table,-LSH,-and-MusicSearch:">&#182;</a></h3>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[33]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">class</span> <span class="nc">Table</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">hash_size</span><span class="p">,</span> <span class="n">dim</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">table</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hash_size</span> <span class="o">=</span> <span class="n">hash_size</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">projections</span> <span class="o">=</span> <span class="n">randn</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hash_size</span><span class="p">,</span> <span class="n">dim</span><span class="p">)</span>
+
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+        <span class="n">entry</span> <span class="o">=</span> <span class="p">{</span><span class="s">&#39;label&#39;</span><span class="p">:</span> <span class="n">label</span><span class="p">}</span>
+        <span class="n">hashes</span> <span class="o">=</span> <span class="n">hash_func</span><span class="p">(</span><span class="n">vecs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">projections</span><span class="p">)</span>
+        <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hashes</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">h</span><span class="p">]</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">entry</span><span class="p">)</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">h</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span><span class="n">entry</span><span class="p">]</span>
+
+    <span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vecs</span><span class="p">):</span>
+        <span class="n">hashes</span> <span class="o">=</span> <span class="n">hash_func</span><span class="p">(</span><span class="n">vecs</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">projections</span><span class="p">)</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">h</span> <span class="ow">in</span> <span class="n">hashes</span><span class="p">:</span>
+            <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">h</span><span class="p">):</span>
+                <span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">table</span><span class="p">[</span><span class="n">h</span><span class="p">])</span>
+        <span class="k">return</span> <span class="n">results</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[34]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">class</span> <span class="nc">LSH</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">dim</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_tables</span> <span class="o">=</span> <span class="mi">4</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hash_size</span> <span class="o">=</span> <span class="mi">8</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tables</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">num_tables</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">tables</span><span class="o">.</span><span class="n">append</span><span class="p">(</span><span class="n">Table</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">hash_size</span><span class="p">,</span> <span class="n">dim</span><span class="p">))</span>
+    
+    <span class="k">def</span> <span class="nf">add</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vecs</span><span class="p">,</span> <span class="n">label</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tables</span><span class="p">:</span>
+            <span class="n">table</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">vecs</span><span class="p">,</span> <span class="n">label</span><span class="p">)</span>
+    
+    <span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">vecs</span><span class="p">):</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="nb">list</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tables</span><span class="p">:</span>
+            <span class="n">results</span><span class="o">.</span><span class="n">extend</span><span class="p">(</span><span class="n">table</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">vecs</span><span class="p">))</span>
+        <span class="k">return</span> <span class="n">results</span>
+
+    <span class="k">def</span> <span class="nf">describe</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">table</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">tables</span><span class="p">:</span>
+            <span class="nb">print</span> <span class="n">table</span><span class="o">.</span><span class="n">table</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[35]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">class</span> <span class="nc">MusicSearch</span><span class="p">:</span>
+    
+    <span class="k">def</span> <span class="nf">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">training_files</span><span class="p">):</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">frame_size</span> <span class="o">=</span> <span class="mi">4096</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">hop_size</span> <span class="o">=</span> <span class="mi">4000</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">fv_size</span> <span class="o">=</span> <span class="mi">12</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">lsh</span> <span class="o">=</span> <span class="n">LSH</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">fv_size</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">training_files</span> <span class="o">=</span> <span class="n">training_files</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">num_features_in_file</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">f</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">training_files</span><span class="p">:</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">num_features_in_file</span><span class="p">[</span><span class="n">f</span><span class="p">]</span> <span class="o">=</span> <span class="mi">0</span>
+                
+    <span class="k">def</span> <span class="nf">train</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+        <span class="k">for</span> <span class="n">filepath</span> <span class="ow">in</span> <span class="bp">self</span><span class="o">.</span><span class="n">training_files</span><span class="p">:</span>
+            <span class="n">x</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+            <span class="n">features</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">chromagram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">n_fft</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">frame_size</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">hop_size</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">lsh</span><span class="o">.</span><span class="n">add</span><span class="p">(</span><span class="n">features</span><span class="p">,</span> <span class="n">filepath</span><span class="p">)</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">num_features_in_file</span><span class="p">[</span><span class="n">filepath</span><span class="p">]</span> <span class="o">+=</span> <span class="nb">len</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+                
+    <span class="k">def</span> <span class="nf">query</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">filepath</span><span class="p">):</span>
+        <span class="n">x</span><span class="p">,</span> <span class="n">fs</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filepath</span><span class="p">)</span>
+        <span class="n">features</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">chromagram</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">fs</span><span class="p">,</span> <span class="n">n_fft</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">frame_size</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="bp">self</span><span class="o">.</span><span class="n">hop_size</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+        <span class="n">results</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">lsh</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">features</span><span class="p">)</span>
+        <span class="nb">print</span> <span class="s">&#39;num results&#39;</span><span class="p">,</span> <span class="nb">len</span><span class="p">(</span><span class="n">results</span><span class="p">)</span>
+
+        <span class="n">counts</span> <span class="o">=</span> <span class="nb">dict</span><span class="p">()</span>
+        <span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="n">results</span><span class="p">:</span>
+            <span class="k">if</span> <span class="n">counts</span><span class="o">.</span><span class="n">has_key</span><span class="p">(</span><span class="n">r</span><span class="p">[</span><span class="s">&#39;label&#39;</span><span class="p">]):</span>
+                <span class="n">counts</span><span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="s">&#39;label&#39;</span><span class="p">]]</span> <span class="o">+=</span> <span class="mi">1</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">counts</span><span class="p">[</span><span class="n">r</span><span class="p">[</span><span class="s">&#39;label&#39;</span><span class="p">]]</span> <span class="o">=</span> <span class="mi">1</span>
+        <span class="k">for</span> <span class="n">k</span> <span class="ow">in</span> <span class="n">counts</span><span class="p">:</span>
+            <span class="n">counts</span><span class="p">[</span><span class="n">k</span><span class="p">]</span> <span class="o">=</span> <span class="nb">float</span><span class="p">(</span><span class="n">counts</span><span class="p">[</span><span class="n">k</span><span class="p">])</span><span class="o">/</span><span class="bp">self</span><span class="o">.</span><span class="n">num_features_in_file</span><span class="p">[</span><span class="n">k</span><span class="p">]</span>
+        <span class="k">return</span> <span class="n">counts</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Train:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[36]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">ms</span> <span class="o">=</span> <span class="n">MusicSearch</span><span class="p">(</span><span class="n">training_files</span><span class="p">)</span>
+<span class="n">ms</span><span class="o">.</span><span class="n">train</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Test:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[39]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">test_file</span> <span class="o">=</span> <span class="s">&#39;../test/brennan03.wav&#39;</span>
+<span class="n">results</span> <span class="o">=</span> <span class="n">ms</span><span class="o">.</span><span class="n">query</span><span class="p">(</span><span class="n">test_file</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>num results 171464
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Display the results:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[40]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="k">for</span> <span class="n">r</span> <span class="ow">in</span> <span class="nb">sorted</span><span class="p">(</span><span class="n">results</span><span class="p">,</span> <span class="n">key</span><span class="o">=</span><span class="n">results</span><span class="o">.</span><span class="n">get</span><span class="p">,</span> <span class="n">reverse</span><span class="o">=</span><span class="k">True</span><span class="p">):</span>
+    <span class="nb">print</span> <span class="n">r</span><span class="p">,</span> <span class="n">results</span><span class="p">[</span><span class="n">r</span><span class="p">]</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>../train/lady_madonna_crop.wav 64.2857142857
+../train/lady_madonna.wav 62.9397590361
+../train/brandenburg3_01.wav 57.91
+../train/brahms_s1_1_perlman_02.wav 50.6964285714
+../train/dont_stop_believin.wav 46.626984127
+../train/konstantine.wav 45.0076335878
+../train/Beethoven_vln_sonata5_Francescatti_01.wav 43.7115384615
+../train/office_theme.wav 42.8313253012
+../train/brahms_s1_1_perlman_03.wav 42.0535714286
+../train/bach_s3_3_szeryng_01.wav 41.8928571429
+../train/bach_p3_1_heifetz_01.wav 40.125
+../train/Beethoven_vln_sonata5_Zukerman_01.wav 40.0377358491
+../train/bach_p3_1_perlman_01.wav 39.6964285714
+../train/brahms_s1_1_perlman_05.wav 37.6785714286
+../train/brahms_s1_1_perlman_04.wav 37.4107142857
+../train/brahms_rhapsody_02.wav 37.2
+../train/Bach Vln Partita3 - Milstein 1955 - 03.wav 37.1609195402
+../train/brahms_rhapsody_01.wav 36.578313253
+../train/Beethoven_vln_sonata5_Zukerman_04.wav 36.0344827586
+../train/bach_s3_3_szeryng_05.wav 35.8214285714
+../train/bach_p3_1_heifetz_04.wav 34.3392857143
+../train/Beethoven_vln_sonata5_Zukerman_02.wav 33.8208955224
+../train/bach_p3_1_heifetz_02.wav 33.2321428571
+../train/Beethoven_vln_sonata5_Francescatti_05.wav 33.0862068966
+../train/bach_p3_1_heifetz_05.wav 32.8928571429
+../train/Bach Vln Partita3 - Fischbach 2004 - 03.wav 32.6033519553
+../train/Beethoven_vln_sonata5_Oistrakh_01.wav 32.4561403509
+../train/Beethoven_vln_sonata5_Francescatti_02.wav 31.546875
+../train/Beethoven_vln_sonata5_Oistrakh_04.wav 31.3928571429
+../train/Beethoven_vln_sonata5_Francescatti_03.wav 31.0
+../train/Beethoven_vln_sonata5_Zukerman_03.wav 30.4166666667
+../train/moonlight.wav 30.36
+../train/Beethoven_vln_sonata5_Francescatti_04.wav 29.641509434
+../train/bach_s3_3_szeryng_02.wav 29.0892857143
+../train/Bach Vln Partita3 - Milstein 1955 - 01.wav 28.8102564103
+../train/Bach Vln Partita3 - Fischbach 2004 - 01.wav 28.6977777778
+../train/bach_p3_1_perlman_02.wav 28.4285714286
+../train/Beethoven_vln_sonata5_Oistrakh_05.wav 28.3181818182
+../train/Beethoven_vln_sonata5_Zukerman_05.wav 26.6666666667
+../train/bach_s3_3_szeryng_04.wav 26.5535714286
+../train/Beethoven_vln_sonata5_Oistrakh_02.wav 26.4444444444
+../train/bach_p3_1_perlman_05.wav 26.4107142857
+../train/bach_p3_1_perlman_06.wav 26.0
+../train/bach_p3_1_perlman_04.wav 25.6428571429
+../train/bach_p3_1_heifetz_03.wav 25.3928571429
+../train/bach_p3_1_perlman_03.wav 24.9464285714
+../train/brahms_s1_1_perlman_01.wav 24.6785714286
+../train/bach_s3_3_szeryng_03.wav 23.7678571429
+../train/bach_s3_3_szeryng_06.wav 23.5178571429
+../train/Bach Vln Sonata1 - Fischbach 2004 - 02.wav 23.4891774892
+../train/Beethoven_vln_sonata5_Oistrakh_03.wav 23.0909090909
+../train/Bach Vln Sonata1 - Milstein 1954 - 02.wav 22.6527777778
+../train/brahms_s1_1_perlman_06.wav 17.8035714286
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[38]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
     </div>
   </div>
