@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="utf-8" />
-<title>index</title>
+<title>evaluation</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -186,7 +186,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://github.com/stevetjoa/stanford-mir"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a></p>
+<h2 id="Evaluation">Evaluation<a class="anchor-link" href="#Evaluation">&#182;</a></h2><p>Once we have computed results using our test set which can be compared against their ground truth labels, there are a number of evaluation methods to understand how well a classifier is performing, particularly when we want to compare different classifiers.</p>
 
 </div>
 </div>
@@ -196,203 +196,765 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Notes-on-Music-Information-Retrieval">Notes on Music Information Retrieval<a class="anchor-link" href="#Notes-on-Music-Information-Retrieval">&#182;</a></h1>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="about.html">About This Site</a></li>
-<li><a href="why_mir.html">Why MIR?</a></li>
-<li><a href="python_basics.html">Python Basics</a></li>
-<li><a href="get_good_at_ipython.html">Getting Good at IPython</a> (<a href="get_good_at_ipython.ipynb">ipynb</a>)</li>
-<li><a href="ipython_audio.html">Using Audio in IPython</a> (<a href="ipython_audio.ipynb">ipynb</a>)</li>
-<li><a href="numpy_basics.html">NumPy and SciPy Basics</a> (<a href="numpy_basics.ipynb">ipynb</a>)</li>
-</ol>
+<p>The simplest evaluation measures to produce are the 'True Positive', 'False Positive' and 'False Negative' counts.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[41]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-1:-Basic-Signal-Manipulation">Chapter 1: Basic Signal Manipulation<a class="anchor-link" href="#Chapter-1:-Basic-Signal-Manipulation">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="basic_mir.html">Overview of a Basic MIR System</a> (<a href="basic_mir.ipynb">ipynb</a>)</li>
-<li><a href="signal_representations.html">Signal Representations</a> (<a href="signal_representations.ipynb">ipynb</a>)</li>
-<li><a href="onset_detection.html">Onset Detection</a> (<a href="onset_detection.ipynb">ipynb</a>)</li>
-<li><a href="beat_tracking.html">Beat Tracking</a> (<a href="beat_tracking.ipynb">ipynb</a>)</li>
-<li><a href="tempo_estimation.html">Tempo Estimation</a> (<a href="tempo_estimation.ipynb">ipynb</a>)</li>
-<li><a href="feature_sonification.html">Exercise: Understanding Audio Features through Sonification</a> (<a href="feature_sonification.ipynb">ipynb</a>)</li>
-</ol>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+
+<span class="n">positive_label</span> <span class="o">=</span> <span class="mi">1</span> <span class="c"># The label that we call correct.</span>
+
+<span class="c"># An example set of labels for our ground truth</span>
+<span class="n">gt_labels</span>    <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+
+<span class="c"># Some example output from a classifier (i.e. model), with classification errors.</span>
+<span class="n">model_output</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">,</span><span class="mi">1</span><span class="p">,</span><span class="mi">2</span><span class="p">])</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-2:-Feature-Extraction">Chapter 2: Feature Extraction<a class="anchor-link" href="#Chapter-2:-Feature-Extraction">&#182;</a></h2>
-</div>
-</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="zcr.html">Zero Crossing Rate</a> (<a href="zcr.ipynb">ipynb</a>)</li>
-<li><a href="spectral_features.html">Spectral Features</a> (<a href="spectral_features.ipynb">ipynb</a>)</li>
-<li><a href="mfcc.html">Mel-Frequency Cepstral Coefficients</a> (<a href="mfcc.ipynb">ipynb</a>)</li>
-<li><a href="pitch_transcription_exercise.html">Pitch Transcription Exercise</a> (<a href="pitch_transcription_exercise.ipynb">ipynb</a>)</li>
-</ol>
+<p>With the true and false positive counts we can compute 'Precision', 'Recall' and 'F-Measure'. 
+Precision describes the ratio of correctly classified files against all which were classified as positive. That is, precision = #TP / (#TP + #FP). Hence:</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[42]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-3:-Classification">Chapter 3: Classification<a class="anchor-link" href="#Chapter-3:-Classification">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="basic_supervised_classification.html">Basic Supervised Classification</a> (<a href="basic_supervised_classification.ipynb">ipynb</a>)</li>
-<li><a href="knn.html">K-Nearest Neighbor Classification</a> (<a href="knn.ipynb">ipynb</a>)</li>
-<li><a href="cross_validation.html">Cross Validation</a> (<a href="cross_validation.ipynb">ipynb</a>)</li>
-<li><a href="knn_instrument_classification.html">Exercise: K-Nearest Neighbor Instrument Classification</a> (<a href="knn_instrument_classification.ipynb">ipynb</a>)</li>
-<li><a href="kmeans.html">K-Means Clustering</a> (<a href="kmeans.ipynb">ipynb</a>)</li>
-<li><a href="kmeans_instrument_classification.html">Exercise: Unsupervised Instrument Classification using K-Means</a> (<a href="kmeans_instrument_classification.ipynb">ipynb</a>)</li>
-<li><a href="evaluation.html">Evaluation</a> (<a href="evaluation.ipynb">ipynb</a>)</li>
-</ol>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c"># Compute the number of true positives</span>
+<span class="n">tp</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">model_output</span> <span class="o">==</span> <span class="n">gt_labels</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">gt_labels</span> <span class="o">==</span> <span class="n">positive_label</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="c"># Determine precision by dividing the true positive count by the number of all claimed as positive.</span>
+<span class="n">precision</span> <span class="o">=</span> <span class="n">tp</span> <span class="o">/</span> <span class="nb">sum</span><span class="p">((</span><span class="n">model_output</span> <span class="o">==</span> <span class="n">positive_label</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="n">precision</span>
+</pre></div>
 
 </div>
 </div>
 </div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[42]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.75</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-4:-Matrix-Factorization">Chapter 4: Matrix Factorization<a class="anchor-link" href="#Chapter-4:-Matrix-Factorization">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="pca.html">Principal Component Analysis</a> (<a href="pca.ipynb">ipynb</a>)</li>
-<li><a href="nmf.html">Nonnegative Matrix Factorization</a> (<a href="nmf.ipynb">ipynb</a>)</li>
-<li><a href="hpss.html">Harmonic-Percussive Source Separation</a> (<a href="hpss.ipynb">ipynb</a>)</li>
-<li><a href="nmf_source_separation.html">Exercise: Source Separation using NMF</a> (<a href="nmf_source_separation.ipynb">ipynb</a>)</li>
-<li><a href="notebooks/classify_separated_signals.ipynb">Classification of Separated Signals</a></li>
-</ol>
+<p>The false positive count counts the number of classifications as positive but did not match our ground truth labels.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[43]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-5:-Music-Fingerprinting">Chapter 5: Music Fingerprinting<a class="anchor-link" href="#Chapter-5:-Music-Fingerprinting">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="lsh_fingerprinting.html">Locality Sensitive Hashing</a> (<a href="lsh_fingerprinting.ipynb">ipynb</a>)</li>
-</ol>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">fp</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">model_output</span> <span class="o">==</span> <span class="n">positive_label</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">gt_labels</span> <span class="o">!=</span> <span class="n">positive_label</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="n">fp</span>
+</pre></div>
 
 </div>
 </div>
 </div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[43]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>2.0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Appendix">Appendix<a class="anchor-link" href="#Appendix">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="segmentation.html">Segmentation</a> (<a href="segmentation.ipynb">ipynb</a>)</li>
-<li><a href="beat_tracking_essentia.html">Beat Tracking in Essentia</a> (<a href="beat_tracking_essentia.ipynb">ipynb</a>)</li>
-<li><a href="spectral_features_essentia.html">Spectral Features in Essentia</a> (<a href="spectral_features_essentia.ipynb">ipynb</a>)</li>
-<li><a href="feature_extraction_essentia.html">Feature Extraction in Essentia</a> (<a href="feature_extraction_essentia.ipynb">ipynb</a>)</li>
-</ol>
+<p>The false negative count counts the number of incorrect classifications, labelled as negative, when the ground truth label was positive.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[44]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="More-(work-in-progress)">More (work in progress)<a class="anchor-link" href="#More-(work-in-progress)">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="notebooks/tonal.ipynb">Tonal Descriptors: Pitch and Chroma</a></li>
-</ol>
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">fn</span> <span class="o">=</span> <span class="nb">sum</span><span class="p">((</span><span class="n">model_output</span> <span class="o">!=</span> <span class="n">positive_label</span><span class="p">)</span> <span class="o">*</span> <span class="p">(</span><span class="n">gt_labels</span> <span class="o">==</span> <span class="n">positive_label</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0</span><span class="p">)</span>
+<span class="n">fn</span>
+</pre></div>
 
 </div>
 </div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[44]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>4.0</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Recall describes the ratio of correctly classified files against the files which were known to be correct. Recall = # TP / (# TP + # FN)</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[45]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">recall</span> <span class="o">=</span> <span class="n">tp</span> <span class="o">/</span> <span class="p">(</span><span class="n">tp</span> <span class="o">+</span> <span class="n">fn</span><span class="p">)</span>
+<span class="n">recall</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[45]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.59999999999999998</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The F-score is the harmonic mean of precision and recall, combining both measures:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[46]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">f_score</span> <span class="o">=</span> <span class="mi">2</span> <span class="o">*</span> <span class="n">precision</span> <span class="o">*</span> <span class="n">recall</span> <span class="o">/</span> <span class="p">(</span><span class="n">precision</span> <span class="o">+</span> <span class="n">recall</span><span class="p">)</span>
+<span class="n">f_score</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[46]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.66666666666666652</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Alternatively, often we want to understand the performance of a single classifier over a range of different threshold parameter settings. A "Receiver Operating Characteristics" (ROC) curve plots true positive rate vs. false positive rate for different parameter settings. This depicts the relative trade-offs between true positive (benefits) and false positive (costs) for each parameter value.</p>
+<p>Plotting this curve is made easy with scikit.learn's <a href="http://scikit-learn.org/stable/modules/model_evaluation.html#receiver-operating-characteristic-roc">ROC</a> functions. It is however, restricted to binary classifications (i.e. snare vs. non-snare).</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[48]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">roc_curve</span>
+<span class="n">roc_curve</span><span class="o">?</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[56]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c"># We can use roc_curve to produce the false and true positive rates for each example, given the labels and normalised scores. </span>
+<span class="c"># The scores represent the classifier&#39;s confidence of each classification.</span>
+<span class="c"># Since our classifications do not issue a confidence measure, we make them binary.</span>
+<span class="n">scores</span> <span class="o">=</span> <span class="p">(</span><span class="n">model_output</span> <span class="o">==</span> <span class="n">gt_labels</span><span class="p">)</span> <span class="o">+</span> <span class="mf">0.0</span>
+<span class="nb">print</span> <span class="n">scores</span>
+
+<span class="c"># We indicate to roc_curve that the value 1 in gt_labels is our positive snare label.</span>
+<span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="n">thresholds</span> <span class="o">=</span> <span class="n">roc_curve</span><span class="p">(</span><span class="n">gt_labels</span><span class="p">,</span> <span class="n">scores</span><span class="p">,</span> <span class="n">pos_label</span><span class="o">=</span><span class="n">positive_label</span><span class="p">)</span>
+<span class="nb">print</span> <span class="n">fpr</span>
+<span class="nb">print</span> <span class="n">tpr</span>
+<span class="nb">print</span> <span class="n">thresholds</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[ 1.  1.  0.  0.  0.  1.  1.  1.  0.  1.  1.  1.  1.  1.  1.  1.  0.  1.
+  0.  1.]
+[ 0.   0.8  1. ]
+[ 0.   0.6  1. ]
+[ 2.  1.  0.]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The roc_auc_score function computes the area under the receiver operating characteristic (ROC) curve, which is also denoted by the acronyms AUC or AUROC. This summarises the behaviour of the system to one number.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[61]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="kn">from</span> <span class="nn">sklearn.metrics</span> <span class="k">import</span> <span class="n">roc_auc_score</span><span class="p">,</span> <span class="n">auc</span>
+
+<span class="n">y_true</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="mi">1</span><span class="p">])</span>
+<span class="n">y_scores</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="mf">0.1</span><span class="p">,</span> <span class="mf">0.4</span><span class="p">,</span> <span class="mf">0.35</span><span class="p">,</span> <span class="mf">0.8</span><span class="p">])</span>
+<span class="n">roc_auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">y_true</span><span class="p">,</span> <span class="n">y_scores</span><span class="p">)</span>
+<span class="n">roc_auc</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[61]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.75</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[66]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="n">binary_labels</span> <span class="o">=</span> <span class="p">(</span><span class="n">gt_labels</span> <span class="o">==</span> <span class="n">positive_label</span><span class="p">)</span> <span class="o">+</span> <span class="mi">0</span>
+<span class="nb">print</span> <span class="n">binary_labels</span>
+<span class="n">roc_auc</span> <span class="o">=</span> <span class="n">roc_auc_score</span><span class="p">(</span><span class="n">binary_labels</span><span class="p">,</span> <span class="n">scores</span><span class="p">)</span>
+
+<span class="n">roc_auc</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[1 1 1 1 1 1 1 1 1 1 0 0 0 0 0 0 0 0 0 0]
+</pre>
+</div>
+</div>
+
+<div class="output_area"><div class="prompt output_prompt">Out[66]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.39999999999999997</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[59]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="c"># Alternatively the area under curve can be computed directly from the positive rates.</span>
+<span class="n">roc_auc</span> <span class="o">=</span> <span class="n">auc</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">)</span>
+<span class="n">roc_auc</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[59]:</div>
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.39999999999999997</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We can then plot an ROC curve with matplotlib</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[9]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre><span class="kn">from</span> <span class="nn">matplotlib.pyplot</span> <span class="k">import</span> <span class="o">*</span>
+
+<span class="n">clf</span><span class="p">()</span>
+<span class="n">plot</span><span class="p">(</span><span class="n">fpr</span><span class="p">,</span> <span class="n">tpr</span><span class="p">,</span> <span class="s">&#39;-x&#39;</span><span class="p">,</span> <span class="n">label</span><span class="o">=</span><span class="s">&#39;ROC curve (area = %0.2f)&#39;</span> <span class="o">%</span> <span class="n">roc_auc</span><span class="p">)</span>
+<span class="c"># Plot the line of no discrimination</span>
+<span class="n">plot</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">1</span><span class="p">],</span> <span class="s">&#39;k--&#39;</span><span class="p">)</span>
+<span class="n">xlim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="n">ylim</span><span class="p">([</span><span class="mf">0.0</span><span class="p">,</span> <span class="mf">1.0</span><span class="p">])</span>
+<span class="n">xlabel</span><span class="p">(</span><span class="s">&#39;False Positive Rate&#39;</span><span class="p">)</span>
+<span class="n">ylabel</span><span class="p">(</span><span class="s">&#39;True Positive Rate&#39;</span><span class="p">)</span>
+<span class="n">title</span><span class="p">(</span><span class="s">&#39;Receiver Operating Characteristic&#39;</span><span class="p">)</span>
+<span class="n">legend</span><span class="p">(</span><span class="n">loc</span><span class="o">=</span><span class="s">&quot;lower right&quot;</span><span class="p">)</span>
+<span class="n">show</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+/w8lX4hbcLTvYQAAAABJRU5ErkJggg==
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython3"><pre> 
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
     </div>
   </div>
