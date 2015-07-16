@@ -3,7 +3,7 @@
 <head>
 
 <meta charset="utf-8" />
-<title>index</title>
+<title>cross_validation</title>
 
 <script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
@@ -181,12 +181,26 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="kn">import</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">scipy</span><span class="o">,</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span><span class="o">,</span> <span class="nn">sklearn</span><span class="o">,</span> <span class="nn">stanford_mir</span>
+<span class="o">%</span><span class="k">matplotlib</span> inline
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://github.com/stevetjoa/stanford-mir"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a></p>
+<p><a href="index.html">&larr; Back to Index</a></p>
 
 </div>
 </div>
@@ -196,7 +210,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Notes-on-Music-Information-Retrieval">Notes on Music Information Retrieval<a class="anchor-link" href="#Notes-on-Music-Information-Retrieval">&#182;</a></h1>
+<h1 id="Cross-Validation">Cross Validation<a class="anchor-link" href="#Cross-Validation">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -205,22 +219,12 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="https://en.wikipedia.org/wiki/Cross-validation_(statistics)">K-fold cross validation</a> is a method for evaluating the correctness of a classifier.</p>
+<p>For example, with 10-fold cross validation:</p>
 <ol>
-<li><a href="about.html">About This Site</a></li>
-<li><a href="why_mir.html">Why MIR?</a></li>
-<li><a href="python_basics.html">Python Basics</a></li>
-<li><a href="get_good_at_ipython.html">Getting Good at IPython</a> (<a href="get_good_at_ipython.ipynb">ipynb</a>)</li>
-<li><a href="ipython_audio.html">Using Audio in IPython</a> (<a href="ipython_audio.ipynb">ipynb</a>)</li>
-<li><a href="numpy_basics.html">NumPy and SciPy Basics</a> (<a href="numpy_basics.ipynb">ipynb</a>)</li>
+<li>Divide the data set into 10 random partitions.</li>
+<li>Choose one of the partitions as the test set. Train on the other nine partitions.</li>
+<li>Repeat for the partitions.</li>
 </ol>
 
 </div>
@@ -231,166 +235,283 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-1:-Basic-Signal-Manipulation">Chapter 1: Basic Signal Manipulation<a class="anchor-link" href="#Chapter-1:-Basic-Signal-Manipulation">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="basic_mir.html">Overview of a Basic MIR System</a> (<a href="basic_mir.ipynb">ipynb</a>)</li>
-<li><a href="signal_representations.html">Signal Representations</a> (<a href="signal_representations.ipynb">ipynb</a>)</li>
-<li><a href="onset_detection.html">Onset Detection</a> (<a href="onset_detection.ipynb">ipynb</a>)</li>
-<li><a href="beat_tracking.html">Beat Tracking</a> (<a href="beat_tracking.ipynb">ipynb</a>)</li>
-<li><a href="tempo_estimation.html">Tempo Estimation</a> (<a href="tempo_estimation.ipynb">ipynb</a>)</li>
-<li><a href="feature_sonification.html">Exercise: Understanding Audio Features through Sonification</a> (<a href="feature_sonification.ipynb">ipynb</a>)</li>
-</ol>
+<p>Load some features from ten kick drums and ten snare drums:</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-2:-Feature-Extraction">Chapter 2: Feature Extraction<a class="anchor-link" href="#Chapter-2:-Feature-Extraction">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="basic_feature_extraction.html">Basic Feature Extraction</a> (<a href="basic_feature_extraction.ipynb">ipynb</a>)</li>
-<li><a href="zcr.html">Zero Crossing Rate</a> (<a href="zcr.ipynb">ipynb</a>)</li>
-<li><a href="spectral_features.html">Spectral Features</a> (<a href="spectral_features.ipynb">ipynb</a>)</li>
-<li><a href="mfcc.html">Mel-Frequency Cepstral Coefficients</a> (<a href="mfcc.ipynb">ipynb</a>)</li>
-<li><a href="pitch_transcription_exercise.html">Pitch Transcription Exercise</a> (<a href="pitch_transcription_exercise.ipynb">ipynb</a>)</li>
-</ol>
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">training_features</span><span class="p">,</span> <span class="n">training_labels</span><span class="p">,</span> <span class="n">scaler</span> <span class="o">=</span> <span class="n">stanford_mir</span><span class="o">.</span><span class="n">get_features</span><span class="p">()</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">IOError</span>                                   Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-4-a7910ded3ac4&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">----&gt; 1</span><span class="ansired"> </span>training_features<span class="ansiblue">,</span> training_labels<span class="ansiblue">,</span> scaler <span class="ansiblue">=</span> stanford_mir<span class="ansiblue">.</span>get_features<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+
+<span class="ansigreen">/Users/steve/stanford-mir/stanford_mir/core.pyc</span> in <span class="ansicyan">get_features</span><span class="ansiblue">(collection, features, scaler)</span>
+<span class="ansigreen">     20</span>                  scaler=None):
+<span class="ansigreen">     21</span>     <span class="ansigreen">if</span> collection <span class="ansiblue">==</span> <span class="ansiblue">&apos;drum_samples_train&apos;</span><span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">---&gt; 22</span><span class="ansired">         </span>kick_filepaths<span class="ansiblue">,</span> snare_filepaths <span class="ansiblue">=</span> download_samples<span class="ansiblue">(</span><span class="ansiblue">&apos;drum_samples_train&apos;</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">     23</span>         kick_signals = [
+<span class="ansigreen">     24</span>             librosa<span class="ansiblue">.</span>load<span class="ansiblue">(</span>p<span class="ansiblue">)</span><span class="ansiblue">[</span><span class="ansicyan">0</span><span class="ansiblue">]</span> <span class="ansigreen">for</span> p <span class="ansigreen">in</span> kick_filepaths<span class="ansiblue"></span>
+
+<span class="ansigreen">/Users/steve/stanford-mir/stanford_mir/core.pyc</span> in <span class="ansicyan">download_samples</span><span class="ansiblue">(collection)</span>
+<span class="ansigreen">     86</span>                 filename <span class="ansiblue">=</span> <span class="ansiblue">&apos;%s_%02d.wav&apos;</span> <span class="ansiblue">%</span> <span class="ansiblue">(</span>drum_type<span class="ansiblue">,</span> i<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">     87</span>                 urllib.urlretrieve(&apos;http://audio.musicinformationretrieval.com/drum_samples/%s&apos; % filename,
+<span class="ansigreen">---&gt; 88</span><span class="ansired">                                    filename=os.path.join(collection, filename))
+</span><span class="ansigreen">     89</span>         kick_filepaths <span class="ansiblue">=</span> <span class="ansiblue">[</span>os<span class="ansiblue">.</span>path<span class="ansiblue">.</span>join<span class="ansiblue">(</span>collection<span class="ansiblue">,</span> <span class="ansiblue">&apos;kick_%02d.wav&apos;</span> <span class="ansiblue">%</span> i<span class="ansiblue">)</span> <span class="ansigreen">for</span> i <span class="ansigreen">in</span> range<span class="ansiblue">(</span><span class="ansicyan">1</span><span class="ansiblue">,</span> <span class="ansicyan">11</span><span class="ansiblue">)</span><span class="ansiblue">]</span><span class="ansiblue"></span>
+<span class="ansigreen">     90</span>         snare_filepaths <span class="ansiblue">=</span> <span class="ansiblue">[</span>os<span class="ansiblue">.</span>path<span class="ansiblue">.</span>join<span class="ansiblue">(</span>collection<span class="ansiblue">,</span> <span class="ansiblue">&apos;snare_%02d.wav&apos;</span> <span class="ansiblue">%</span> i<span class="ansiblue">)</span> <span class="ansigreen">for</span> i <span class="ansigreen">in</span> range<span class="ansiblue">(</span><span class="ansicyan">1</span><span class="ansiblue">,</span> <span class="ansicyan">11</span><span class="ansiblue">)</span><span class="ansiblue">]</span><span class="ansiblue"></span>
+
+<span class="ansigreen">/usr/local/Cellar/python/2.7.6_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib.pyc</span> in <span class="ansicyan">urlretrieve</span><span class="ansiblue">(url, filename, reporthook, data)</span>
+<span class="ansigreen">     92</span>     <span class="ansigreen">if</span> <span class="ansigreen">not</span> _urlopener<span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">     93</span>         _urlopener <span class="ansiblue">=</span> FancyURLopener<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">---&gt; 94</span><span class="ansired">     </span><span class="ansigreen">return</span> _urlopener<span class="ansiblue">.</span>retrieve<span class="ansiblue">(</span>url<span class="ansiblue">,</span> filename<span class="ansiblue">,</span> reporthook<span class="ansiblue">,</span> data<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">     95</span> <span class="ansigreen">def</span> urlcleanup<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">     96</span>     <span class="ansigreen">if</span> _urlopener<span class="ansiblue">:</span><span class="ansiblue"></span>
+
+<span class="ansigreen">/usr/local/Cellar/python/2.7.6_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib.pyc</span> in <span class="ansicyan">retrieve</span><span class="ansiblue">(self, url, filename, reporthook, data)</span>
+<span class="ansigreen">    238</span>             <span class="ansigreen">except</span> IOError<span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">    239</span>                 <span class="ansigreen">pass</span><span class="ansiblue"></span>
+<span class="ansigreen">--&gt; 240</span><span class="ansired">         </span>fp <span class="ansiblue">=</span> self<span class="ansiblue">.</span>open<span class="ansiblue">(</span>url<span class="ansiblue">,</span> data<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">    241</span>         <span class="ansigreen">try</span><span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">    242</span>             headers <span class="ansiblue">=</span> fp<span class="ansiblue">.</span>info<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+
+<span class="ansigreen">/usr/local/Cellar/python/2.7.6_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib.pyc</span> in <span class="ansicyan">open</span><span class="ansiblue">(self, fullurl, data)</span>
+<span class="ansigreen">    206</span>         <span class="ansigreen">try</span><span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">    207</span>             <span class="ansigreen">if</span> data <span class="ansigreen">is</span> None<span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">--&gt; 208</span><span class="ansired">                 </span><span class="ansigreen">return</span> getattr<span class="ansiblue">(</span>self<span class="ansiblue">,</span> name<span class="ansiblue">)</span><span class="ansiblue">(</span>url<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">    209</span>             <span class="ansigreen">else</span><span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">    210</span>                 <span class="ansigreen">return</span> getattr<span class="ansiblue">(</span>self<span class="ansiblue">,</span> name<span class="ansiblue">)</span><span class="ansiblue">(</span>url<span class="ansiblue">,</span> data<span class="ansiblue">)</span><span class="ansiblue"></span>
+
+<span class="ansigreen">/usr/local/Cellar/python/2.7.6_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/urllib.pyc</span> in <span class="ansicyan">open_http</span><span class="ansiblue">(self, url, data)</span>
+<span class="ansigreen">    343</span>         <span class="ansigreen">if</span> realhost<span class="ansiblue">:</span> h<span class="ansiblue">.</span>putheader<span class="ansiblue">(</span><span class="ansiblue">&apos;Host&apos;</span><span class="ansiblue">,</span> realhost<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">    344</span>         <span class="ansigreen">for</span> args <span class="ansigreen">in</span> self<span class="ansiblue">.</span>addheaders<span class="ansiblue">:</span> h<span class="ansiblue">.</span>putheader<span class="ansiblue">(</span><span class="ansiblue">*</span>args<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">--&gt; 345</span><span class="ansired">         </span>h<span class="ansiblue">.</span>endheaders<span class="ansiblue">(</span>data<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">    346</span>         errcode<span class="ansiblue">,</span> errmsg<span class="ansiblue">,</span> headers <span class="ansiblue">=</span> h<span class="ansiblue">.</span>getreply<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">    347</span>         fp <span class="ansiblue">=</span> h<span class="ansiblue">.</span>getfile<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+
+<span class="ansigreen">/usr/local/Cellar/python/2.7.6_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/httplib.pyc</span> in <span class="ansicyan">endheaders</span><span class="ansiblue">(self, message_body)</span>
+<span class="ansigreen">    967</span>         <span class="ansigreen">else</span><span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">    968</span>             <span class="ansigreen">raise</span> CannotSendHeader<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">--&gt; 969</span><span class="ansired">         </span>self<span class="ansiblue">.</span>_send_output<span class="ansiblue">(</span>message_body<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">    970</span> <span class="ansiblue"></span>
+<span class="ansigreen">    971</span>     <span class="ansigreen">def</span> request<span class="ansiblue">(</span>self<span class="ansiblue">,</span> method<span class="ansiblue">,</span> url<span class="ansiblue">,</span> body<span class="ansiblue">=</span>None<span class="ansiblue">,</span> headers<span class="ansiblue">=</span><span class="ansiblue">{</span><span class="ansiblue">}</span><span class="ansiblue">)</span><span class="ansiblue">:</span><span class="ansiblue"></span>
+
+<span class="ansigreen">/usr/local/Cellar/python/2.7.6_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/httplib.pyc</span> in <span class="ansicyan">_send_output</span><span class="ansiblue">(self, message_body)</span>
+<span class="ansigreen">    827</span>             msg <span class="ansiblue">+=</span> message_body<span class="ansiblue"></span>
+<span class="ansigreen">    828</span>             message_body <span class="ansiblue">=</span> None<span class="ansiblue"></span>
+<span class="ansigreen">--&gt; 829</span><span class="ansired">         </span>self<span class="ansiblue">.</span>send<span class="ansiblue">(</span>msg<span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">    830</span>         <span class="ansigreen">if</span> message_body <span class="ansigreen">is</span> <span class="ansigreen">not</span> None<span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">    831</span>             <span class="ansired">#message_body was not a string (i.e. it is a file) and</span><span class="ansiblue"></span><span class="ansiblue"></span>
+
+<span class="ansigreen">/usr/local/Cellar/python/2.7.6_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/httplib.pyc</span> in <span class="ansicyan">send</span><span class="ansiblue">(self, data)</span>
+<span class="ansigreen">    789</span>         <span class="ansigreen">if</span> self<span class="ansiblue">.</span>sock <span class="ansigreen">is</span> None<span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">    790</span>             <span class="ansigreen">if</span> self<span class="ansiblue">.</span>auto_open<span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">--&gt; 791</span><span class="ansired">                 </span>self<span class="ansiblue">.</span>connect<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+<span class="ansigreen">    792</span>             <span class="ansigreen">else</span><span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">    793</span>                 <span class="ansigreen">raise</span> NotConnected<span class="ansiblue">(</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+
+<span class="ansigreen">/usr/local/Cellar/python/2.7.6_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/httplib.pyc</span> in <span class="ansicyan">connect</span><span class="ansiblue">(self)</span>
+<span class="ansigreen">    770</span>         <span class="ansiblue">&quot;&quot;&quot;Connect to the host and port specified in __init__.&quot;&quot;&quot;</span><span class="ansiblue"></span>
+<span class="ansigreen">    771</span>         self.sock = socket.create_connection((self.host,self.port),
+<span class="ansigreen">--&gt; 772</span><span class="ansired">                                              self.timeout, self.source_address)
+</span><span class="ansigreen">    773</span> <span class="ansiblue"></span>
+<span class="ansigreen">    774</span>         <span class="ansigreen">if</span> self<span class="ansiblue">.</span>_tunnel_host<span class="ansiblue">:</span><span class="ansiblue"></span>
+
+<span class="ansigreen">/usr/local/Cellar/python/2.7.6_1/Frameworks/Python.framework/Versions/2.7/lib/python2.7/socket.pyc</span> in <span class="ansicyan">create_connection</span><span class="ansiblue">(address, timeout, source_address)</span>
+<span class="ansigreen">    551</span>     host<span class="ansiblue">,</span> port <span class="ansiblue">=</span> address<span class="ansiblue"></span>
+<span class="ansigreen">    552</span>     err <span class="ansiblue">=</span> None<span class="ansiblue"></span>
+<span class="ansigreen">--&gt; 553</span><span class="ansired">     </span><span class="ansigreen">for</span> res <span class="ansigreen">in</span> getaddrinfo<span class="ansiblue">(</span>host<span class="ansiblue">,</span> port<span class="ansiblue">,</span> <span class="ansicyan">0</span><span class="ansiblue">,</span> SOCK_STREAM<span class="ansiblue">)</span><span class="ansiblue">:</span><span class="ansiblue"></span>
+<span class="ansigreen">    554</span>         af<span class="ansiblue">,</span> socktype<span class="ansiblue">,</span> proto<span class="ansiblue">,</span> canonname<span class="ansiblue">,</span> sa <span class="ansiblue">=</span> res<span class="ansiblue"></span>
+<span class="ansigreen">    555</span>         sock <span class="ansiblue">=</span> None<span class="ansiblue"></span>
+
+<span class="ansired">IOError</span>: [Errno socket error] [Errno 8] nodename nor servname provided, or not known</pre>
 </div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[13]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-3:-Classification">Chapter 3: Classification<a class="anchor-link" href="#Chapter-3:-Classification">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="basic_supervised_classification.html">Basic Supervised Classification</a> (<a href="basic_supervised_classification.ipynb">ipynb</a>)</li>
-<li><a href="knn.html">K-Nearest Neighbor Classification</a> (<a href="knn.ipynb">ipynb</a>)</li>
-<li><a href="cross_validation.html">Cross Validation</a> (<a href="cross_validation.ipynb">ipynb</a>)</li>
-<li><a href="knn_instrument_classification.html">Exercise: K-Nearest Neighbor Instrument Classification</a> (<a href="knn_instrument_classification.ipynb">ipynb</a>)</li>
-<li><a href="kmeans.html">K-Means Clustering</a> (<a href="kmeans.ipynb">ipynb</a>)</li>
-<li><a href="kmeans_instrument_classification.html">Exercise: Unsupervised Instrument Classification using K-Means</a> (<a href="kmeans_instrument_classification.ipynb">ipynb</a>)</li>
-<li><a href="notebooks/evaluation.ipynb">Evaluation</a></li>
-</ol>
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">training_labels</span>
+</pre></div>
 
 </div>
 </div>
 </div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>[ 0.  0.  0.  0.  0.  0.  0.  0.  0.  0.  1.  1.  1.  1.  1.  1.  1.  1.
+  1.  1.]
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-4:-Matrix-Factorization">Chapter 4: Matrix Factorization<a class="anchor-link" href="#Chapter-4:-Matrix-Factorization">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="pca.html">Principal Component Analysis</a> (<a href="pca.ipynb">ipynb</a>)</li>
-<li><a href="nmf.html">Nonnegative Matrix Factorization</a> (<a href="nmf.ipynb">ipynb</a>)</li>
-<li><a href="hpss.html">Harmonic-Percussive Source Separation</a> (<a href="hpss.ipynb">ipynb</a>)</li>
-<li><a href="nmf_source_separation.html">Exercise: Source Separation using NMF</a> (<a href="nmf_source_separation.ipynb">ipynb</a>)</li>
-<li><a href="notebooks/classify_separated_signals.ipynb">Classification of Separated Signals</a></li>
-</ol>
+<p>Plot their features:</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Chapter-5:-Music-Fingerprinting">Chapter 5: Music Fingerprinting<a class="anchor-link" href="#Chapter-5:-Music-Fingerprinting">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="lsh_fingerprinting.html">Locality Sensitive Hashing</a> (<a href="lsh_fingerprinting.ipynb">ipynb</a>)</li>
-</ol>
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">plt</span><span class="o">.</span><span class="n">scatter</span><span class="p">(</span><span class="n">training_features</span><span class="p">[:,</span><span class="mi">0</span><span class="p">],</span> <span class="n">training_features</span><span class="p">[:,</span><span class="mi">1</span><span class="p">])</span>
+</pre></div>
 
 </div>
 </div>
 </div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_text output_error">
+<pre>
+<span class="ansired">---------------------------------------------------------------------------</span>
+<span class="ansired">NameError</span>                                 Traceback (most recent call last)
+<span class="ansigreen">&lt;ipython-input-2-f00bdfd12558&gt;</span> in <span class="ansicyan">&lt;module&gt;</span><span class="ansiblue">()</span>
+<span class="ansigreen">----&gt; 1</span><span class="ansired"> </span>plt<span class="ansiblue">.</span>scatter<span class="ansiblue">(</span>training_features<span class="ansiblue">[</span><span class="ansiblue">:</span><span class="ansiblue">,</span><span class="ansicyan">0</span><span class="ansiblue">]</span><span class="ansiblue">,</span> training_features<span class="ansiblue">[</span><span class="ansiblue">:</span><span class="ansiblue">,</span><span class="ansicyan">1</span><span class="ansiblue">]</span><span class="ansiblue">)</span><span class="ansiblue"></span>
+
+<span class="ansired">NameError</span>: name &apos;training_features&apos; is not defined</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Appendix">Appendix<a class="anchor-link" href="#Appendix">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="segmentation.html">Segmentation</a> (<a href="segmentation.ipynb">ipynb</a>)</li>
-<li><a href="beat_tracking_essentia.html">Beat Tracking in Essentia</a> (<a href="beat_tracking_essentia.ipynb">ipynb</a>)</li>
-<li><a href="spectral_features_essentia.html">Spectral Features in Essentia</a> (<a href="spectral_features_essentia.ipynb">ipynb</a>)</li>
-<li><a href="feature_extraction_essentia.html">Feature Extraction in Essentia</a> (<a href="feature_extraction_essentia.ipynb">ipynb</a>)</li>
-</ol>
+<p>Initialize the classifier:</p>
 
 </div>
 </div>
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[28]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">model</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">neighbors</span><span class="o">.</span><span class="n">KNeighborsClassifier</span><span class="p">(</span><span class="n">n_neighbors</span><span class="o">=</span><span class="mi">3</span><span class="p">)</span>
+<span class="n">model</span> <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">linear_model</span><span class="o">.</span><span class="n">LogisticRegression</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="More-(work-in-progress)">More (work in progress)<a class="anchor-link" href="#More-(work-in-progress)">&#182;</a></h2>
+<p>Perform 5-fold cross validation:</p>
+
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[29]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">acc</span>  <span class="o">=</span> <span class="n">sklearn</span><span class="o">.</span><span class="n">cross_validation</span><span class="o">.</span><span class="n">cross_val_score</span><span class="p">(</span><span class="n">model</span><span class="p">,</span> <span class="n">random_features</span><span class="p">,</span> <span class="n">training_labels</span><span class="p">,</span> <span class="n">cv</span><span class="o">=</span><span class="mi">5</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[30]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="k">print</span> <span class="n">acc</span><span class="o">.</span><span class="n">mean</span><span class="p">()</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>0.5
+</pre>
+</div>
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span class="n">k</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="notebooks/tonal.ipynb">Tonal Descriptors: Pitch and Chroma</a></li>
-</ol>
+<p><a href="index.html">&larr; Back to Index</a></p>
 
 </div>
 </div>
