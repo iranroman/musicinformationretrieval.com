@@ -1,9 +1,7 @@
 stanford-mir
 ============
 
-[![Stories in Ready](https://badge.waffle.io/stevetjoa/stanford-mir.png?label=ready&title=Ready)](https://waffle.io/stevetjoa/stanford-mir)
-
-Instructional material for the [Music Information Retrieval Workshop](https://ccrma.stanford.edu/workshops/music-information-retrieval-mir) at CCRMA, Stanford University, 2014-15.
+Instructional material for the [Music Information Retrieval Workshop](https://ccrma.stanford.edu/workshops/music-information-retrieval-mir) at CCRMA, Stanford University, 2014-16.
 
 
 How to Use This Repo
@@ -50,7 +48,22 @@ Your contributions are very welcome! You can contribute in two ways:
 
 2. Submit changes to source code or documentation. [Fork this repo](https://help.github.com/articles/fork-a-repo), make edits, then [submit a pull request](https://help.github.com/articles/using-pull-requests).
 
-This repo is statically hosted using [GitHub Pages](https://pages.github.com/). Any changes to HTML files in the `gh-pages` branch will be seen on [`musicinformationretrieval.com`](http://musicinformationretrieval.com).
+This repo is statically hosted using [GitHub Pages](https://pages.github.com/). Any changes to HTML files in the `gh-pages` branch will be seen on [musicinformationretrieval.com](http://musicinformationretrieval.com).
+
+To edit musicinformationretrieval.com:
+
+1.  Edit a notebook, e.g.:
+
+        $ ipython notebook kmeans.ipynb
+
+2.  Convert notebook to HTML:
+
+        $ ipython nbconvert --to html kmeans.ipynb
+
+3.  Commit the notebook and the HTML:
+
+        $ git commit kmeans.ipynb kmeans.html
+        $ git push
 
 
 Appendix
