@@ -62,7 +62,8 @@ To edit musicinformationretrieval.com:
 
 3.  Commit the notebook and the HTML:
 
-        $ git commit kmeans.ipynb kmeans.html
+        $ git add kmeans.ipynb kmeans.html
+        $ git commit
         $ git push
 
 
