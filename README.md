@@ -50,6 +50,8 @@ Your contributions are very welcome! You can contribute in two ways:
 
 2. Submit changes to source code or documentation. [Fork this repo](https://help.github.com/articles/fork-a-repo), make edits, then [submit a pull request](https://help.github.com/articles/using-pull-requests).
 
+This repo is statically hosted using [GitHub Pages](https://pages.github.com/). Any changes to HTML files in the `gh-pages` branch will be seen on [`musicinformationretrieval.com`](http://musicinformationretrieval.com).
+
 
 Appendix
 --------
