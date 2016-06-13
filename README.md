@@ -66,6 +66,8 @@ To edit musicinformationretrieval.com:
         $ git commit
         $ git push
 
+    You may need to wait 1-2 minutes before the changes are live on GitHub Pages.
+
 
 Appendix
 --------
