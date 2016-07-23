@@ -72,6 +72,8 @@ To edit musicinformationretrieval.com:
 Appendix
 --------
 
+This information may not be up to date. Proceed at your own risk.
+
 ### Install Vagrant
 
 We use [Vagrant](http://vagrantup.com) to create a local virtual machine running Ubuntu 12.04. Vagrant ensures that every person has exactly the same development environment with the same installed packages. 
