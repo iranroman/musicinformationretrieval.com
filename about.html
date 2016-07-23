@@ -171,6 +171,70 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">IPython.display</span> <span class="kn">as</span> <span class="nn">ipd</span>
+
+<span class="c1"># Hide code by default when the notebook is exported as HTML.</span>
+<span class="n">ipd</span><span class="o">.</span><span class="n">display_html</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;script&gt;</span>
+<span class="s1">$(function() {</span>
+<span class="s1">    if ($(&quot;body.notebook_app&quot;).length == 0) {</span>
+<span class="s1">        $(&quot;.input&quot;).hide(); </span>
+<span class="s1">    }</span>
+<span class="s1">});</span>
+<span class="s1">&lt;/script&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+
+<span class="c1"># Create HTML buttons to show or hide IPython input cells.</span>
+<span class="n">ipd</span><span class="o">.</span><span class="n">display_html</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
+<span class="s1">&lt;button onclick=&quot;$(&#39;.input&#39;).show();&quot;&gt;Show input&lt;/button&gt;</span>
+<span class="s1">&lt;button onclick=&quot;$(&#39;.input&#39;).hide();&quot;&gt;Hide input&lt;/button&gt;</span>
+<span class="s1">&#39;&#39;&#39;</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+
+<script>
+$(function() {
+    if ($("body.notebook_app").length == 0) {
+        $(".input").hide(); 
+    }
+});
+</script>
+
+</div>
+
+</div>
+
+<div class="output_area"><div class="prompt"></div>
+
+<div class="output_html rendered_html output_subarea ">
+
+<button onclick="$('.input').show();">Show input</button>
+<button onclick="$('.input').hide();">Hide input</button>
+
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -195,7 +259,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>musicinformationretrieval.com</strong> is a collection of instructional materials for music information retrieval. These materials contain a mix of casual conversation, technical discussion, and Python code.</p>
+<p><strong>musicinformationretrieval.com</strong> is a collection of instructional materials for music information retrieval (MIR). These materials contain a mix of casual conversation, technical discussion, and Python code.</p>
 <p>These pages, including the one you're reading, are authored using <a href="http://jupyter.org/">Jupyter notebooks</a>, formerly known as <a href="https://ipython.org/notebook.html">IPython notebooks</a>. They are statically hosted using <a href="https://pages.github.com/">GitHub Pages</a>. The GitHub repository is found here: <a href="https://github.com/stevetjoa/stanford-mir">stevetjoa/stanford-mir</a>.</p>
 <p>This material is used during the annual Summer Workshop on Music Information Retrieval at CCRMA, Stanford University. <a href="https://ccrma.stanford.edu/workshops/music-information-retrieval-mir">Click here for workshop description and registration</a>.</p>
 <p>This site is maintained by <a href="https://stevetjoa.com">Steve Tjoa</a>. For questions, please email <a href="mailto:steve@stevetjoa.com">steve@stevetjoa.com</a>. Do you have any feedback? Did you find errors or typos? Are you a teacher or researcher and would like to collaborate? Please let me know.</p>
@@ -211,6 +275,34 @@ div#notebook {
 <h2 id="About-Fundamentals-of-Music-Processing">About <em>Fundamentals of Music Processing</em><a class="anchor-link" href="#About-Fundamentals-of-Music-Processing">&#182;</a></h2>
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">ipd</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="n">url</span><span class="o">=</span><span class="s2">&quot;https://images-na.ssl-images-amazon.com/images/I/51q5YtafVsL.jpg&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+
+<div class="output_html rendered_html output_subarea output_execute_result">
+<img src="https://images-na.ssl-images-amazon.com/images/I/51q5YtafVsL.jpg"/>
+</div>
+
+</div>
+
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
