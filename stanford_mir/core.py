@@ -17,9 +17,11 @@ def extract_features(signal, features):
 
 def get_features(collection='drum_samples_train',
                  features=('zero_crossing_rate', 'spectral_centroid'),
-                 scaler=None):
+                 scaler=None,
+                 download=True):
+
     if collection == 'drum_samples_train':
-        kick_filepaths, snare_filepaths = download_samples('drum_samples_train')
+        kick_filepaths, snare_filepaths = download_samples('drum_samples_train', download=download)
         kick_signals = [
             librosa.load(p)[0] for p in kick_filepaths
         ]
@@ -42,7 +44,7 @@ def get_features(collection='drum_samples_train',
         return training_features, training_labels, scaler
 
     elif collection == 'drum_samples_test':
-        kick_filepaths, snare_filepaths = download_samples('drum_samples_test')
+        kick_filepaths, snare_filepaths = download_samples('drum_samples_test', download=download)
         kick_signals = [
             librosa.load(p)[0] for p in kick_filepaths
         ]
