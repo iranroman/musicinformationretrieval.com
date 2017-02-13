@@ -11754,7 +11754,7 @@ div#notebook {
 <div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
 <span class="kn">import</span> <span class="nn">seaborn</span>
 <span class="kn">import</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">scipy</span><span class="o">,</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span><span class="o">,</span> <span class="nn">sklearn</span><span class="o">,</span> <span class="nn">pandas</span><span class="o">,</span> <span class="nn">librosa</span><span class="o">,</span> <span class="nn">urllib</span><span class="o">,</span> <span class="nn">IPython.display</span><span class="o">,</span> <span class="nn">os.path</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span><span class="mi">5</span><span class="p">)</span>
+<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">5</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11767,7 +11767,17 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Homework-Part-2:-Genre-Classification">Homework Part 2: Genre Classification<a class="anchor-link" href="#Homework-Part-2:-Genre-Classification">&#182;</a></h1>
+<p><a href="index.html">&larr; Back to Index</a></p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h1 id="Exercise:-Genre-Recognition">Exercise: Genre Recognition<a class="anchor-link" href="#Exercise:-Genre-Recognition">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11788,7 +11798,7 @@ div#notebook {
 <ol>
 <li>Extract features from an audio signal.</li>
 <li>Train a genre classifier.</li>
-<li>Use the classifier to classify genre in a song.</li>
+<li>Use the classifier to classify the genre in a song.</li>
 </ol>
 
 </div>
@@ -11818,10 +11828,10 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">filename1</span> <span class="o">=</span> <span class="s1">&#39;brahms_hungarian_dance_5.mp3&#39;</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://audio.musicinformationretrieval.com/&quot;</span> <span class="o">+</span> <span class="n">filename1</span>
-<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename1</span><span class="p">):</span>
-    <span class="n">urllib</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">filename1</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">filename_brahms</span> <span class="o">=</span> <span class="s1">&#39;brahms_hungarian_dance_5.mp3&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://audio.musicinformationretrieval.com/&quot;</span> <span class="o">+</span> <span class="n">filename_brahms</span>
+<span class="k">if</span> <span class="ow">not</span> <span class="n">os</span><span class="o">.</span><span class="n">path</span><span class="o">.</span><span class="n">exists</span><span class="p">(</span><span class="n">filename_brahms</span><span class="p">):</span>
+    <span class="n">urllib</span><span class="o">.</span><span class="n">urlretrieve</span><span class="p">(</span><span class="n">url</span><span class="p">,</span> <span class="n">filename</span><span class="o">=</span><span class="n">filename_brahms</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11857,7 +11867,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x1</span><span class="p">,</span> <span class="n">fs1</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename1</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x_brahms</span><span class="p">,</span> <span class="n">fs_brahms</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename_brahms</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11880,7 +11890,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>plt.plot<span class="o">?</span>
+<div class=" highlight hl-ipython2"><pre><span></span>librosa.display.waveplot<span class="o">?</span>
 </pre></div>
 
 </div>
@@ -11974,7 +11984,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">mfcc1</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">mfcc</span><span class="p">(</span><span class="n">x1</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">fs1</span><span class="p">,</span> <span class="n">n_mfcc</span><span class="o">=</span><span class="mi">12</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">n_mfcc</span> <span class="o">=</span> <span class="mi">12</span>
+<span class="n">mfcc_brahms</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">feature</span><span class="o">.</span><span class="n">mfcc</span><span class="p">(</span><span class="n">x_brahms</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">fs_brahms</span><span class="p">,</span> <span class="n">n_mfcc</span><span class="o">=</span><span class="n">n_mfcc</span><span class="p">)</span><span class="o">.</span><span class="n">T</span>
 </pre></div>
 
 </div>
@@ -11982,12 +11993,22 @@ div#notebook {
 </div>
 
 </div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>We transpose the result to accommodate scikit-learn which assumes that each row is one observation, and each column is one feature dimension:</p>
+
+</div>
+</div>
+</div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">mfcc1</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">mfcc_brahms</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
 </div>
@@ -12023,7 +12044,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">mfcc1_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">mfcc1</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">mfcc_brahms_scaled</span> <span class="o">=</span> <span class="n">scaler</span><span class="o">.</span><span class="n">fit_transform</span><span class="p">(</span><span class="n">mfcc_brahms</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12046,7 +12067,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">mfcc1_scaled</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">mfcc_brahms_scaled</span><span class="o">.</span><span class="n">mean</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12059,7 +12080,7 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">mfcc1_scaled</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">mfcc_brahms_scaled</span><span class="o">.</span><span class="n">std</span><span class="p">(</span><span class="n">axis</span><span class="o">=</span><span class="mi">0</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12072,8 +12093,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Repeat steps 1 and 2 for another audio file:</strong></p>
-
+<h3 id="Step-2b:-Repeat-steps-1-and-2-for-another-audio-file.">Step 2b: Repeat steps 1 and 2 for another audio file.<a class="anchor-link" href="#Step-2b:-Repeat-steps-1-and-2-for-another-audio-file.">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -12082,8 +12102,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">filename2</span> <span class="o">=</span> <span class="s1">&#39;busta_rhymes_hits_for_days.mp3&#39;</span>
-<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://audio.musicinformationretrieval.com/&quot;</span> <span class="o">+</span> <span class="n">filename2</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">filename_busta</span> <span class="o">=</span> <span class="s1">&#39;busta_rhymes_hits_for_days.mp3&#39;</span>
+<span class="n">url</span> <span class="o">=</span> <span class="s2">&quot;http://audio.musicinformationretrieval.com/&quot;</span> <span class="o">+</span> <span class="n">filename_busta</span>
 </pre></div>
 
 </div>
@@ -12146,6 +12166,7 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Your code here. Load the second audio file in the same manner as the first audio file.</span>
+<span class="c1"># x_busta, fs_busta = </span>
 </pre></div>
 
 </div>
@@ -12181,7 +12202,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Plot the time-domain waveform and spectrogram of the second audio file. In what ways does the time-domain waveform look different than the first audio file? What differences in musical attributes might this reflect? What additional insights are gained from plotting the spectrogram? <strong>Explain.</strong></p>
+<p>Plot the time-domain waveform and spectrogram of the second audio file. In what ways does the time-domain waveform look different than the first audio file? What differences in musical attributes might this reflect? What additional insights are gained from plotting the spectrogram? Explain.</p>
 
 </div>
 </div>
@@ -12244,16 +12265,6 @@ librosa.feature.melspectrogram<span class="o">?</span>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>[Please share your answer in this editable text cell.]</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <p>Extract MFCCs from the second audio file. Be sure to transpose the resulting matrix such that each row is one observation, i.e. one set of MFCCs. Also be sure that the shape and size of the resulting MFCC matrix is equivalent to that for the first audio file.</p>
 
 </div>
@@ -12277,7 +12288,21 @@ librosa.feature.melspectrogram<span class="o">?</span>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">mfcc2</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Your code here:</span>
+<span class="c1"># mfcc_busta =</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">mfcc_busta</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
 </div>
@@ -12308,6 +12333,20 @@ librosa.feature.melspectrogram<span class="o">?</span>
 </div>
 
 </div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="c1"># Your code here:</span>
+<span class="c1"># mfcc_busta_scaled =</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
 <div class="cell border-box-sizing text_cell rendered">
 <div class="prompt input_prompt">
 </div>
@@ -12323,7 +12362,7 @@ librosa.feature.melspectrogram<span class="o">?</span>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>mfcc2_scaled.mean<span class="o">?</span>
+<div class=" highlight hl-ipython2"><pre><span></span>mfcc_busta_scaled.mean<span class="o">?</span>
 </pre></div>
 
 </div>
@@ -12336,7 +12375,7 @@ librosa.feature.melspectrogram<span class="o">?</span>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>mfcc2_scaled.std<span class="o">?</span>
+<div class=" highlight hl-ipython2"><pre><span></span>mfcc_busta_scaled.std<span class="o">?</span>
 </pre></div>
 
 </div>
@@ -12368,7 +12407,7 @@ librosa.feature.melspectrogram<span class="o">?</span>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">mfcc1_scaled</span><span class="p">,</span> <span class="n">mfcc2_scaled</span><span class="p">))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">features</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">vstack</span><span class="p">((</span><span class="n">mfcc_brahms_scaled</span><span class="p">,</span> <span class="n">mfcc_busta_scaled</span><span class="p">))</span>
 </pre></div>
 
 </div>
@@ -12404,7 +12443,7 @@ librosa.feature.melspectrogram<span class="o">?</span>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mfcc1_scaled</span><span class="p">)),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mfcc2_scaled</span><span class="p">))))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">labels</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">((</span><span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mfcc_brahms_scaled</span><span class="p">)),</span> <span class="n">numpy</span><span class="o">.</span><span class="n">ones</span><span class="p">(</span><span class="nb">len</span><span class="p">(</span><span class="n">mfcc_busta_scaled</span><span class="p">))))</span>
 </pre></div>
 
 </div>
@@ -12496,7 +12535,7 @@ librosa.feature.melspectrogram<span class="o">?</span>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x1_test</span><span class="p">,</span> <span class="n">fs1</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename1</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x_brahms_test</span><span class="p">,</span> <span class="n">fs_brahms</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename_brahms</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12509,7 +12548,7 @@ librosa.feature.melspectrogram<span class="o">?</span>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x2_test</span><span class="p">,</span> <span class="n">fs2</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename2</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x_busta_test</span><span class="p">,</span> <span class="n">fs_busta</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="n">filename_busta</span><span class="p">,</span> <span class="n">duration</span><span class="o">=</span><span class="mi">10</span><span class="p">,</span> <span class="n">offset</span><span class="o">=</span><span class="mi">120</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12758,16 +12797,6 @@ librosa.feature.melspectrogram<span class="o">?</span>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>[Explain your approach in this editable text cell.]</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
 <h2 id="Step-5:-Analysis-in-Pandas">Step 5: Analysis in Pandas<a class="anchor-link" href="#Step-5:-Analysis-in-Pandas">&#182;</a></h2>
 </div>
 </div>
@@ -12787,7 +12816,7 @@ librosa.feature.melspectrogram<span class="o">?</span>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df1</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mfcc1_test_scaled</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df_brahms</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mfcc_brahms_test_scaled</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12800,7 +12829,7 @@ librosa.feature.melspectrogram<span class="o">?</span>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">shape</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df_brahms</span><span class="o">.</span><span class="n">shape</span>
 </pre></div>
 
 </div>
@@ -12813,7 +12842,7 @@ librosa.feature.melspectrogram<span class="o">?</span>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df_brahms</span><span class="o">.</span><span class="n">head</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12826,7 +12855,7 @@ librosa.feature.melspectrogram<span class="o">?</span>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df2</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mfcc2_test_scaled</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df_busta</span> <span class="o">=</span> <span class="n">pandas</span><span class="o">.</span><span class="n">DataFrame</span><span class="p">(</span><span class="n">mfcc_busta_test_scaled</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12849,7 +12878,7 @@ librosa.feature.melspectrogram<span class="o">?</span>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df1</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df_brahms</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12862,40 +12891,7 @@ librosa.feature.melspectrogram<span class="o">?</span>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df2</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>[Explain your answer in this editable text cell.]</strong></p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Display a scatter plot of any two of the MFCC dimensions (i.e. columns of the data frame) against one another. Try for multiple pairs of MFCC dimensions.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>df1.plot.scatter<span class="o">?</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df_busta</span><span class="o">.</span><span class="n">corr</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12918,7 +12914,30 @@ librosa.feature.melspectrogram<span class="o">?</span>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span>df2.plot.scatter<span class="o">?</span>
+<div class=" highlight hl-ipython2"><pre><span></span>df_brahms.plot.scatter<span class="o">?</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Display a scatter plot of any two of the MFCC dimensions (i.e. columns of the data frame) against one another. Try for multiple pairs of MFCC dimensions.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span>df_busta.plot.scatter<span class="o">?</span>
 </pre></div>
 
 </div>
@@ -12941,7 +12960,7 @@ librosa.feature.melspectrogram<span class="o">?</span>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df1</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df_brahms</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12954,7 +12973,7 @@ librosa.feature.melspectrogram<span class="o">?</span>
 <div class="prompt input_prompt">In&nbsp;[&nbsp;]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df1</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">df_busta</span><span class="p">[</span><span class="mi">11</span><span class="p">]</span><span class="o">.</span><span class="n">plot</span><span class="o">.</span><span class="n">hist</span><span class="p">()</span>
 </pre></div>
 
 </div>
@@ -12997,6 +13016,16 @@ librosa.feature.melspectrogram<span class="o">?</span>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Create a new genre classifier by repeating the steps above, but this time use different features. Consult the <a href="http://librosa.github.io/librosa/feature.html">librosa documentation on feature extraction</a> for different choices of features. Which features work well? not well?</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered">
+<div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="index.html">&larr; Back to Index</a></p>
 
 </div>
 </div>
