@@ -17,7 +17,7 @@ The simplest way to use this repository is to (1) browse a read-only version of 
 
 1.  If you’re totally new, the simplest solution is to download and install [Anaconda for Python 2 (2.7)](https://www.continuum.io/downloads), not Python 3. 
     
-2.  Install [librosa](https://librosa.github.io/librosa/install.html).
+2.  Install [librosa](https://librosa.github.io/librosa/install.html) and [ffmpeg](https://librosa.github.io/librosa/install.html#ffmpeg).
 
 
 ### Start the Jupyter Notebook
