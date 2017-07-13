@@ -36,7 +36,7 @@ A majority of our instruction and laboratory work will occur inside the [Jupyter
 
     -   Immediately rename the notebook by clicking on "Untitled" in the top left, and choosing a different name.
     -   Inside a cell, run `1+2`. Press `<Shift-Enter>` on a cell to run that cell. Hopefully you get the output `3`.
-    -   Inside a cell, run `import scipy, sklearn, pandas, librosa`. Press `<Shift-Enter>` to run the cell. If that runs without error, congratulations, you have the necessary libraries installed properly.
+    -   Inside a cell, run `import scipy, sklearn, pandas, seaborn, librosa`. Press `<Shift-Enter>` to run the cell. If that runs without error, congratulations, you have the necessary libraries installed properly.
     -   Try executing the content from <http://musicinformationretrieval.com> inside this blank notebook.
 
 4.  To close the Jupyter notebook,
