@@ -1,42 +1,29 @@
 stanford-mir
 ============
 
-Instructional material for the [Music Information Retrieval Workshop](https://ccrma.stanford.edu/workshops/music-information-retrieval-mir) at CCRMA, Stanford University, 2014-16.
+Instructional material for the [Music Information Retrieval Workshop](https://ccrma.stanford.edu/workshops/music-information-retrieval-2017) at CCRMA, Stanford University, 2014-17.
 
 
 How to Use This Repo
 --------------------
 
-This repo contains a bunch of IPython notebooks related to music information retrieval.
+This repository contains Jupyter notebooks related to music information retrieval (MIR). Inside these notebooks are Python code snippets that illustrate basic MIR systems.
 
-If you're a **visitor**, browse a read-only version of this repo at [musicinformationretrieval.com](http://musicinformationretrieval.com).
+The simplest way to use this repository is to (1) browse a read-only version of this repo at [musicinformationretrieval.com](http://musicinformationretrieval.com), and (2) follow along using a blank Jupyter notebook of your own.
 
-If you're a **workshop participant**, follow the steps below to get started with Git and IPython.
+### Start the Jupyter Notebook
 
+A majority of our instruction and laboratory work will occur inside the [Jupyter notebook](http://jupyter.org/). You can think of the Jupyter notebook like the Mathematica or Matlab desktop, except it uses Python and it runs inside your web browser.
 
-### Install Git
+1.  Start the Jupyter notebook server on your local machine:
 
-Git is a version control system. You will use Git to retrieve the latest version of our IPython notebooks and to track changes that you make to these notebooks.
+        stanford-mir:~$ jupyter notebook
 
-1.  [Download Git](http://git-scm.com), and install it on your local machine.
+2.  On your local machine, visit <http://localhost:8888> inside a web browser. 
 
-2.  Clone this repo onto your local machine:
+3.  To open a new notebook, click on *New* near the top right. This is your scrap notebook. Try executing the content from <musicinformationretrieval.com> inside this blank notebook.
 
-        macbook:~$ git clone https://github.com/stevetjoa/stanford-mir
-
-### Start IPython
-
-A majority of our instruction and laboratory work will occur inside the [IPython notebook](http://ipython.org/notebook.html). You can think of the IPython notebook like the Mathematica or Matlab desktop, except it's in Python and it runs inside your web browser.
-
-1.  Start the IPython notebook server:
-
-        stanford-mir:~$ ipython notebook
-
-2.  On your *host* machine, visit <http://localhost:8888>. 
-
-3.  Open the notebook `index.ipynb`, or click on any `.ipynb` file to open it.
-
-Congratulations, you are now running an IPython notebook, and you can get started with the workshop material.
+Congratulations, you are now running a Jupyter notebook, and you can get started with the workshop material.
 
 
 Contributions
