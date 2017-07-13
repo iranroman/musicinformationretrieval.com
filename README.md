@@ -1,7 +1,9 @@
 stanford-mir
 ============
 
-Instructional material for the [Music Information Retrieval Workshop](https://ccrma.stanford.edu/workshops/music-information-retrieval-2017) at CCRMA, Stanford University, 2014-17. The 2017 workshop is sold out and beyond capacity. Sorry.
+Instructional material for the [Music Information Retrieval Workshop](https://ccrma.stanford.edu/workshops/music-information-retrieval-2017) at CCRMA, Stanford University, 2014-17.
+
+The 2017 workshop is sold out and beyond capacity. Sorry.
 
 
 How to Use This Repo
@@ -15,7 +17,7 @@ The simplest way to use this repository is to (1) browse a read-only version of 
 
 1.  If you’re totally new, the simplest solution is to download and install [Anaconda for Python 2 (2.7)](https://www.continuum.io/downloads), not Python 3. 
     
-2.  Then, install [librosa](https://librosa.github.io/librosa/install.html).
+2.  Install [librosa](https://librosa.github.io/librosa/install.html).
 
 
 ### Start the Jupyter Notebook
@@ -30,20 +32,22 @@ A majority of our instruction and laboratory work will occur inside the [Jupyter
 
 2.  On your local machine, visit <http://localhost:8888> inside a web browser. 
 
-3.  To open a new notebook, click on *New* near the top right. This is your scrap notebook. Try executing the content from <http://musicinformationretrieval.com> inside this blank notebook.
+3.  To open a new notebook, click on *New* near the top right. This is your scrap notebook. 
 
-    -   In the Jupyter notebook, run `import scipy, sklearn, pandas, librosa`. Press `<Shift-Enter>` on a cell to run that cell. If that runs without error, congratulations, you're set.
+    -   Immediately rename the notebook by clicking on "Untitled" in the top left, and choosing a different name.
+    -   Inside a cell, run `1+2`. Press `<Shift-Enter>` on a cell to run that cell. Hopefully you get the output `3`.
+    -   Inside a cell, run `import scipy, sklearn, pandas, librosa`. Press `<Shift-Enter>` to run the cell. If that runs without error, congratulations, you have the necessary libraries installed properly.
+    -   Try executing the content from <http://musicinformationretrieval.com> inside this blank notebook.
 
 4.  To close the Jupyter notebook,
 
-        1.  Save the notebook. (Either use keyboard shortcut `s`, or "File | Save" in the top menu.)
-        2.  Close the browser window.
-        3.  If you opened the notebook from a prompt/shell, from that shell, press `<Ctrl-C>` twice to return to the prompt.
+    -   Save the notebook. (Either use keyboard shortcut `s`, or "File | Save" in the top menu.)
+    -   Close the browser window.
+    -   If you opened the notebook from a prompt/shell as indicated in Step 1 above, from that shell, press `<Ctrl-C>` twice to return to the prompt.
 
 Congratulations, you are now running a Jupyter notebook, and you can get started with the workshop material.
 
 After installing, if something doesn’t work, try closing the terminal or restarting the OS. Sometimes that can reset the necessary configurations.
-
 
 
 Contributions
