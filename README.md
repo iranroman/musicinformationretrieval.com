@@ -1,7 +1,7 @@
 stanford-mir
 ============
 
-Instructional material for the [Music Information Retrieval Workshop](https://ccrma.stanford.edu/workshops/music-information-retrieval-2017) at CCRMA, Stanford University, 2014-17.
+Instructional material for the [Music Information Retrieval Workshop](https://ccrma.stanford.edu/workshops/music-information-retrieval-2017) at CCRMA, Stanford University, 2014-17. The 2017 workshop is sold out and beyond capacity. Sorry.
 
 
 How to Use This Repo
@@ -54,44 +54,4 @@ To edit musicinformationretrieval.com:
         $ git push
 
     You may need to wait 1-2 minutes before the changes are live on GitHub Pages.
-
-
-Appendix
---------
-
-This information may not be up to date. Proceed at your own risk.
-
-### Install Vagrant
-
-We use [Vagrant](http://vagrantup.com) to create a local virtual machine running Ubuntu 12.04. Vagrant ensures that every person has exactly the same development environment with the same installed packages. 
-
-Vagrant is available for all major operating systems, including Windows, Mac OS X, and Linux. It's a breeze to install.
-
-1.  Install [VirtualBox](https://www.virtualbox.org) and [Vagrant](http://vagrantup.com).
-
-2.  Create a new virtual machine using [our customized Vagrant box](https://vagrantcloud.com/stevetjoa/stanford-mir) built upon Ubuntu 12.04 64-bit.
-
-        macbook:~/stanford-mir$ vagrant up
-
-    If this is your first time running `vagrant up`, this step may take five minutes to download the Vagrant box.
-
-3.  Finally, login to the new virtual machine:
-
-        macbook:~/stanford-mir$ vagrant ssh
-
-    This step logs you in to Ubuntu locally as user `vagrant` with default password `vagrant`.
-
-    Note: do *not* upgrade the virtual machine to Ubuntu 14.04 when prompted.
-
-    Note: outdated versions of Mac OS X may yield problems with `vagrant ssh`. To avoid such problems, please upgrade (for free) to the latest version of Mac OS X.
-
-#### Troubleshooting Vagrant
-
-*   Problem: When on a Windows host machine, `vagrant ssh` results in a timeout error: `ssh_exchange_identification: read: Connection reset by peer`.
-
-    Solution: Go into the BIOS, and make sure that Hardware Virtualization is enabled. For details, see [this answer on Stack Overflow](http://stackoverflow.com/questions/22575261/vagrant-stuck-connection-timeout-retrying/25504245#25504245). 
-
-*   Problem: The folder `stanford-mir` on the guest machine is empty.
-
-    Solution: Vagrant probably failed to sync folders between the host and the guest machines. Try `vagrant provision` or `vagrant reload` from the host machine.
 
