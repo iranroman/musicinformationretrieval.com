@@ -11,19 +11,39 @@ This repository contains Jupyter notebooks related to music information retrieva
 
 The simplest way to use this repository is to (1) browse a read-only version of this repo at [musicinformationretrieval.com](http://musicinformationretrieval.com), and (2) follow along using a blank Jupyter notebook of your own.
 
+### Install Python and relevant libraries
+
+1.  If you’re totally new, the simplest solution is to download and install [Anaconda for Python 2 (2.7)](https://www.continuum.io/downloads), not Python 3. 
+    
+2.  Then, install [librosa](https://librosa.github.io/librosa/install.html).
+
+
 ### Start the Jupyter Notebook
 
 A majority of our instruction and laboratory work will occur inside the [Jupyter notebook](http://jupyter.org/). You can think of the Jupyter notebook like the Mathematica or Matlab desktop, except it uses Python and it runs inside your web browser.
 
-1.  Start the Jupyter notebook server on your local machine:
+1.  Start the Jupyter notebook server on your local machine. For Mac users, at the Terminal:
 
-        stanford-mir:~$ jupyter notebook
+        your-local-machine:~$ jupyter notebook
+
+    For Windows users, open the application "Jupyter Notebook". Alternatively for Windows: open the application "Anaconda Prompt" and type in `jupyter notebook`.
 
 2.  On your local machine, visit <http://localhost:8888> inside a web browser. 
 
-3.  To open a new notebook, click on *New* near the top right. This is your scrap notebook. Try executing the content from <musicinformationretrieval.com> inside this blank notebook.
+3.  To open a new notebook, click on *New* near the top right. This is your scrap notebook. Try executing the content from <http://musicinformationretrieval.com> inside this blank notebook.
+
+    -   In the Jupyter notebook, run `import scipy, sklearn, pandas, librosa`. Press `<Shift-Enter>` on a cell to run that cell. If that runs without error, congratulations, you're set.
+
+4.  To close the Jupyter notebook,
+
+        1.  Save the notebook. (Either use keyboard shortcut `s`, or "File | Save" in the top menu.)
+        2.  Close the browser window.
+        3.  If you opened the notebook from a prompt/shell, from that shell, press `<Ctrl-C>` twice to return to the prompt.
 
 Congratulations, you are now running a Jupyter notebook, and you can get started with the workshop material.
+
+After installing, if something doesn’t work, try closing the terminal or restarting the OS. Sometimes that can reset the necessary configurations.
+
 
 
 Contributions
@@ -41,11 +61,11 @@ To edit musicinformationretrieval.com:
 
 1.  Edit a notebook, e.g.:
 
-        $ ipython notebook kmeans.ipynb
+        $ jupyter notebook kmeans.ipynb
 
 2.  Convert notebook to HTML:
 
-        $ ipython nbconvert --to html kmeans.ipynb
+        $ jupyter nbconvert --to html kmeans.ipynb
 
 3.  Commit the notebook and the HTML:
 
