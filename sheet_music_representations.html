@@ -1,9 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>sheet_music_representations</title>
-
-<script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>sheet_music_representations</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -13,8 +11,8 @@
 *
 */
 /*!
- * Bootstrap v3.3.6 (http://getbootstrap.com)
- * Copyright 2011-2015 Twitter, Inc.
+ * Bootstrap v3.3.7 (http://getbootstrap.com)
+ * Copyright 2011-2016 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
 /*! normalize.css v3.0.3 | MIT License | github.com/necolas/normalize.css */
@@ -1109,7 +1107,6 @@ a:focus {
   text-decoration: underline;
 }
 a:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -2538,7 +2535,6 @@ select[size] {
 input[type="file"]:focus,
 input[type="radio"]:focus,
 input[type="checkbox"]:focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -3029,7 +3025,6 @@ select[multiple].input-lg {
 .btn.focus,
 .btn:active.focus,
 .btn.active.focus {
-  outline: thin dotted;
   outline: 5px auto -webkit-focus-ring-color;
   outline-offset: -2px;
 }
@@ -8760,6 +8755,9 @@ body > #header .header-bar {
     margin-left: 10px;
   }
 }
+[dir="rtl"] #ipython_notebook {
+  float: right !important;
+}
 #noscript {
   width: auto;
   padding-top: 16px;
@@ -8962,8 +8960,14 @@ span#login_widget > .button .badge,
  *
  * Author: Jupyter Development Team
  */
+[dir="rtl"] #tabs li {
+  float: right;
+}
 ul#tabs {
   margin-bottom: 4px;
+}
+[dir="rtl"] ul#tabs {
+  margin-right: 0px;
 }
 ul#tabs a {
   padding-top: 6px;
@@ -8986,6 +8990,16 @@ ul.breadcrumb span {
 }
 .list_toolbar .tree-buttons {
   padding-top: 1px;
+}
+[dir="rtl"] .list_toolbar .tree-buttons {
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-right {
+  padding-top: 1px;
+  float: left !important;
+}
+[dir="rtl"] .list_toolbar .pull-left {
+  float: right !important;
 }
 .dynamic-buttons {
   padding-top: 3px;
@@ -9122,6 +9136,9 @@ ul.breadcrumb span {
 #tree-selector {
   padding-right: 0px;
 }
+[dir="rtl"] #tree-selector a {
+  float: right;
+}
 #button-select-all {
   min-width: 50px;
 }
@@ -9211,6 +9228,9 @@ ul#new-menu {
   left: auto;
   right: 0;
 }
+[dir="rtl"] #new-menu {
+  text-align: right;
+}
 .kernel-menu-icon {
   padding-right: 12px;
   width: 24px;
@@ -9255,6 +9275,9 @@ ul#new-menu {
 }
 #running .panel-group .panel .panel-body .list_container .list_item:last-child {
   border-bottom: 0px;
+}
+[dir="rtl"] #running .col-sm-8 {
+  float: right !important;
 }
 .delete-button {
   display: none;
@@ -9551,6 +9574,7 @@ div.cell.selected.jupyter-soft-selected {
   }
 }
 div.inner_cell {
+  min-width: 0;
   /* Old browsers */
   display: -webkit-box;
   -webkit-box-orient: vertical;
@@ -9571,11 +9595,6 @@ div.inner_cell {
   box-flex: 1;
   /* Modern browsers */
   flex: 1;
-}
-@-moz-document url-prefix() {
-  div.inner_cell {
-    overflow-x: hidden;
-  }
 }
 /* input_area and input_prompt must match in top border and margin for alignment */
 div.input_area {
@@ -11246,7 +11265,7 @@ div#pager .ui-resizable-handle::after {
 }
 .shortcut_key {
   display: inline-block;
-  width: 20ex;
+  width: 21ex;
   text-align: right;
   font-family: monospace;
 }
@@ -11558,6 +11577,7 @@ ul.typeahead-list > li > a {
   box-shadow: 0px 0px 12px 1px rgba(87, 87, 87, 0.2);
 }
 .terminal-app .terminal {
+  width: 100%;
   float: left;
   font-family: monospace;
   color: white;
@@ -11571,6 +11591,9 @@ ul.typeahead-list > li > a {
 .terminal-app .terminal dummy-screen {
   line-height: 1em;
   font-size: 14px;
+}
+.terminal-app .terminal .xterm-rows {
+  padding: 10px;
 }
 .terminal-app .terminal-cursor {
   color: black;
@@ -11631,8 +11654,10 @@ ul.typeahead-list > li > a {
 .highlight .mh { color: #666666 } /* Literal.Number.Hex */
 .highlight .mi { color: #666666 } /* Literal.Number.Integer */
 .highlight .mo { color: #666666 } /* Literal.Number.Oct */
+.highlight .sa { color: #BA2121 } /* Literal.String.Affix */
 .highlight .sb { color: #BA2121 } /* Literal.String.Backtick */
 .highlight .sc { color: #BA2121 } /* Literal.String.Char */
+.highlight .dl { color: #BA2121 } /* Literal.String.Delimiter */
 .highlight .sd { color: #BA2121; font-style: italic } /* Literal.String.Doc */
 .highlight .s2 { color: #BA2121 } /* Literal.String.Double */
 .highlight .se { color: #BB6622; font-weight: bold } /* Literal.String.Escape */
@@ -11643,9 +11668,11 @@ ul.typeahead-list > li > a {
 .highlight .s1 { color: #BA2121 } /* Literal.String.Single */
 .highlight .ss { color: #19177C } /* Literal.String.Symbol */
 .highlight .bp { color: #008000 } /* Name.Builtin.Pseudo */
+.highlight .fm { color: #0000FF } /* Name.Function.Magic */
 .highlight .vc { color: #19177C } /* Name.Variable.Class */
 .highlight .vg { color: #19177C } /* Name.Variable.Global */
 .highlight .vi { color: #19177C } /* Name.Variable.Instance */
+.highlight .vm { color: #19177C } /* Name.Variable.Magic */
 .highlight .il { color: #666666 } /* Literal.Number.Integer.Long */
     </style>
 <style type="text/css">
@@ -11699,9 +11726,7 @@ body {
 div#notebook {
   overflow: visible;
   border-top: none;
-}
-
-@media print {
+}@media print {
   div.cell {
     display: block;
     page-break-inside: avoid;
@@ -11722,7 +11747,7 @@ div#notebook {
 
 <!-- Loading mathjax macro -->
 <!-- Load mathjax -->
-    <script src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS_HTML"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS_HTML"></script>
     <!-- MathJax configuration -->
     <script type="text/x-mathjax-config">
     MathJax.Hub.Config({
@@ -11752,66 +11777,14 @@ div#notebook {
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="kn">import</span> <span class="nn">IPython.display</span> <span class="kn">as</span> <span class="nn">ipd</span>
-
-<span class="c1"># Hide code by default when the notebook is exported as HTML.</span>
-<span class="n">ipd</span><span class="o">.</span><span class="n">display_html</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&lt;script&gt;</span>
-<span class="s1">$(function() {</span>
-<span class="s1">    if ($(&quot;body.notebook_app&quot;).length == 0) {</span>
-<span class="s1">        $(&quot;.input&quot;).hide(); </span>
-<span class="s1">    }</span>
-<span class="s1">});</span>
-<span class="s1">&lt;/script&gt;</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
-
-<span class="c1"># Create HTML buttons to show or hide IPython input cells.</span>
-<span class="n">ipd</span><span class="o">.</span><span class="n">display_html</span><span class="p">(</span><span class="s1">&#39;&#39;&#39;</span>
-<span class="s1">&lt;button onclick=&quot;$(&#39;.input&#39;).show();&quot;&gt;Show input&lt;/button&gt;</span>
-<span class="s1">&lt;button onclick=&quot;$(&#39;.input&#39;).hide();&quot;&gt;Hide input&lt;/button&gt;</span>
-<span class="s1">&#39;&#39;&#39;</span><span class="p">,</span> <span class="n">raw</span><span class="o">=</span><span class="bp">True</span><span class="p">)</span>
 </pre></div>
 
 </div>
 </div>
 </div>
 
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area"><div class="prompt"></div>
-
-<div class="output_html rendered_html output_subarea ">
-
-<script>
-$(function() {
-    if ($("body.notebook_app").length == 0) {
-        $(".input").hide(); 
-    }
-});
-</script>
-
 </div>
-
-</div>
-
-<div class="output_area"><div class="prompt"></div>
-
-<div class="output_html rendered_html output_subarea ">
-
-<button onclick="$('.input').show();">Show input</button>
-<button onclick="$('.input').hide();">Hide input</button>
-
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11820,17 +11793,15 @@ $(function() {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Sheet-Music-Representations">Sheet Music Representations<a class="anchor-link" href="#Sheet-Music-Representations">&#182;</a></h1>
+<h1 id="Sheet-Music-Representations">Sheet Music Representations<a class="anchor-link" href="#Sheet-Music-Representations">&#194;&#182;</a></h1>
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -11855,7 +11826,11 @@ $(function() {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[2]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[2]:</div>
+
+
 
 <div class="output_svg output_subarea output_execute_result">
 <svg height="313" id="svg2" version="1.1" width="625" xmlns="http://www.w3.org/2000/svg" xmlns:svg="http://www.w3.org/2000/svg">
@@ -12124,7 +12099,11 @@ $(function() {
 <div class="output">
 
 
-<div class="output_area"><div class="prompt output_prompt">Out[3]:</div>
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[3]:</div>
+
+
 
 <div class="output_html rendered_html output_subarea output_execute_result">
 
@@ -12144,8 +12123,7 @@ $(function() {
 </div>
 
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12154,8 +12132,7 @@ $(function() {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12164,28 +12141,265 @@ $(function() {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>An <strong>octave</strong> (<a href="https://en.wikipedia.org/wiki/Octave">Wikipedia</a>) is an interval between two notes where the higher note is twice the fundamental frequency of the lower note. For example, an A at 440 Hz and an A at 880 Hz are separated by one octave.</p>
+<p>An <strong>octave</strong> (<a href="https://en.wikipedia.org/wiki/Octave">Wikipedia</a>) is an interval between two notes where the higher note is twice the fundamental frequency of the lower note. For example, an A at 440 Hz and an A at 880 Hz are separated by one octave. Here are two Cs separated by one octave:</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
-</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>A <strong>pitch class</strong> (<a href="https://en.wikipedia.org/wiki/Pitch_class">Wikipedia</a>) is the set of all notes that are an integer number of octaves apart. For example, the set of all Cs, {..., C1, C2, ...} is one pitch class, and the set of all Ds, {..., D1, D2, ...} is another pitch class.</p>
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">ipd</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;https://upload.wikimedia.org/wikipedia/commons/a/a5/Perfect_octave_on_C.png&quot;</span><span class="p">)</span>
+</pre></div>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[4]:</div>
+
+
+
+
+<div class="output_png output_subarea output_execute_result">
+<img src="data:image/png;base64,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
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>A <strong>pitch class</strong> (<a href="https://en.wikipedia.org/wiki/Pitch_class">Wikipedia</a>) is the set of all notes that are an integer number of octaves apart. For example, the set of all Cs, {..., C1, C2, ...} is one pitch class, and the set of all Ds, {..., D1, D2, ...} is another pitch class. Here is the pitch class for C:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">ipd</span><span class="o">.</span><span class="n">Image</span><span class="p">(</span><span class="s2">&quot;https://upload.wikimedia.org/wikipedia/commons/thumb/9/98/Pitch_class_on_C.png/187px-Pitch_class_on_C.png&quot;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_png output_subarea output_execute_result">
+<img src="data:image/png;base64,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
+s+vZ/zfY8xfNJ/Xlgi/JnwvII1LY+hq6s99wtrG1tbWz4wAHFfD/Ccm2tUM1tlb9XtGdvTY/Ly8v
+//5Cy3bHcvPyr05hg/nsjCeoLq9ArBP2XhVmyJBu8/x6Bnrwk4t1qK0eMASTJGkx2x2A8b3usEum
+AHDk23biZJE+Vbrz3PFeInNk5n3VHOA/NbrDftoUwEG24VUeD5jrdcje+avNAHqTu/1IDnLZn5Xq
+0rjKj/e1YbitSkyJi+jQb6/K09PV7BPUZByImBX29cq919WQWK8Jf0Zd+XN6X0zP/m9i/z/5axCC
+ijqUXgAAAFB0RVh0Y29tbWVudABGaWxlIHNvdXJjZTogaHR0cDovL2NvbW1vbnMud2lraW1lZGlh
+Lm9yZy93aWtpL0ZpbGU6UGl0Y2hfY2xhc3Nfb25fQy5wbmde+Js0AAAAJXRFWHRkYXRlOmNyZWF0
+ZQAyMDE0LTAxLTExVDA3OjAwOjA3KzAwOjAwYCAukwAAACV0RVh0ZGF0ZTptb2RpZnkAMjAxNC0w
+MS0xMVQwNzowMDowNyswMDowMBF9li8AAABGdEVYdHNvZnR3YXJlAEltYWdlTWFnaWNrIDYuNi45
+LTcgMjAxMi0wOC0xNyBRMTYgaHR0cDovL3d3dy5pbWFnZW1hZ2ljay5vcmecvblIAAAAGHRFWHRU
+aHVtYjo6RG9jdW1lbnQ6OlBhZ2VzADGn/7svAAAAGHRFWHRUaHVtYjo6SW1hZ2U6OmhlaWdodAA3
+NTagVYUiAAAAF3RFWHRUaHVtYjo6SW1hZ2U6OldpZHRoADU4OC1rUYsAAAAZdEVYdFRodW1iOjpN
+aW1ldHlwZQBpbWFnZS9wbmc/slZOAAAAF3RFWHRUaHVtYjo6TVRpbWUAMTM4OTQyMzYwN2foM8MA
+AAATdEVYdFRodW1iOjpTaXplADE0LjhLQkLMSKBAAAAAM3RFWHRUaHVtYjo6VVJJAGZpbGU6Ly8v
+dG1wL2xvY2FsY29weV8zMDJkM2Q3YjUxYWQtMS5wbmetnIQwAAAAAElFTkSuQmCC
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12194,8 +12408,7 @@ $(function() {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12204,38 +12417,34 @@ $(function() {
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <strong>key signature</strong> (<a href="https://en.wikipedia.org/wiki/Key_signature">Wikipedia</a>) follows the clef on a staff and indicates the key of the piece by the sharps or flats which are present throughout the piece.</p>
+<p>The <strong>key signature</strong> (<a href="https://en.wikipedia.org/wiki/Key_signature">Wikipedia</a>) follows the clef on a staff and indicates the key of the piece by the sharps or flats which are present throughout the piece. In the Mozart sonata excerpt above, the key signature is A major.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The <strong>time signature</strong> (<a href="https://en.wikipedia.org/wiki/Time_signature">Wikipedia</a>) follows the key signature on the staff and indicates the rhythmic structure, or meter, of the piece.</p>
+<p>The <strong>time signature</strong> (<a href="https://en.wikipedia.org/wiki/Time_signature">Wikipedia</a>) follows the key signature on the staff and indicates the rhythmic structure, or meter, of the piece. In the Mozart sonata excerpt above, the time signature is 6/8, i.e. six eighth notes in one measure.</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Tempo</strong> (<a href="https://en.wikipedia.org/wiki/Tempo">Wikipedia</a>) denotes how slow or fast a piece is played as measured by beats per minute (BPM).</p>
+<p><strong>Tempo</strong> (<a href="https://en.wikipedia.org/wiki/Tempo">Wikipedia</a>) denotes how slow or fast a piece is played as measured by beats per minute (BPM). In the Mozart sonata excerpt above, the tempo marking is "Andante grazioso".</p>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered">
-<div class="prompt input_prompt">
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
@@ -12247,4 +12456,8 @@ $(function() {
     </div>
   </div>
 </body>
+
+ 
+
+
 </html>
