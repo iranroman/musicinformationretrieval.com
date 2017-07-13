@@ -11912,9 +11912,9 @@ div#notebook {
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>x-amz-id-2: cbbXi0sExaOFaloDOwmRHGAlIRAl71R2/iS/wwGCNmjtBWxxL9uVC196E8AadjdCtvOmsDxGNwA=
-x-amz-request-id: 06066CDDE6AE7C09
-Date: Thu, 13 Jul 2017 21:49:11 GMT
+<pre>x-amz-id-2: OX2PeqV9n+GcUzzxOG2JZi6e5+xsov5k7cbeIaW/T9Cinv8LL5FoVs1ZEme6X5+aBSVeKm+Pt2I=
+x-amz-request-id: 764C0BEF267F6206
+Date: Thu, 13 Jul 2017 22:37:37 GMT
 Last-Modified: Fri, 03 Jul 2015 18:39:43 GMT
 ETag: &#34;91747c7bd2ff230cc2f18442bf917db8&#34;
 Content-Type: audio/x-wav
@@ -11965,7 +11965,7 @@ Connection: close
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>If you only want to listen to, and not manipulate, a remote audio file, use <code>IPython.display.Audio</code> instead. (See <a href="#Playing-Audio">Playing Audio</a>.)</p>
+<p>If you only want to listen to, and not manipulate, a remote audio file, use <code>IPython.display.Audio</code> instead of <code>urllib.urlretrieve</code>. (See <a href="#Playing-Audio">Playing Audio</a>.)</p>
 
 </div>
 </div>
@@ -11982,15 +11982,7 @@ Connection: close
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="librosa.load"><code>librosa.load</code><a class="anchor-link" href="#librosa.load">&#194;&#182;</a></h3>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Return both the audio array as well as the sample rate:</p>
+<p>Use <a href="https://librosa.github.io/librosa/generated/librosa.core.load.html#librosa.core.load"><code>librosa.load</code></a> to load an audio file into an audio array. Return both the audio array as well as the sample rate:</p>
 
 </div>
 </div>
@@ -12127,7 +12119,7 @@ Connection: close
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.collections.PolyCollection at 0x11188be90&gt;</pre>
+<pre>&lt;matplotlib.collections.PolyCollection at 0x112ca8e90&gt;</pre>
 </div>
 
 </div>
@@ -12692,7 +12684,7 @@ DJ6JiIiIiBrE4JmIiIiIqEEMnomIiIiIGvT/AZc4On+hipoHAAAAAElFTkSuQmCC
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x1118dec90&gt;</pre>
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x110d5e850&gt;</pre>
 </div>
 
 </div>
