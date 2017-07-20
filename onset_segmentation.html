@@ -11809,6 +11809,16 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
+<p><a href="http://librosa.github.io/librosa/generated/librosa.onset.onset_detect.html#librosa.onset.onset_detect"><code>librosa.onset.onset_detect</code></a> works by finding peaks in a spectral novelty function. However, these peaks may not actually coincide with the initial rise in energy or how we perceive the beginning of a musical note.</p>
+<p>The optional keyword parameter <code>backtrack=True</code> will backtrack from each peak to a preceding local minimum. Backtracking can be useful for finding segmentation points such that the onset occurs shortly after the beginning of the segment. We will use <code>backtrack=True</code> to perform onset-based segmentation of a signal.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
 <p>Load an audio file into the NumPy array <code>x</code> and sampling rate <code>sr</code>.</p>
 
 </div>
@@ -11896,16 +11906,6 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="librosa.onset.onset_detect"><code>librosa.onset.onset_detect</code><a class="anchor-link" href="#librosa.onset.onset_detect">&#194;&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="http://librosa.github.io/librosa/generated/librosa.onset.onset_detect.html#librosa.onset.onset_detect"><code>librosa.onset.onset_detect</code></a> works by finding peaks in a spectral novelty function. However, these peaks may not actually coincide with the initial rise in energy or how we perceive the beginning of a musical note.</p>
-<p>The optional keyword parameter <code>backtrack=True</code> will backtrack from each peak to a preceding local minimum. Backtracking can be useful for finding segmentation points such that the onset occurs shortly after the beginning of the segment. We will use <code>backtrack=True</code> to perform onset-based segmentation of a signal.</p>
 <p>Compute the frame indices for estimated onsets in a signal:</p>
 
 </div>
@@ -12069,7 +12069,7 @@ div#notebook {
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.collections.LineCollection at 0x10ff5dc10&gt;</pre>
+<pre>&lt;matplotlib.collections.LineCollection at 0x1150e5490&gt;</pre>
 </div>
 
 </div>
@@ -15270,7 +15270,7 @@ AElFTkSuQmCC
 <div class="text_cell_render border-box-sizing rendered_html">
 <p>Let's listen to these segments. We will create a function to do the following:</p>
 <ol>
-<li>Divide the signal into segments beginning at each onset.</li>
+<li>Divide the signal into segments beginning at each detected onset.</li>
 <li>Pad each segment with 500 ms of silence.</li>
 <li>Concatenate the padded segments.</li>
 </ol>
@@ -15285,10 +15285,10 @@ AElFTkSuQmCC
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">concatenate_segments</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">onset_samples</span><span class="p">,</span> <span class="n">pad_duration</span><span class="o">=</span><span class="mf">0.500</span><span class="p">):</span>
     <span class="sd">&quot;&quot;&quot;Concatenate segments into one signal.&quot;&quot;&quot;</span>
-    <span class="n">silence</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">pad_duration</span><span class="o">*</span><span class="n">sr</span><span class="p">))</span>
-    <span class="n">frame_sz</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">onset_samples</span><span class="p">))</span>
+    <span class="n">silence</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="nb">int</span><span class="p">(</span><span class="n">pad_duration</span><span class="o">*</span><span class="n">sr</span><span class="p">))</span> <span class="c1"># silence</span>
+    <span class="n">frame_sz</span> <span class="o">=</span> <span class="nb">min</span><span class="p">(</span><span class="n">numpy</span><span class="o">.</span><span class="n">diff</span><span class="p">(</span><span class="n">onset_samples</span><span class="p">))</span>   <span class="c1"># every segment has uniform frame size</span>
     <span class="k">return</span> <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span>
-        <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">frame_sz</span><span class="p">],</span> <span class="n">silence</span><span class="p">])</span>
+        <span class="n">numpy</span><span class="o">.</span><span class="n">concatenate</span><span class="p">([</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="p">:</span><span class="n">i</span><span class="o">+</span><span class="n">frame_sz</span><span class="p">],</span> <span class="n">silence</span><span class="p">])</span> <span class="c1"># pad segment with silence</span>
         <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="n">onset_samples</span>
     <span class="p">])</span>
 </pre></div>
@@ -15379,7 +15379,7 @@ AElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Backtracking">Backtracking<a class="anchor-link" href="#Backtracking">&#194;&#182;</a></h2>
+<h2 id="librosa.onset.onset_backtrack"><code>librosa.onset.onset_backtrack</code><a class="anchor-link" href="#librosa.onset.onset_backtrack">&#194;&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -15387,7 +15387,9 @@ AElFTkSuQmCC
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>We can avoid this glitch by backtracking:</p>
+<p>We can avoid this glitch by backtracking from the detected onsets.</p>
+<p>When setting the parameter <code>backtrack=True</code>, <code>librosa.onset.onset_detect</code> will call <a href="http://librosa.github.io/librosa/generated/librosa.onset.onset_backtrack.html"><code>librosa.onset.onset_backtrack</code></a>.
+ For each detected onset, <code>librosa.onset.onset_backtrack</code> searches backward for a local minimum.</p>
 
 </div>
 </div>
@@ -15485,7 +15487,7 @@ AElFTkSuQmCC
 
 
 <div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.collections.LineCollection at 0x1103e2810&gt;</pre>
+<pre>&lt;matplotlib.collections.LineCollection at 0x114cef190&gt;</pre>
 </div>
 
 </div>
@@ -18731,7 +18733,7 @@ IiLKCG8eiIiIiIgoI7x5ICIiIiKijPDmgYiIiIiIMvI/mbmRboJD3V0AAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>As we can hear, now the segments are perfectly segmented.</p>
+<p>While listening, notice now the segments are perfectly segmented.</p>
 
 </div>
 </div>
