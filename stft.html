@@ -11773,7 +11773,7 @@ div#notebook {
 
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[1]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
@@ -11809,14 +11809,41 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Let's listen to a file:</p>
+<p>Musical signals are highly non-stationary, i.e., their statistics change over time. It would be rather meaningless to compute a single Fourier transform over an entire 10-minute song.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The <strong>short-time Fourier transform (STFT)</strong> (<a href="https://en.wikipedia.org/wiki/Short-time_Fourier_transform">Wikipedia</a>; FMP, p. 53) is obtained by computing the Fourier transform for successive frames in a signal.</p>
+$$ X(m, \omega) = \sum_n x(n) w(n-m) e^{-j \omega n} $$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>As we increase $m$, we slide the window function $w$ to the right. For the resulting frame, $x(n) w(n-m)$, we compute the Fourier transform. Therefore, the STFT $X$ is a function of both time, $m$, and frequency, $\omega$.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Let's load a file:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="prompt input_prompt">In&nbsp;[20]:</div>
 <div class="inner_cell">
     <div class="input_area">
 <div class=" highlight hl-ipython2"><pre><span></span><span class="n">x</span><span class="p">,</span> <span class="n">sr</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">load</span><span class="p">(</span><span class="s1">&#39;audio/simple_piano.wav&#39;</span><span class="p">)</span>
@@ -11833,7 +11860,7 @@ div#notebook {
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[2]:</div>
+<div class="prompt output_prompt">Out[20]:</div>
 
 
 
@@ -11856,16 +11883,148 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Spectrogram">Spectrogram<a class="anchor-link" href="#Spectrogram">&#194;&#182;</a></h2>
+<p><a href="https://librosa.github.io/librosa/generated/librosa.core.stft.html#librosa.core.stft"><code>librosa.stft</code></a> computes a STFT. We provide it a frame size, i.e. the size of the FFT, and a hop length, i.e. the frame increment:</p>
+
 </div>
 </div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[21]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">hop_length</span> <span class="o">=</span> <span class="mi">512</span>
+<span class="n">n_fft</span> <span class="o">=</span> <span class="mi">2048</span>
+<span class="n">X</span> <span class="o">=</span> <span class="n">librosa</span><span class="o">.</span><span class="n">stft</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">n_fft</span><span class="o">=</span><span class="n">n_fft</span><span class="p">,</span> <span class="n">hop_length</span><span class="o">=</span><span class="n">hop_length</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>Musical signals are highly non-stationary, i.e., their statistics change over time. It would be rather meaningless to compute a single spectrum over an entire 10-minute song.</p>
-<p>Instead, we compute a spectrum for small frames of the audio signal. The resulting sequence of spectra is called a <a href="https://en.wikipedia.org/wiki/Spectrogram"><em>spectrogram</em></a>.</p>
+<p>To convert the hop length and frame size to units of seconds:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[22]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="n">hop_length</span><span class="p">)</span><span class="o">/</span><span class="n">sr</span> <span class="c1"># units of seconds</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[22]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.023219954648526078</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[23]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="nb">float</span><span class="p">(</span><span class="n">n_fft</span><span class="p">)</span><span class="o">/</span><span class="n">sr</span>  <span class="c1"># units of seconds</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[23]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>0.09287981859410431</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>For real-valued signals, the Fourier transform is symmetric about the midpoint. Therefore, <code>librosa.stft</code> only retains one half of the output:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[24]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">X</span><span class="o">.</span><span class="n">shape</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[24]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>(1025, 166)</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>This STFT has 1025 frequency bins and 166 frames in time.</p>
 
 </div>
 </div>
@@ -11874,7 +12033,222 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="librosa.feature.melspectrogram"><code>librosa.feature.melspectrogram</code><a class="anchor-link" href="#librosa.feature.melspectrogram">&#194;&#182;</a></h3>
+<h2 id="Spectrogram">Spectrogram<a class="anchor-link" href="#Spectrogram">&#194;&#182;</a></h2>
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>In music processing, we often only care about the spectral magnitude and not the phase content.</p>
+<p>The <strong>spectrogram</strong> (<a href="https://en.wikipedia.org/wiki/Spectrogram">Wikipedia</a>; FMP, p. 29, 55) shows the the intensity of frequencies over time. A spectrogram is simply the squared magnitude of the STFT:</p>
+$$ S(m, \omega) = \left| X(m, \omega) \right|^2 $$
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>The human perception of sound intensity is logarithmic in nature. Therefore, we are often interested in the log amplitude:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[25]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">S</span> <span class="o">=</span> <span class="nb">abs</span><span class="p">(</span><span class="n">X</span><span class="p">)</span><span class="o">**</span><span class="mi">2</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>To display any type of spectrogram in librosa, use <a href="http://bmcfee.github.io/librosa/generated/librosa.display.specshow.html"><code>librosa.display.specshow</code></a>.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[26]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">librosa</span><span class="o">.</span><span class="n">display</span><span class="o">.</span><span class="n">specshow</span><span class="p">(</span><span class="n">S</span><span class="p">,</span> <span class="n">sr</span><span class="o">=</span><span class="n">sr</span><span class="p">,</span> <span class="n">x_axis</span><span class="o">=</span><span class="s1">&#39;time&#39;</span><span class="p">,</span> <span class="n">y_axis</span><span class="o">=</span><span class="s1">&#39;linear&#39;</span><span class="p">)</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[26]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>&lt;matplotlib.axes._subplots.AxesSubplot at 0x10e0f3810&gt;</pre>
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+
+<div class="output_png output_subarea ">
+<img src="data:image/png;base64,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
+ydplmxdqrWedymm9Ka4AAIBzsxvvUDyQ5A1JUkr5oSSfn21zAABg79qNdyg+nuT1pZTPJBkleduM
+2wMAAHvW3K+UDQAAbJ/d2OUJAADYIQQKAACgmUABAAA0242DsjdUSllI8sEkr0xyMslP1Vq/PNtW
+zZ+N9nMp5ZeSvDbJkdVNN9danxr8ILZEKeWqJL9Qa71u1m2ZZ2fbz6WUn0nyd5N8Z3XT36+11ik3
+b08opRxI8uEklyU5L8nP1Vo/MdNGzaGN9rNjfjpKKfuS3JWkJFlK8rZa61dm26r5s9F+dryvby4D
+RZIfT3J+rfWHV6eW/cUkN8+4TfNoo/18RZIbaq2Pz6R1e0gp5Z1J3pLk6KzbMs822M9XJHlrrfWP
+ptuqPenNSZ6otb6llPL8JA8lESi23kb72TE/HX81SWqtry2lXJfkjrim2Q4b7WfH+zrmtcvT1Uk+
+mSS11s8lefVsmzO3zrqfV+9e/Lkkv1JKeaCU8pOzaeKe8ZUkb5p1I/aA9fbzlUneVUr5dCnlXVNs
+0170m0nes6Z81sVNOScb7WfH/BTUWn8ryU+vFn8gybdn2Jy5tYn97Hhfx7wGiouTrO1as1RKmde7
+MbO03n6+IMm/z8o3XD+W5O2llL8w5fbtGbXWjyU5Pet2zLsN9vNvJPkHSX40ydWllDdOrWF7TK31
+6VrrkVLKRUnuTnL7rNs0jzaxnx3zU1JrXSylfDQrf1fvnnV75tUG+9nxvo55DRSHk1y0prxQa/UN
+1tZbbz8fS/Lvaq3Haq1HkvxeVsZawNwppYyS/Nta6+O11lNJ/keSV824WXOtlPLSJL+f5L/UWn99
+1u2ZV2fbz4756au1/p0kr0hyVynlglm3Z15N2s+O943Na6B4IMkbkmS1b//nZ9ucubXefn5Fkk+X
+UvatDuy7OskfT7+JMBUXJ3m4lHLh6h+eH02in+02KaW8KMm9SX621vrhWbdnXm2wnx3zU1JKecua
+LjbHkixnZdAwW2iD/ex438C8dgP6eJLXl1I+k2SU5G0zbs+8Guzn1VkQvlxr/UQp5b8m+VxWuoj8
+Wq31f8+wrbDlSil/K8mFtdZfKaW8Oyvf5J5M8qla6+/MtnVz7d1JnpvkPaWUM338b6y1Hp9hm+bR
+pP18V5ILHPNT9d+S/Gop5Q+THEhyW631xIzbNI8G+znJm0opzvGbMBqPx7NuAwAAsEvNa5cnAABg
+CgQKAACgmUABAAA0EygAAIBmAgUAANBsXqeNBWBGSil3JnltkoNJLk/yhdWnfjnJuNb6oVm1DYCt
+Z9pYALZFKeWyJH9Qa71sxk0BYBu5QwHAVJRS3pcktdb3lVL+NMlvJbkqyZ8m+XCSf5zkJUl+otZ6
+Xynl8iT/Mcnzs7Jy7T+qtT40i7YDcHbGUAAwCy9Kck+t9VVJzk/y12ut1yR5X1ZWqE2SjyZ5Z631
+iiQ/neQ3ZtFQANbnDgUAs3LP6r9fTfLpNY+fW0q5MMlrkvxqKeVM/QtLKc+vtT4x3WYCsB6BAoCZ
+qLWeWlNc7D29L8mJWusPntlQSnlJku9Oo20AbJ4uTwDsOLXWp5J8qZTy5iQppbw+yR/OtlUATOIO
+BQA71d9O8qFSyjuTnEryN2utpiYE2GFMGwsAADTT5QkAAGgmUAAAAM0ECgAAoJlAAQAANBMoAACA
+ZgIFAADQTKAAAACaCRQAAECz/wcS9nYb202fEAAAAABJRU5ErkJggg==
+"
+>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<h2 id="Mel-spectrogram">Mel-spectrogram<a class="anchor-link" href="#Mel-spectrogram">&#194;&#182;</a></h2>
 </div>
 </div>
 </div>
