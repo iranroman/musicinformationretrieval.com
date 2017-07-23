@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>dtw</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>lcs</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11771,22 +11771,6 @@ div#notebook {
   <div tabindex="-1" id="notebook" class="border-box-sizing">
     <div class="container" id="notebook-container">
 
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[74]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">seaborn</span>
-<span class="kn">import</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">scipy</span><span class="o">,</span> <span class="nn">scipy.spatial</span><span class="o">,</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">3</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
@@ -11800,7 +11784,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dynamic-Time-Warping">Dynamic Time Warping<a class="anchor-link" href="#Dynamic-Time-Warping">&#194;&#182;</a></h1>
+<h1 id="Longest-Common-Subsequence">Longest Common Subsequence<a class="anchor-link" href="#Longest-Common-Subsequence">&#194;&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11808,8 +11792,10 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In MIR, we often want to compare two sequences of different lengths. For example, we may want to compute a similarity measure between two versions of the same song. These two signals, $x$ and $y$, may have similar sequences of chord progressions and instrumentations, but there may be timing deviations between the two. Even if we were to express the two audio signals using the same feature space (e.g. chroma or MFCCs), we cannot simply sum their pairwise distances because the signals have different lengths.</p>
-<p>As another example, you might want to align two different performances of the same musical work, e.g. so you can hop from one performance to another at any moment in the work. This problem is known as <strong>music synchronization</strong> (FMP, p. 115).</p>
+<p>To motivate dynamic time warping, let's look at a classic dynamic programming problem: find the <strong>longest common subsequence (LCS)</strong> of two strings (<a href="https://en.wikipedia.org/wiki/Longest_common_subsequence_problem">Wikipedia</a>). A subsequence is not required to maintain consecutive positions in the original strings, but they must retain their order. Examples:</p>
+
+<pre><code>lcs('cake', 'baker') -&gt; 'ake'
+lcs('cake', 'cape') -&gt; 'cae'</code></pre>
 
 </div>
 </div>
@@ -11818,9 +11804,10 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong>Dynamic time warping (DTW)</strong> (<a href="https://en.wikipedia.org/wiki/Dynamic_time_warping">Wikipedia</a>; FMP, p. 131) is an algorithm used to align two sequences of similar content but possibly different lengths.</p>
-<p>Given two sequences, $x[n], n \in \{0, ..., N_x - 1\}$, and $y[n], n \in \{0, ..., N_y - 1\}$, DTW produces a set of index coordinate pairs $\{ (i, j) ... \}$ such that $x[i]$ and $y[j]$ are similar.</p>
-<p>We will use the same approach described in the notebooks <a href="dp.html">Dynamic Programming</a> and <a href="lcs.html">Longest Common Subsequence</a>.</p>
+<p>We can solve this using recursion. We must find the optimal substructure, i.e. decompose the problem into simpler subproblems.</p>
+<p>Let <code>x</code> and <code>y</code> be two strings. Let <code>z</code> be the true LCS of <code>x</code> and <code>y</code>.</p>
+<p>If the first characters of <code>x</code> and <code>y</code> were the same, then that character must also be the first character of the LCS, <code>z</code>. In other words, if <code>x[0] == y[0]</code>, then <code>z[0]</code> must equal <code>x[0]</code> (which equals <code>y[0]</code>). Therefore, append <code>x[0]</code> to <code>lcs(x[1:], y[1:])</code>.</p>
+<p>If the first characters of <code>x</code> and <code>y</code> differ, then solve for both <code>lcs(x, y[1:])</code> and <code>lcs(x[1:], y)</code>, and keep the result which is longer.</p>
 
 </div>
 </div>
@@ -11829,28 +11816,53 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Example">Example<a class="anchor-link" href="#Example">&#194;&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Create two arrays, $x$ and $y$, of lengths $N_x$ and $N_y$, respectively.</p>
+<p>Here is the recursive solution:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[123]:</div>
+<div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="o">-</span><span class="mi">4</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">y</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">,</span> <span class="mi">3</span><span class="p">,</span> <span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="o">-</span><span class="mi">2</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">]</span>
-<span class="n">nx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">ny</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">lcs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">x</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span> <span class="ow">or</span> <span class="n">y</span> <span class="o">==</span> <span class="s2">&quot;&quot;</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">==</span> <span class="n">y</span><span class="p">[</span><span class="mi">0</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">x</span><span class="p">[</span><span class="mi">0</span><span class="p">]</span> <span class="o">+</span> <span class="n">lcs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="n">z1</span> <span class="o">=</span> <span class="n">lcs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="mi">1</span><span class="p">:],</span> <span class="n">y</span><span class="p">)</span>
+        <span class="n">z2</span> <span class="o">=</span> <span class="n">lcs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="mi">1</span><span class="p">:])</span>
+        <span class="k">return</span> <span class="n">z1</span> <span class="k">if</span> <span class="nb">len</span><span class="p">(</span><span class="n">z1</span><span class="p">)</span> <span class="o">&gt;</span> <span class="nb">len</span><span class="p">(</span><span class="n">z2</span><span class="p">)</span> <span class="k">else</span> <span class="n">z2</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Test:</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[2]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">pairs</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">(</span><span class="s1">&#39;cake&#39;</span><span class="p">,</span> <span class="s1">&#39;baker&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;cake&#39;</span><span class="p">,</span> <span class="s1">&#39;cape&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;catcga&#39;</span><span class="p">,</span> <span class="s1">&#39;gtaccgtca&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;zxzxzxmnxzmnxmznmzxnzm&#39;</span><span class="p">,</span> <span class="s1">&#39;nmnzxmxzmnzmx&#39;</span><span class="p">),</span>
+    <span class="p">(</span><span class="s1">&#39;dfkjdjkfdjkjfdkfdkfjd&#39;</span><span class="p">,</span> <span class="s1">&#39;dkfjdjkfjdkjfkdjfkjdkfjdkfj&#39;</span><span class="p">),</span>
+<span class="p">]</span>
 </pre></div>
 
 </div>
@@ -11860,12 +11872,11 @@ div#notebook {
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[127]:</div>
+<div class="prompt input_prompt">In&nbsp;[3]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">plot</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="n">c</span><span class="o">=</span><span class="s1">&#39;r&#39;</span><span class="p">)</span>
-<span class="n">plt</span><span class="o">.</span><span class="n">legend</span><span class="p">((</span><span class="s1">&#39;x&#39;</span><span class="p">,</span> <span class="s1">&#39;y&#39;</span><span class="p">))</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+    <span class="k">print</span> <span class="n">lcs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -11875,361 +11886,20 @@ div#notebook {
 <div class="output_wrapper">
 <div class="output">
 
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[127]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>&lt;matplotlib.legend.Legend at 0x11ce5d910&gt;</pre>
-</div>
-
-</div>
 
 <div class="output_area">
 
 <div class="prompt"></div>
 
 
-
-
-<div class="output_png output_subarea ">
-<img src="data:image/png;base64,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
-REREtN4/u6cPBCJ5QIcAAAAASUVORK5CYII=
-"
->
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ake
+cae
+ctca
+zxmxzmnzmx
+dfjdjkfdjkjfdkfdkfj
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -12240,7 +11910,7 @@ REREtN4/u6cPBCJ5QIcAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>In this simple example, there is only one value or "feature" at each time index. However, in practice, you can use sequences of <em>vectors</em>, e.g. spectrograms, chromagrams, or MFCC-grams.</p>
+<p>The time complexity of the above recursive method is $O(2^{n_x+n_y})$. That is slow because we might compute the solution to the same subproblem multiple times.</p>
 
 </div>
 </div>
@@ -12249,7 +11919,7 @@ REREtN4/u6cPBCJ5QIcAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Distance-Metric">Distance Metric<a class="anchor-link" href="#Distance-Metric">&#194;&#182;</a></h2>
+<h3 id="Memoization">Memoization<a class="anchor-link" href="#Memoization">&#194;&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -12257,277 +11927,40 @@ REREtN4/u6cPBCJ5QIcAAAAASUVORK5CYII=
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>DTW requires the use of a distance metric between corresponding observations of <code>x</code> and <code>y</code>. One common choice is the <strong>Euclidean distance</strong> (<a href="https://en.wikipedia.org/wiki/Euclidean_distance">Wikipedia</a>; FMP, p. 454):</p>
+<p>We can do better through memoization, i.e. storing solutions to previous subproblems in a table.</p>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Here, we create a table where cell <code>(i, j)</code> stores the length <code>lcs(x[:i], y[:j])</code>. When either <code>i</code> or <code>j</code> is equal to zero, i.e. an empty string, we already know that the LCS is the empty string. Therefore, we can initialize the table to be equal to zero in all cells. Then we populate the table from the top left to the bottom right.</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[128]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">spatial</span><span class="o">.</span><span class="n">distance</span><span class="o">.</span><span class="n">euclidean</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="p">[</span><span class="mi">3</span><span class="p">,</span> <span class="mi">4</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[128]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>5.0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[129]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">spatial</span><span class="o">.</span><span class="n">distance</span><span class="o">.</span><span class="n">euclidean</span><span class="p">([</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">5</span><span class="p">,</span> <span class="mi">12</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[129]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>13.0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Another choice might be the <strong>cosine distance</strong> (<a href="https://en.wikipedia.org/wiki/Cosine_similarity">Wikipedia</a>; FMP, p. 376) which can be interpreted as the (normalized) angle between two vectors:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[134]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">spatial</span><span class="o">.</span><span class="n">distance</span><span class="o">.</span><span class="n">cosine</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">100</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[134]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>0.0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[132]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">spatial</span><span class="o">.</span><span class="n">distance</span><span class="o">.</span><span class="n">cosine</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="mi">0</span><span class="p">,</span> <span class="mi">0</span><span class="p">,</span> <span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[132]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>1.0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[133]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">scipy</span><span class="o">.</span><span class="n">spatial</span><span class="o">.</span><span class="n">distance</span><span class="o">.</span><span class="n">cosine</span><span class="p">([</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">],</span> <span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="mi">0</span><span class="p">])</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[133]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>2.0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Step-1:-Cost-Table-Construction">Step 1: Cost Table Construction<a class="anchor-link" href="#Step-1:-Cost-Table-Construction">&#194;&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>As described in the notebooks <a href="dp.html">Dynamic Programming</a> and <a href="lcs.html">Longest Common Subsequence</a>, we will use dynamic programming to solve this problem. First, we create a table which stores the solutions to all subproblems. Then, we will use this table to solve each larger subproblem until the problem is solved for the full original inputs.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The basic idea of DTW is to find a path of index coordinate pairs the sum of distances along the path $P$ is minimized:</p>
-$$ \min \sum_{(i, j) \in P} d(x[i], y[j]) $$
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>The path constraint is that, at $(i, j)$, the valid steps are $(i+1, j)$, $(i, j+1)$, and $(i+1, j+1)$. In other words, the alignment always moves forward in time for at least one of the signals. It never goes forward in time for one signal and backward in time for the other signal.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Here is the optimal substructure. Suppose that the best alignment contains index pair <code>(i, j)</code>, i.e., <code>x[i]</code> and <code>y[j]</code> are part of the optimal DTW path. Then, we prepend to the optimal path</p>
-$$ \mathrm{argmin} \ \{ d(x[i-1], y[j]), d(x[i], y[j-1]), d(x[i-1], j-1]) \} $$
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>We create a table where cell <code>(i, j)</code> stores the optimum cost of <code>dtw(x[:i], y[:j])</code>, i.e. the optimum cost from <code>(0, 0)</code> to <code>(i, j)</code>. First, we solve for the boundary cases, i.e. when either one of the two sequences is empty. Then we populate the table from the top left to the bottom right.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[135]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">dtw_table</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">lcs_table</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">):</span>
     <span class="n">nx</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
     <span class="n">ny</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    
+    <span class="c1"># Initialize a table.</span>
     <span class="n">table</span> <span class="o">=</span> <span class="p">[[</span><span class="mi">0</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">ny</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span> <span class="k">for</span> <span class="n">_</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="n">nx</span><span class="o">+</span><span class="mi">1</span><span class="p">)]</span>
     
-    <span class="c1"># Compute left column separately, i.e. j=0.</span>
-    <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nx</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">spatial</span><span class="o">.</span><span class="n">distance</span><span class="o">.</span><span class="n">euclidean</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="mi">0</span><span class="p">)</span>
-        <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span> <span class="o">+</span> <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="mi">0</span><span class="p">]</span>
-        
-    <span class="c1"># Compute top row separately, i.e. i=0.</span>
-    <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ny</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-        <span class="n">d</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">spatial</span><span class="o">.</span><span class="n">distance</span><span class="o">.</span><span class="n">euclidean</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-        <span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span> <span class="o">+</span> <span class="n">table</span><span class="p">[</span><span class="mi">0</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-        
-    <span class="c1"># Fill in the rest.</span>
+    <span class="c1"># Fill the table.</span>
     <span class="k">for</span> <span class="n">i</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">nx</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
         <span class="k">for</span> <span class="n">j</span> <span class="ow">in</span> <span class="nb">range</span><span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="n">ny</span><span class="o">+</span><span class="mi">1</span><span class="p">):</span>
-            <span class="n">d</span> <span class="o">=</span> <span class="n">scipy</span><span class="o">.</span><span class="n">spatial</span><span class="o">.</span><span class="n">distance</span><span class="o">.</span><span class="n">euclidean</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-            <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="n">d</span> <span class="o">+</span> <span class="nb">min</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">],</span> <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
-    <span class="k">return</span> <span class="n">table</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[136]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">table</span> <span class="o">=</span> <span class="n">dtw_table</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+            <span class="k">if</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+                <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="mi">1</span> <span class="o">+</span> <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+            <span class="k">else</span><span class="p">:</span>
+                <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">=</span> <span class="nb">max</span><span class="p">(</span><span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">],</span> <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span>
+    <span class="k">return</span> <span class="n">table</span>                      
 </pre></div>
 
 </div>
@@ -12546,17 +11979,54 @@ $$ \mathrm{argmin} \ \{ d(x[i-1], y[j]), d(x[i], y[j-1]), d(x[i-1], j-1]) \} $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[142]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">print</span> <span class="s1">&#39;         &#39;</span><span class="p">,</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%4d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">n</span> <span class="k">for</span> <span class="n">n</span> <span class="ow">in</span> <span class="n">y</span><span class="p">)</span>
-<span class="k">print</span> <span class="s1">&#39;     +&#39;</span> <span class="o">+</span> <span class="s1">&#39;----&#39;</span> <span class="o">*</span> <span class="p">(</span><span class="n">ny</span><span class="o">+</span><span class="mi">1</span><span class="p">)</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">x</span> <span class="o">=</span> <span class="s1">&#39;cake&#39;</span>
+<span class="n">y</span> <span class="o">=</span> <span class="s1">&#39;baker&#39;</span>
+<span class="n">table</span> <span class="o">=</span> <span class="n">lcs_table</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+<span class="n">table</span>
+</pre></div>
+
+</div>
+</div>
+</div>
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt output_prompt">Out[5]:</div>
+
+
+
+
+<div class="output_text output_subarea output_execute_result">
+<pre>[[0, 0, 0, 0, 0, 0],
+ [0, 0, 0, 0, 0, 0],
+ [0, 0, 1, 1, 1, 1],
+ [0, 0, 1, 2, 2, 2],
+ [0, 0, 1, 2, 3, 3]]</pre>
+</div>
+
+</div>
+
+</div>
+</div>
+
+</div>
+<div class="cell border-box-sizing code_cell rendered">
+<div class="input">
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
+<div class="inner_cell">
+    <div class="input_area">
+<div class=" highlight hl-ipython2"><pre><span></span><span class="n">xa</span> <span class="o">=</span> <span class="s1">&#39; &#39;</span> <span class="o">+</span> <span class="n">x</span>
+<span class="n">ya</span> <span class="o">=</span> <span class="s1">&#39;  &#39;</span> <span class="o">+</span> <span class="n">y</span>
+<span class="k">print</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="n">ya</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">i</span><span class="p">,</span> <span class="n">row</span> <span class="ow">in</span> <span class="nb">enumerate</span><span class="p">(</span><span class="n">table</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">i</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">z0</span> <span class="o">=</span> <span class="s1">&#39;&#39;</span>
-    <span class="k">else</span><span class="p">:</span>
-        <span class="n">z0</span> <span class="o">=</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-    <span class="k">print</span> <span class="p">(</span><span class="s1">&#39;</span><span class="si">%4s</span><span class="s1"> |&#39;</span> <span class="o">%</span> <span class="n">z0</span><span class="p">)</span> <span class="o">+</span> <span class="s1">&#39;&#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%4d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="n">z</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">row</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">xa</span><span class="p">[</span><span class="n">i</span><span class="p">],</span> <span class="s1">&#39; &#39;</span><span class="o">.</span><span class="n">join</span><span class="p">(</span><span class="nb">str</span><span class="p">(</span><span class="n">z</span><span class="p">)</span> <span class="k">for</span> <span class="n">z</span> <span class="ow">in</span> <span class="n">row</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12573,16 +12043,12 @@ $$ \mathrm{argmin} \ \{ d(x[i-1], y[j]), d(x[i], y[j-1]), d(x[i-1], j-1]) \} $$
 
 
 <div class="output_subarea output_stream output_stdout output_text">
-<pre>             1   3   4   3   1  -1  -2  -1   0
-     +----------------------------------------
-     |   0   1   4   8  11  12  13  15  16  16
-   0 |   0   1   4   8  11  12  13  15  16  16
-   4 |   4   3   2   2   3   6  11  17  20  20
-   4 |   8   6   3   2   3   6  11  17  22  24
-   0 |   8   7   6   6   5   4   5   7   8   8
-  -4 |  12  12  13  14  12   9   7   7  10  12
-  -4 |  16  17  19  21  19  14  10   9  10  14
-   0 |  16  17  20  23  22  15  11  11  10  10
+<pre>    b a k e r
+  0 0 0 0 0 0
+c 0 0 0 0 0 0
+a 0 0 1 1 1 1
+k 0 0 1 2 2 2
+e 0 0 1 2 3 3
 </pre>
 </div>
 </div>
@@ -12595,60 +12061,29 @@ $$ \mathrm{argmin} \ \{ d(x[i-1], y[j]), d(x[i], y[j-1]), d(x[i-1], j-1]) \} $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The time complexity of this operation is $O(N_x N_y)$. The space complexity is $O(N_x N_y)$.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Step-2:-Backtracking">Step 2: Backtracking<a class="anchor-link" href="#Step-2:-Backtracking">&#194;&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>To assemble the best path, we use <strong>backtracking</strong> (FMP, p. 139). We will start at the end, $(N_x - 1, N_y - 1)$, and backtrack to the beginning, $(0, 0)$.</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Finally, just read off the sequences of time index pairs starting at the end.</p>
+<p>Finally, we backtrack, i.e. read the table from the bottom right to the top left:</p>
 
 </div>
 </div>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[138]:</div>
+<div class="prompt input_prompt">In&nbsp;[7]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">dtw</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">table</span><span class="p">):</span>
-    <span class="n">i</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
-    <span class="n">j</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
-    <span class="n">path</span> <span class="o">=</span> <span class="p">[(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)]</span>
-    <span class="k">while</span> <span class="n">i</span> <span class="o">&gt;</span> <span class="mi">0</span> <span class="ow">or</span> <span class="n">j</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
-        <span class="n">minval</span> <span class="o">=</span> <span class="n">numpy</span><span class="o">.</span><span class="n">inf</span>
-        <span class="k">if</span> <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">minval</span><span class="p">:</span>
-            <span class="n">minval</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]</span>
-            <span class="n">step</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">minval</span><span class="p">:</span>
-            <span class="n">minval</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-            <span class="n">step</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="k">if</span> <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&lt;</span> <span class="n">minval</span><span class="p">:</span>
-            <span class="n">minval</span> <span class="o">=</span> <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-            <span class="n">step</span> <span class="o">=</span> <span class="p">(</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
-        <span class="n">path</span><span class="o">.</span><span class="n">insert</span><span class="p">(</span><span class="mi">0</span><span class="p">,</span> <span class="n">step</span><span class="p">)</span>
-        <span class="n">i</span><span class="p">,</span> <span class="n">j</span> <span class="o">=</span> <span class="n">step</span>
-    <span class="k">return</span> <span class="n">path</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">lcs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">i</span><span class="o">=</span><span class="bp">None</span><span class="p">,</span> <span class="n">j</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">i</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">i</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">x</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">j</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+        <span class="n">j</span> <span class="o">=</span> <span class="nb">len</span><span class="p">(</span><span class="n">y</span><span class="p">)</span>
+    <span class="k">if</span> <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="p">]</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
+        <span class="k">return</span> <span class="s2">&quot;&quot;</span>
+    <span class="k">elif</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">==</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">lcs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span> <span class="o">+</span> <span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
+    <span class="k">elif</span> <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="p">][</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="n">table</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="n">j</span><span class="p">]:</span>
+        <span class="k">return</span> <span class="n">lcs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">)</span>
+    <span class="k">else</span><span class="p">:</span>
+        <span class="k">return</span> <span class="n">lcs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">table</span><span class="p">,</span> <span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12658,11 +12093,12 @@ $$ \mathrm{argmin} \ \{ d(x[i-1], y[j]), d(x[i], y[j-1]), d(x[i-1], j-1]) \} $$
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[139]:</div>
+<div class="prompt input_prompt">In&nbsp;[8]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">path</span> <span class="o">=</span> <span class="n">dtw</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
-<span class="n">path</span>
+<div class=" highlight hl-ipython2"><pre><span></span><span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">y</span> <span class="ow">in</span> <span class="n">pairs</span><span class="p">:</span>
+    <span class="n">table</span> <span class="o">=</span> <span class="n">lcs_table</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">)</span>
+    <span class="k">print</span> <span class="n">lcs</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">y</span><span class="p">,</span> <span class="n">table</span><span class="p">)</span>
 </pre></div>
 
 </div>
@@ -12675,27 +12111,17 @@ $$ \mathrm{argmin} \ \{ d(x[i-1], y[j]), d(x[i], y[j-1]), d(x[i-1], j-1]) \} $$
 
 <div class="output_area">
 
-<div class="prompt output_prompt">Out[139]:</div>
+<div class="prompt"></div>
 
 
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>[(0, 0),
- (1, 0),
- (1, 1),
- (2, 2),
- (2, 3),
- (3, 3),
- (3, 4),
- (4, 5),
- (4, 6),
- (5, 7),
- (6, 7),
- (7, 8),
- (7, 9)]</pre>
+<div class="output_subarea output_stream output_stdout output_text">
+<pre>ake
+cae
+ctca
+zxmxzmnzmx
+dfjdjkfdjkjfdkfdkfj
+</pre>
 </div>
-
 </div>
 
 </div>
@@ -12706,94 +12132,10 @@ $$ \mathrm{argmin} \ \{ d(x[i-1], y[j]), d(x[i], y[j-1]), d(x[i-1], j-1]) \} $$
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p>The time complexity of this operation is $O(N_x + N_y)$.</p>
+<p>Table construction has time complexity $O(mn)$, and backtracking is $O(m+n)$. Therefore, the overall running time is $O(mn)$.</p>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>As a sanity check, compute the total distance of this alignment:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[144]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="nb">sum</span><span class="p">(</span><span class="nb">abs</span><span class="p">(</span><span class="n">x</span><span class="p">[</span><span class="n">i</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span> <span class="o">-</span> <span class="n">y</span><span class="p">[</span><span class="n">j</span><span class="o">-</span><span class="mi">1</span><span class="p">])</span> <span class="k">for</span> <span class="p">(</span><span class="n">i</span><span class="p">,</span> <span class="n">j</span><span class="p">)</span> <span class="ow">in</span> <span class="n">path</span> <span class="k">if</span> <span class="n">i</span> <span class="o">&gt;=</span> <span class="mi">0</span> <span class="ow">and</span> <span class="n">j</span> <span class="o">&gt;=</span> <span class="mi">0</span><span class="p">)</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[144]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>10</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<p>Indeed, that is the same as the cumulative distance of the optimal path computed earlier:</p>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing code_cell rendered">
-<div class="input">
-<div class="prompt input_prompt">In&nbsp;[146]:</div>
-<div class="inner_cell">
-    <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">table</span><span class="p">[</span><span class="o">-</span><span class="mi">1</span><span class="p">][</span><span class="o">-</span><span class="mi">1</span><span class="p">]</span>
-</pre></div>
-
-</div>
-</div>
-</div>
-
-<div class="output_wrapper">
-<div class="output">
-
-
-<div class="output_area">
-
-<div class="prompt output_prompt">Out[146]:</div>
-
-
-
-
-<div class="output_text output_subarea output_execute_result">
-<pre>10.0</pre>
-</div>
-
-</div>
-
-</div>
-</div>
-
 </div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
