@@ -3,8 +3,6 @@ stanford-mir
 
 Instructional material for the [Music Information Retrieval Workshop](https://ccrma.stanford.edu/workshops/music-information-retrieval-2017) at CCRMA, Stanford University, 2014-17.
 
-The 2017 workshop is sold out and beyond capacity. Sorry.
-
 
 How to Use This Repo
 --------------------
@@ -19,7 +17,9 @@ The simplest way to use this repository is to (1) browse a read-only version of 
     
 2.  Install [librosa](https://librosa.github.io/librosa/install.html) and [ffmpeg](https://librosa.github.io/librosa/install.html#ffmpeg).
 
-If these packages are already installed, don't forget to upgrade them before the workshop. Use either `pip install --upgrade` or `conda upgrade` depending upon which package installer you used for the respective package.
+If these packages are already installed, don't forget to upgrade them before the workshop.
+
+To upgrade, use either `pip install --upgrade` or `conda upgrade` depending upon which package installer you used for the respective package.
 
 ### Start the Jupyter Notebook
 
