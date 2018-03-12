@@ -1,7 +1,12 @@
 stanford-mir
 ============
 
-Instructional material for the [Music Information Retrieval Workshop](https://ccrma.stanford.edu/workshops/music-information-retrieval-2017) at CCRMA, Stanford University, 2014-17.
+Instructional material for the [Music Information Retrieval Workshop](https://ccrma.stanford.edu/workshops/mir-2018) at CCRMA, Stanford University, 2014-18.
+
+[Registration for the Stanford CCRMA MIR 2018 Workshop is open!](https://ccrma.stanford.edu/workshops/mir-2018) This year's esteemed instructors include:
+
+- [Meinard Müller](https://www.audiolabs-erlangen.de/fau/professor/mueller) (Int'l Audio Laboratories Erlangen; author, [*Fundamentals of Music Processing*](https://www.audiolabs-erlangen.de/fau/professor/mueller/bookFMP))
+- [Brian McFee](https://bmcfee.github.io/) (NYU; creator, [librosa](https://github.com/librosa/librosa)).
 
 
 How to Use This Repo
@@ -13,13 +18,24 @@ The simplest way to use this repository is to (1) browse a read-only version of 
 
 ### Install Python and relevant libraries
 
-1.  If you’re totally new, the simplest solution is to download and install [Anaconda for Python 2 (2.7)](https://www.continuum.io/downloads), not Python 3. 
+1.  If you’re totally new, the simplest solution is to download and install [Anaconda for Python 3.x](https://www.anaconda.com/download).
     
 2.  Install [librosa](https://librosa.github.io/librosa/install.html) and [ffmpeg](https://librosa.github.io/librosa/install.html#ffmpeg).
 
 If these packages are already installed, don't forget to upgrade them before the workshop.
 
 To upgrade, use either `pip install --upgrade` or `conda upgrade` depending upon which package installer you used for the respective package.
+
+[2018 March 12] These notebooks reflect the following package versions:
+
+-   numpy 1.14.2
+-   scipy 1.0.0
+-   matplotlib 2.2.0
+-   ipython 6.2.1
+-   jupyter 1.0.0
+-   librosa 0.6.0
+-   scikit-learn 0.19.1
+-   pandas 0.22.0
 
 ### Start the Jupyter Notebook
 
@@ -37,7 +53,7 @@ A majority of our instruction and laboratory work will occur inside the [Jupyter
 
     -   Immediately rename the notebook by clicking on "Untitled" in the top left, and choosing a different name.
     -   Inside a cell, run `1+2`. Press `<Shift-Enter>` on a cell to run that cell. Hopefully you get the output `3`.
-    -   Inside a cell, run `import scipy, sklearn, pandas, seaborn, librosa`. Press `<Shift-Enter>` to run the cell. If that runs without error, congratulations, you have the necessary libraries installed properly.
+    -   Inside a cell, run `import scipy, sklearn, pandas, librosa`. Press `<Shift-Enter>` to run the cell. If that runs without error, congratulations, you have the necessary libraries installed properly.
     -   Try executing the content from <http://musicinformationretrieval.com> inside this blank notebook.
 
 4.  To close the Jupyter notebook,
