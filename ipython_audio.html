@@ -12438,7 +12438,7 @@ sox in.wav out.wav trim 75 30</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://www.ffmpeg.org/">ffmpeg</a> is a framework to convert among different audio and video file formats.</p>
+<p><a href="https://www.ffmpeg.org/">ffmpeg</a> is a framework to convert among different audio and video file formats. Use <code>ffmpeg</code> if you want to convert WAV to MP3.</p>
 
 </div>
 </div>
@@ -12461,6 +12461,17 @@ sox in.wav out.wav trim 75 30</code></pre>
 <p>Convert a WAV file to MP3:</p>
 
 <pre><code>ffmpeg -i in.wav out.mp3 </code></pre>
+
+</div>
+</div>
+</div>
+<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+</div>
+<div class="inner_cell">
+<div class="text_cell_render border-box-sizing rendered_html">
+<p>Down-mix all input channels to mono with a bitrate of 128k:</p>
+
+<pre><code>ffmpeg -i in.wav -ac 1 -ab 128k out.mp3</code></pre>
 
 </div>
 </div>
