@@ -1,10 +1,25 @@
 import errno
 import librosa
+import matplotlib, matplotlib.pyplot as plt
 import numpy
 import os
 import os.path
 import sklearn
-import urllib
+import urllib.request
+
+def init():
+    plt.style.use('seaborn-muted')
+    #plt.rcParams['figure.figsize'] = (14, 5)
+    plt.rcParams['axes.grid'] = True
+    plt.rcParams['axes.spines.left'] = False
+    plt.rcParams['axes.spines.right'] = False
+    plt.rcParams['axes.spines.bottom'] = False
+    plt.rcParams['axes.spines.top'] = False
+    plt.rcParams['axes.xmargin'] = 0
+    plt.rcParams['axes.ymargin'] = 0
+    plt.rcParams['image.cmap'] = 'gray'
+    plt.rcParams['image.interpolation'] = None
+
 
 def extract_features(signal, features):
     fvs = list()
@@ -14,6 +29,7 @@ def extract_features(signal, features):
         elif feature_name == 'spectral_centroid':
             fvs.append( librosa.feature.spectral_centroid(signal)[0, 0] )
     return fvs
+
 
 def get_features(collection='drum_samples_train',
                  features=('zero_crossing_rate', 'spectral_centroid'),
@@ -88,7 +104,7 @@ def download_samples(collection='drum_samples_train', download=True):
             for drum_type in ['kick', 'snare']:
                 for i in range(1, 11):
                     filename = '%s_%02d.wav' % (drum_type, i)
-                    urllib.urlretrieve('http://audio.musicinformationretrieval.com/drum_samples/%s' % filename,
+                    urllib.request.urlretrieve('http://audio.musicinformationretrieval.com/drum_samples/%s' % filename,
                                        filename=os.path.join(collection, filename))
         kick_filepaths = [os.path.join(collection, 'kick_%02d.wav' % i) for i in range(1, 11)]
         snare_filepaths = [os.path.join(collection, 'snare_%02d.wav' % i) for i in range(1, 11)]
@@ -99,19 +115,19 @@ def download_samples(collection='drum_samples_train', download=True):
             for drum_type in ['kick', 'snare']:
                 for i in range(30):
                     filename = '%s_%02d.wav' % (drum_type, i)
-                    urllib.urlretrieve('http://audio.musicinformationretrieval.com/drum_samples/test/%s' % filename,
+                    urllib.request.urlretrieve('http://audio.musicinformationretrieval.com/drum_samples/test/%s' % filename,
                                        filename=os.path.join(collection, filename))
         kick_filepaths = [os.path.join(collection, 'kick_%02d.wav' % i) for i in range(30)]
         snare_filepaths = [os.path.join(collection, 'snare_%02d.wav' % i) for i in range(30)]
         return kick_filepaths, snare_filepaths
 
     elif collection == 'violin_samples_train':
-        urllib.urlretrieve('http://audio.musicinformationretrieval.com/violin_samples_train/list.txt',
+        urllib.request.urlretrieve('http://audio.musicinformationretrieval.com/violin_samples_train/list.txt',
                            filename=os.path.join(collection, 'list.txt'))
         for line in open(os.path.join(collection, 'list.txt'), 'r'):
             filename = line.strip()
-            print filename
+            print(filename)
             if filename.endswith('.wav'):
-                urllib.urlretrieve('http://audio.musicinformationretrieval.com/' + filename,
+                urllib.request.urlretrieve('http://audio.musicinformationretrieval.com/' + filename,
                                    filename=filename)
         return [os.path.join(collection, f) for f in os.listdir(collection)]
