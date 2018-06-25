@@ -42,7 +42,7 @@ To upgrade, use either `pip install --upgrade` or `conda upgrade` depending upon
 
 ### Troubleshooting
 
-([Issue #729](https://github.com/librosa/librosa/issues/729)): `import librosa` causes `TypeError: expected string or buffer` 
+[Issue #729](https://github.com/librosa/librosa/issues/729): `import librosa` causes `TypeError: expected string or buffer` 
 
 -   Workaround: downgrade `joblib` to v0.11:
 
