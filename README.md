@@ -20,22 +20,33 @@ The simplest way to use this repository is to (1) browse a read-only version of 
 
 1.  If you’re totally new, the simplest solution is to download and install [Anaconda for Python 3.x](https://www.anaconda.com/download).
     
-2.  Install [librosa](https://librosa.github.io/librosa/install.html) and [ffmpeg](https://librosa.github.io/librosa/install.html#ffmpeg).
+2.  Install [librosa](https://librosa.github.io/librosa/install.html) and [ffmpeg](https://librosa.github.io/librosa/install.html#ffmpeg). If you installed Anaconda during step 1:
+
+        conda install -c conda-forge librosa
 
 If these packages are already installed, don't forget to upgrade them before the workshop.
 
 To upgrade, use either `pip install --upgrade` or `conda upgrade` depending upon which package installer you used for the respective package.
 
-[2018 March 12] These notebooks reflect the following package versions:
+[2018 June 24] These notebooks reflect the following package versions:
 
 -   numpy 1.14.2
 -   scipy 1.0.0
 -   matplotlib 2.2.0
 -   ipython 6.2.1
 -   jupyter 1.0.0
--   librosa 0.6.0
+-   librosa 0.6.1
 -   scikit-learn 0.19.1
 -   pandas 0.22.0
+-   joblib 0.11
+
+### Troubleshooting
+
+([Issue #729](https://github.com/librosa/librosa/issues/729)): `import librosa` causes `TypeError: expected string or buffer` 
+
+-   Workaround: downgrade `joblib` to v0.11:
+
+        pip install joblib==0.11
 
 ### Start the Jupyter Notebook
 
