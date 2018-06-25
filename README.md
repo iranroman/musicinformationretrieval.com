@@ -22,7 +22,7 @@ The simplest way to use this repository is to (1) browse a read-only version of 
     
 2.  Install [librosa](https://librosa.github.io/librosa/install.html) and [ffmpeg](https://librosa.github.io/librosa/install.html#ffmpeg). If you installed Anaconda during step 1:
 
-        conda install -c conda-forge librosa
+        conda install -c conda-forge librosa ffmpeg
 
 If these packages are already installed, don't forget to upgrade them before the workshop.
 
