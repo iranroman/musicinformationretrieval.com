@@ -1,5 +1,7 @@
-stanford-mir
-============
+musicinformationretrieval.com
+=============================
+
+**`stanford-mir` is now `musicinformationretrieval.com`.**
 
 Instructional material for the [Music Information Retrieval Workshop](https://ccrma.stanford.edu/workshops/mir-2018) at CCRMA, Stanford University, 2014-18.
 
@@ -83,7 +85,7 @@ Contributions
 
 Your contributions are very welcome! You can contribute in two ways:
 
-1. Submit an issue. Click on "[Issues](https://github.com/stevetjoa/stanford-mir/issues)" in the right navigation bar, then "New Issue".  Issues can include Python bugs, spelling mistakes, broken links, requests for new content, and more.
+1. Submit an issue. Click on "[Issues](https://github.com/stevetjoa/musicinformationretrieval.com/issues)" in the right navigation bar, then "New Issue".  Issues can include Python bugs, spelling mistakes, broken links, requests for new content, and more.
 
 2. Submit changes to source code or documentation. [Fork this repo](https://help.github.com/articles/fork-a-repo), make edits, then [submit a pull request](https://help.github.com/articles/using-pull-requests).
 
