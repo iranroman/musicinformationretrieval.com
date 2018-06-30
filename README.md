@@ -5,7 +5,7 @@ musicinformationretrieval.com
 
 Instructional material for the [Music Information Retrieval Workshop](https://ccrma.stanford.edu/workshops/mir-2018) at CCRMA, Stanford University, 2014-18.
 
-[Registration for the Stanford CCRMA MIR 2018 Workshop is open!](https://ccrma.stanford.edu/workshops/mir-2018) This year's esteemed instructors include:
+[The Stanford CCRMA MIR 2018 Workshop has come to an end.](https://ccrma.stanford.edu/workshops/mir-2018) This year's esteemed instructors included:
 
 - [Meinard Müller](https://www.audiolabs-erlangen.de/fau/professor/mueller) (Int'l Audio Laboratories Erlangen; author, [*Fundamentals of Music Processing*](https://www.audiolabs-erlangen.de/fau/professor/mueller/bookFMP))
 - [Brian McFee](https://bmcfee.github.io/) (NYU; creator, [librosa](https://github.com/librosa/librosa)).
