@@ -1,7 +1,7 @@
 musicinformationretrieval.com
 =============================
 
-**`stanford-mir` is now `musicinformationretrieval.com`.**
+`stanford-mir` is now **`musicinformationretrieval.com`.**
 
 Instructional material for the [Music Information Retrieval Workshop](https://ccrma.stanford.edu/workshops/mir-2018) at CCRMA, Stanford University, 2014-18.
 
