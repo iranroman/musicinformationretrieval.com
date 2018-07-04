@@ -3,12 +3,7 @@ musicinformationretrieval.com
 
 `stanford-mir` is now **`musicinformationretrieval.com`.**
 
-Instructional material for the [Music Information Retrieval Workshop](https://ccrma.stanford.edu/workshops/mir-2018) at CCRMA, Stanford University, 2014-18.
-
-[The Stanford CCRMA MIR 2018 Workshop has come to an end.](https://ccrma.stanford.edu/workshops/mir-2018) This year's esteemed instructors included:
-
-- [Meinard Müller](https://www.audiolabs-erlangen.de/fau/professor/mueller) (Int'l Audio Laboratories Erlangen; author, [*Fundamentals of Music Processing*](https://www.audiolabs-erlangen.de/fau/professor/mueller/bookFMP))
-- [Brian McFee](https://bmcfee.github.io/) (NYU; creator, [librosa](https://github.com/librosa/librosa)).
+Instructional notebooks on music information retrieval.
 
 
 How to Use This Repo
@@ -20,15 +15,15 @@ The simplest way to use this repository is to (1) browse a read-only version of 
 
 ### Install Python and relevant libraries
 
-1.  If you’re totally new, the simplest solution is to download and install [Anaconda for Python 3.x](https://www.anaconda.com/download).
+1.  Download and install [Anaconda for Python 3.x](https://www.anaconda.com/download).
     
 2.  Install [librosa](https://librosa.github.io/librosa/install.html) and [ffmpeg](https://librosa.github.io/librosa/install.html#ffmpeg). If you installed Anaconda during step 1:
 
         conda install -c conda-forge librosa ffmpeg
 
-If these packages are already installed, don't forget to upgrade them before the workshop.
+If these packages are already installed, don't forget to upgrade them.
 
-To upgrade, use either `pip install --upgrade` or `conda upgrade` depending upon which package installer you used for the respective package.
+To upgrade, `conda upgrade`.
 
 [2018 June 24] These notebooks reflect the following package versions:
 
@@ -99,7 +94,7 @@ To edit musicinformationretrieval.com:
 
 2.  Convert notebook to HTML:
 
-        $ jupyter nbconvert --to html kmeans.ipynb
+        $ jupyter nbconvert kmeans.ipynb
 
 3.  Commit the notebook and the HTML:
 
