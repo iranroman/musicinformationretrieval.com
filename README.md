@@ -12,25 +12,25 @@ Installation
 
 1.  Download and install [Anaconda for Python 3.x](https://www.anaconda.com/download).
     
-2.  Install [librosa](https://librosa.github.io/librosa/install.html) and [ffmpeg](https://librosa.github.io/librosa/install.html#ffmpeg). If you installed Anaconda during step 1:
+2.  Install [librosa](https://librosa.github.io/librosa/install.html) and [ffmpeg](https://librosa.github.io/librosa/install.html#ffmpeg):
 
         conda install -c conda-forge librosa ffmpeg
 
-If these packages are already installed, don't forget to upgrade them.
+    To upgrade:
 
-To upgrade, `conda upgrade`.
+        conda upgrade -c conda-forge librosa ffmpeg
 
 [2018 June 24] These notebooks reflect the following package versions:
 
--   numpy 1.14.2
--   scipy 1.0.0
--   matplotlib 2.2.0
 -   ipython 6.2.1
+-   joblib 0.11
 -   jupyter 1.0.0
 -   librosa 0.6.1
--   scikit-learn 0.19.1
+-   matplotlib 2.2.0
+-   numpy 1.14.2
 -   pandas 0.22.0
--   joblib 0.11
+-   scikit-learn 0.19.1
+-   scipy 1.0.0
 
 Usage
 -----
