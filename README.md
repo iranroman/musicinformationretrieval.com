@@ -3,17 +3,12 @@ musicinformationretrieval.com
 
 `stanford-mir` is now **`musicinformationretrieval.com`.**
 
-Instructional notebooks on music information retrieval.
-
-
-How to Use This Repo
---------------------
-
-This repository contains Jupyter notebooks related to music information retrieval (MIR). Inside these notebooks are Python code snippets that illustrate basic MIR systems.
+This repository contains instructional Jupyter notebooks related to music information retrieval (MIR). Inside these notebooks are Python code snippets that illustrate basic MIR systems.
 
 The simplest way to use this repository is to (1) browse a read-only version of this repo at [musicinformationretrieval.com](http://musicinformationretrieval.com), and (2) follow along using a blank Jupyter notebook of your own.
 
-### Installation
+Installation
+------------
 
 1.  Download and install [Anaconda for Python 3.x](https://www.anaconda.com/download).
     
@@ -37,7 +32,8 @@ To upgrade, `conda upgrade`.
 -   pandas 0.22.0
 -   joblib 0.11
 
-### Usage
+Usage
+-----
 
 1.  Start the [Jupyter notebook](http://jupyter.org/) server on your local machine. For Mac users, at the Terminal:
 
@@ -64,7 +60,9 @@ Congratulations, you are now running a Jupyter notebook, and you can get started
 
 After installing, if something doesn’t work, try closing the terminal or restarting the OS. Sometimes that can reset the necessary configurations.
 
-### Troubleshooting
+
+Troubleshooting
+---------------
 
 [Issue #729](https://github.com/librosa/librosa/issues/729): `import librosa` causes `TypeError: expected string or buffer` 
 
