@@ -5,7 +5,7 @@ musicinformationretrieval.com
 
 This repository contains instructional Jupyter notebooks related to music information retrieval (MIR). Inside these notebooks are Python code snippets that illustrate basic MIR systems.
 
-The simplest way to use this repository is to (1) browse a read-only version of this repo at [musicinformationretrieval.com](http://musicinformationretrieval.com), and (2) follow along using a blank Jupyter notebook of your own.
+The simplest way to use this repository is to (1) browse a read-only version of this repo at [musicinformationretrieval.com](https://musicinformationretrieval.com), and (2) follow along using a blank Jupyter notebook of your own.
 
 Installation
 ------------
@@ -35,7 +35,7 @@ Installation
 Usage
 -----
 
-1.  Start the [Jupyter notebook](http://jupyter.org/) server on your local machine. For Mac users, at the Terminal:
+1.  Start the [Jupyter notebook](https://jupyter.org/) server on your local machine. For Mac users, at the Terminal:
 
         your-local-machine:~$ jupyter notebook
 
@@ -48,7 +48,7 @@ Usage
     -   To rename the notebook, click on "Untitled" in the top left, and choose a different name.
     -   Inside a cell, run `1+2`. Press `<Shift-Enter>` on a cell to run that cell. Hopefully you get the output `3`.
     -   Inside a cell, run `import scipy, sklearn, pandas, librosa`. Press `<Shift-Enter>` to run the cell. If that runs without error, congratulations, you have the necessary libraries installed properly.
-    -   Try executing the content from <http://musicinformationretrieval.com> inside this blank notebook.
+    -   Try executing the content from <https://musicinformationretrieval.com> inside this blank notebook.
 
 3.  To close the Jupyter notebook,
 
@@ -80,7 +80,7 @@ Your contributions are welcome! You can contribute in two ways:
 
 2. Submit changes to source code or documentation. [Fork this repo](https://help.github.com/articles/fork-a-repo), make edits, then [submit a pull request](https://help.github.com/articles/using-pull-requests).
 
-This repo is statically hosted using [GitHub Pages](https://pages.github.com/). Any changes to HTML files in the `gh-pages` branch will be seen on [musicinformationretrieval.com](http://musicinformationretrieval.com).
+This repo is statically hosted using [GitHub Pages](https://pages.github.com/). Any changes to HTML files in the `gh-pages` branch will be seen on [musicinformationretrieval.com](https://musicinformationretrieval.com).
 
 To edit musicinformationretrieval.com:
 
