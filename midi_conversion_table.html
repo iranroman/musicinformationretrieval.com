@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head><meta charset="utf-8" />
-<title>index</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
+<title>midi_conversion_table</title><script src="https://cdnjs.cloudflare.com/ajax/libs/require.js/2.1.10/require.min.js"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/2.0.3/jquery.min.js"></script>
 
 <style type="text/css">
@@ -11775,7 +11775,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><a href="https://github.com/stevetjoa/musicinformationretrieval.com"><img style="position: absolute; top: 0; right: 0; border: 0;" src="https://camo.githubusercontent.com/a6677b08c955af8400f44c6298f40e7d19cc5b2d/68747470733a2f2f73332e616d617a6f6e6177732e636f6d2f6769746875622f726962626f6e732f666f726b6d655f72696768745f677261795f3664366436642e706e67" alt="Fork me on GitHub" data-canonical-src="https://s3.amazonaws.com/github/ribbons/forkme_right_gray_6d6d6d.png"></a></p>
+<p><a href="index.html">&larr; Back to Index</a></p>
 
 </div>
 </div>
@@ -11784,7 +11784,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Notes-on-Music-Information-Retrieval">Notes on Music Information Retrieval<a class="anchor-link" href="#Notes-on-Music-Information-Retrieval">&#182;</a></h1>
+<h1 id="MIDI-Note-to-Frequency-Conversion-Table">MIDI Note to Frequency Conversion Table<a class="anchor-link" href="#MIDI-Note-to-Frequency-Conversion-Table">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11792,265 +11792,1766 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<p><strong><a href="https://s3-us-west-2.amazonaws.com/musicinformationretrieval.com/img/fmp_discount.pdf">Click here</a> to get 20% off <em>Fundamentals of Music Processing</em> by Meinard Müller.</strong> Valid June 18 to July 16, 2018.</p>
+<ul>
+<li><strong>note</strong>: note name</li>
+<li><strong>midi-ET</strong>: MIDI number, equal temperament</li>
+<li><strong>Hertz-ET</strong>: frequency in Hertz, equal temperament</li>
+<li><strong>midi-PT</strong>: MIDI number, Pythagorean tuning</li>
+<li><strong>Hertz-PT</strong>: frequency in Hertz, Pythagorean tuning</li>
+</ul>
 
 </div>
 </div>
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+<div class="cell border-box-sizing code_cell rendered">
+
+<div class="output_wrapper">
+<div class="output">
+
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th>note</th>
+<th>midi-ET</th>
+<th>Hertz-ET</th>
+<th>midi-PT</th>
+<th>Hertz-PT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>Cb0</td>
+<td>11</td>
+<td>15.434</td>
+<td>10.804</td>
+<td>15.261</td>
+</tr>
+<tr>
+<td>C0</td>
+<td>12</td>
+<td>16.352</td>
+<td>11.941</td>
+<td>16.296</td>
+</tr>
+<tr>
+<td>Db0</td>
+<td>13</td>
+<td>17.324</td>
+<td>12.844</td>
+<td>17.168</td>
+</tr>
+<tr>
+<td>C#0</td>
+<td>13</td>
+<td>17.324</td>
+<td>13.078</td>
+<td>17.402</td>
+</tr>
+<tr>
+<td>D0</td>
+<td>14</td>
+<td>18.354</td>
+<td>13.980</td>
+<td>18.333</td>
+</tr>
+<tr>
+<td>Eb0</td>
+<td>15</td>
+<td>19.445</td>
+<td>14.883</td>
+<td>19.314</td>
+</tr>
+<tr>
+<td>D#0</td>
+<td>15</td>
+<td>19.445</td>
+<td>15.117</td>
+<td>19.578</td>
+</tr>
+<tr>
+<td>Fb0</td>
+<td>16</td>
+<td>20.602</td>
+<td>15.785</td>
+<td>20.347</td>
+</tr>
+<tr>
+<td>E0</td>
+<td>16</td>
+<td>20.602</td>
+<td>16.020</td>
+<td>20.625</td>
+</tr>
+<tr>
+<td>F0</td>
+<td>17</td>
+<td>21.827</td>
+<td>16.922</td>
+<td>21.728</td>
+</tr>
+<tr>
+<td>E#0</td>
+<td>17</td>
+<td>21.827</td>
+<td>17.156</td>
+<td>22.025</td>
+</tr>
+<tr>
+<td>Gb0</td>
+<td>18</td>
+<td>23.125</td>
+<td>17.824</td>
+<td>22.891</td>
+</tr>
+<tr>
+<td>F#0</td>
+<td>18</td>
+<td>23.125</td>
+<td>18.059</td>
+<td>23.203</td>
+</tr>
+<tr>
+<td>G0</td>
+<td>19</td>
+<td>24.5</td>
+<td>18.961</td>
+<td>24.444</td>
+</tr>
+<tr>
+<td>Ab0</td>
+<td>20</td>
+<td>25.957</td>
+<td>19.863</td>
+<td>25.752</td>
+</tr>
+<tr>
+<td>G#0</td>
+<td>20</td>
+<td>25.957</td>
+<td>20.098</td>
+<td>26.104</td>
+</tr>
+</tbody>
+</table>
+
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Introduction">Introduction<a class="anchor-link" href="#Introduction">&#182;</a></h2>
+
 </div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th>note</th>
+<th>midi-ET</th>
+<th>Hertz-ET</th>
+<th>midi-PT</th>
+<th>Hertz-PT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A0</td>
+<td>21</td>
+<td>27.5</td>
+<td>21.000</td>
+<td>27.5</td>
+</tr>
+<tr>
+<td>Bb0</td>
+<td>22</td>
+<td>29.135</td>
+<td>21.902</td>
+<td>28.971</td>
+</tr>
+<tr>
+<td>A#0</td>
+<td>22</td>
+<td>29.135</td>
+<td>22.137</td>
+<td>29.366</td>
+</tr>
+<tr>
+<td>Cb1</td>
+<td>23</td>
+<td>30.868</td>
+<td>22.804</td>
+<td>30.521</td>
+</tr>
+<tr>
+<td>B0</td>
+<td>23</td>
+<td>30.868</td>
+<td>23.039</td>
+<td>30.938</td>
+</tr>
+<tr>
+<td>C1</td>
+<td>24</td>
+<td>32.703</td>
+<td>23.941</td>
+<td>32.593</td>
+</tr>
+<tr>
+<td>B#0</td>
+<td>24</td>
+<td>32.703</td>
+<td>24.176</td>
+<td>33.037</td>
+</tr>
+<tr>
+<td>Db1</td>
+<td>25</td>
+<td>34.648</td>
+<td>24.844</td>
+<td>34.336</td>
+</tr>
+<tr>
+<td>C#1</td>
+<td>25</td>
+<td>34.648</td>
+<td>25.078</td>
+<td>34.805</td>
+</tr>
+<tr>
+<td>D1</td>
+<td>26</td>
+<td>36.708</td>
+<td>25.980</td>
+<td>36.667</td>
+</tr>
+<tr>
+<td>Eb1</td>
+<td>27</td>
+<td>38.891</td>
+<td>26.883</td>
+<td>38.628</td>
+</tr>
+<tr>
+<td>D#1</td>
+<td>27</td>
+<td>38.891</td>
+<td>27.117</td>
+<td>39.155</td>
+</tr>
+<tr>
+<td>Fb1</td>
+<td>28</td>
+<td>41.203</td>
+<td>27.785</td>
+<td>40.695</td>
+</tr>
+<tr>
+<td>E1</td>
+<td>28</td>
+<td>41.203</td>
+<td>28.020</td>
+<td>41.25</td>
+</tr>
+<tr>
+<td>F1</td>
+<td>29</td>
+<td>43.654</td>
+<td>28.922</td>
+<td>43.457</td>
+</tr>
+<tr>
+<td>E#1</td>
+<td>29</td>
+<td>43.654</td>
+<td>29.156</td>
+<td>44.05</td>
+</tr>
+<tr>
+<td>Gb1</td>
+<td>30</td>
+<td>46.249</td>
+<td>29.824</td>
+<td>45.782</td>
+</tr>
+<tr>
+<td>F#1</td>
+<td>30</td>
+<td>46.249</td>
+<td>30.059</td>
+<td>46.406</td>
+</tr>
+<tr>
+<td>G1</td>
+<td>31</td>
+<td>48.999</td>
+<td>30.961</td>
+<td>48.889</td>
+</tr>
+<tr>
+<td>Ab1</td>
+<td>32</td>
+<td>51.913</td>
+<td>31.863</td>
+<td>51.504</td>
+</tr>
+<tr>
+<td>G#1</td>
+<td>32</td>
+<td>51.913</td>
+<td>32.098</td>
+<td>52.207</td>
+</tr>
+</tbody>
+</table>
+
 </div>
+
 </div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th>note</th>
+<th>midi-ET</th>
+<th>Hertz-ET</th>
+<th>midi-PT</th>
+<th>Hertz-PT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A1</td>
+<td>33</td>
+<td>55</td>
+<td>33.000</td>
+<td>55</td>
+</tr>
+<tr>
+<td>Bb1</td>
+<td>34</td>
+<td>58.27</td>
+<td>33.902</td>
+<td>57.942</td>
+</tr>
+<tr>
+<td>A#1</td>
+<td>34</td>
+<td>58.27</td>
+<td>34.137</td>
+<td>58.733</td>
+</tr>
+<tr>
+<td>Cb2</td>
+<td>35</td>
+<td>61.735</td>
+<td>34.804</td>
+<td>61.042</td>
+</tr>
+<tr>
+<td>B1</td>
+<td>35</td>
+<td>61.735</td>
+<td>35.039</td>
+<td>61.875</td>
+</tr>
+<tr>
+<td>C2</td>
+<td>36</td>
+<td>65.406</td>
+<td>35.941</td>
+<td>65.185</td>
+</tr>
+<tr>
+<td>B#1</td>
+<td>36</td>
+<td>65.406</td>
+<td>36.176</td>
+<td>66.075</td>
+</tr>
+<tr>
+<td>Db2</td>
+<td>37</td>
+<td>69.296</td>
+<td>36.844</td>
+<td>68.672</td>
+</tr>
+<tr>
+<td>C#2</td>
+<td>37</td>
+<td>69.296</td>
+<td>37.078</td>
+<td>69.609</td>
+</tr>
+<tr>
+<td>D2</td>
+<td>38</td>
+<td>73.416</td>
+<td>37.980</td>
+<td>73.333</td>
+</tr>
+<tr>
+<td>Eb2</td>
+<td>39</td>
+<td>77.782</td>
+<td>38.883</td>
+<td>77.257</td>
+</tr>
+<tr>
+<td>D#2</td>
+<td>39</td>
+<td>77.782</td>
+<td>39.117</td>
+<td>78.311</td>
+</tr>
+<tr>
+<td>Fb2</td>
+<td>40</td>
+<td>82.407</td>
+<td>39.785</td>
+<td>81.39</td>
+</tr>
+<tr>
+<td>E2</td>
+<td>40</td>
+<td>82.407</td>
+<td>40.020</td>
+<td>82.5</td>
+</tr>
+<tr>
+<td>F2</td>
+<td>41</td>
+<td>87.307</td>
+<td>40.922</td>
+<td>86.914</td>
+</tr>
+<tr>
+<td>E#2</td>
+<td>41</td>
+<td>87.307</td>
+<td>41.156</td>
+<td>88.099</td>
+</tr>
+<tr>
+<td>Gb2</td>
+<td>42</td>
+<td>92.499</td>
+<td>41.824</td>
+<td>91.563</td>
+</tr>
+<tr>
+<td>F#2</td>
+<td>42</td>
+<td>92.499</td>
+<td>42.059</td>
+<td>92.812</td>
+</tr>
+<tr>
+<td>G2</td>
+<td>43</td>
+<td>97.999</td>
+<td>42.961</td>
+<td>97.778</td>
+</tr>
+<tr>
+<td>Ab2</td>
+<td>44</td>
+<td>103.83</td>
+<td>43.863</td>
+<td>103.01</td>
+</tr>
+<tr>
+<td>G#2</td>
+<td>44</td>
+<td>103.83</td>
+<td>44.098</td>
+<td>104.41</td>
+</tr>
+</tbody>
+</table>
+
 </div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="about.html"><strong>About This Site</strong></a> (<a href="about.ipynb">ipynb</a>) Start here!</li>
-<li><a href="about_fmp.html">About the book <em>Fundamentals of Music Processing</em> with slides</a> (<a href="about_fmp.ipynb">ipynb</a>)</li>
-<li><a href="about_ccrma_workshop.html">About the CCRMA Workshop on Music Information Retrieval</a> (<a href="about_ccrma_workshop.ipynb">ipynb</a>)</li>
-<li><a href="why_mir.html">What is MIR?</a> (<a href="why_mir.ipynb">ipynb</a>)</li>
-<li><a href="python_basics.html">Python Basics and Dependencies</a> (<a href="python_basics.ipynb">ipynb</a>)</li>
-<li><a href="get_good_at_ipython.html">Jupyter Basics</a> (<a href="get_good_at_ipython.ipynb">ipynb</a>)</li>
-<li><a href="ipython_audio.html">Jupyter Audio Basics</a> (<a href="ipython_audio.ipynb">ipynb</a>)</li>
-<li><a href="sox_and_ffmpeg.html">SoX and ffmpeg</a> (<a href="sox_and_ffmpeg.ipynb">ipynb</a>)</li>
-<li><a href="numpy_basics.html">NumPy and SciPy Basics</a> (<a href="numpy_basics.ipynb">ipynb</a>)</li>
-<li><a href="alphabetical_index.html">Alphabetical Index of Terms</a> (<a href="alphabetical_index.ipynb">ipynb</a>)</li>
-</ol>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th>note</th>
+<th>midi-ET</th>
+<th>Hertz-ET</th>
+<th>midi-PT</th>
+<th>Hertz-PT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A2</td>
+<td>45</td>
+<td>110</td>
+<td>45.000</td>
+<td>110</td>
+</tr>
+<tr>
+<td>Bb2</td>
+<td>46</td>
+<td>116.54</td>
+<td>45.902</td>
+<td>115.88</td>
+</tr>
+<tr>
+<td>A#2</td>
+<td>46</td>
+<td>116.54</td>
+<td>46.137</td>
+<td>117.47</td>
+</tr>
+<tr>
+<td>Cb3</td>
+<td>47</td>
+<td>123.47</td>
+<td>46.804</td>
+<td>122.08</td>
+</tr>
+<tr>
+<td>B2</td>
+<td>47</td>
+<td>123.47</td>
+<td>47.039</td>
+<td>123.75</td>
+</tr>
+<tr>
+<td>C3</td>
+<td>48</td>
+<td>130.81</td>
+<td>47.941</td>
+<td>130.37</td>
+</tr>
+<tr>
+<td>B#2</td>
+<td>48</td>
+<td>130.81</td>
+<td>48.176</td>
+<td>132.15</td>
+</tr>
+<tr>
+<td>Db3</td>
+<td>49</td>
+<td>138.59</td>
+<td>48.844</td>
+<td>137.34</td>
+</tr>
+<tr>
+<td>C#3</td>
+<td>49</td>
+<td>138.59</td>
+<td>49.078</td>
+<td>139.22</td>
+</tr>
+<tr>
+<td>D3</td>
+<td>50</td>
+<td>146.83</td>
+<td>49.980</td>
+<td>146.67</td>
+</tr>
+<tr>
+<td>Eb3</td>
+<td>51</td>
+<td>155.56</td>
+<td>50.883</td>
+<td>154.51</td>
+</tr>
+<tr>
+<td>D#3</td>
+<td>51</td>
+<td>155.56</td>
+<td>51.117</td>
+<td>156.62</td>
+</tr>
+<tr>
+<td>Fb3</td>
+<td>52</td>
+<td>164.81</td>
+<td>51.785</td>
+<td>162.78</td>
+</tr>
+<tr>
+<td>E3</td>
+<td>52</td>
+<td>164.81</td>
+<td>52.020</td>
+<td>165</td>
+</tr>
+<tr>
+<td>F3</td>
+<td>53</td>
+<td>174.61</td>
+<td>52.922</td>
+<td>173.83</td>
+</tr>
+<tr>
+<td>E#3</td>
+<td>53</td>
+<td>174.61</td>
+<td>53.156</td>
+<td>176.2</td>
+</tr>
+<tr>
+<td>Gb3</td>
+<td>54</td>
+<td>185</td>
+<td>53.824</td>
+<td>183.13</td>
+</tr>
+<tr>
+<td>F#3</td>
+<td>54</td>
+<td>185</td>
+<td>54.059</td>
+<td>185.62</td>
+</tr>
+<tr>
+<td>G3</td>
+<td>55</td>
+<td>196</td>
+<td>54.961</td>
+<td>195.56</td>
+</tr>
+<tr>
+<td>Ab3</td>
+<td>56</td>
+<td>207.65</td>
+<td>55.863</td>
+<td>206.02</td>
+</tr>
+<tr>
+<td>G#3</td>
+<td>56</td>
+<td>207.65</td>
+<td>56.098</td>
+<td>208.83</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th>note</th>
+<th>midi-ET</th>
+<th>Hertz-ET</th>
+<th>midi-PT</th>
+<th>Hertz-PT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A3</td>
+<td>57</td>
+<td>220</td>
+<td>57.000</td>
+<td>220</td>
+</tr>
+<tr>
+<td>Bb3</td>
+<td>58</td>
+<td>233.08</td>
+<td>57.902</td>
+<td>231.77</td>
+</tr>
+<tr>
+<td>A#3</td>
+<td>58</td>
+<td>233.08</td>
+<td>58.137</td>
+<td>234.93</td>
+</tr>
+<tr>
+<td>Cb4</td>
+<td>59</td>
+<td>246.94</td>
+<td>58.804</td>
+<td>244.17</td>
+</tr>
+<tr>
+<td>B3</td>
+<td>59</td>
+<td>246.94</td>
+<td>59.039</td>
+<td>247.5</td>
+</tr>
+<tr>
+<td>C4</td>
+<td>60</td>
+<td>261.63</td>
+<td>59.941</td>
+<td>260.74</td>
+</tr>
+<tr>
+<td>B#3</td>
+<td>60</td>
+<td>261.63</td>
+<td>60.176</td>
+<td>264.3</td>
+</tr>
+<tr>
+<td>Db4</td>
+<td>61</td>
+<td>277.18</td>
+<td>60.844</td>
+<td>274.69</td>
+</tr>
+<tr>
+<td>C#4</td>
+<td>61</td>
+<td>277.18</td>
+<td>61.078</td>
+<td>278.44</td>
+</tr>
+<tr>
+<td>D4</td>
+<td>62</td>
+<td>293.66</td>
+<td>61.980</td>
+<td>293.33</td>
+</tr>
+<tr>
+<td>Eb4</td>
+<td>63</td>
+<td>311.13</td>
+<td>62.883</td>
+<td>309.03</td>
+</tr>
+<tr>
+<td>D#4</td>
+<td>63</td>
+<td>311.13</td>
+<td>63.117</td>
+<td>313.24</td>
+</tr>
+<tr>
+<td>Fb4</td>
+<td>64</td>
+<td>329.63</td>
+<td>63.785</td>
+<td>325.56</td>
+</tr>
+<tr>
+<td>E4</td>
+<td>64</td>
+<td>329.63</td>
+<td>64.020</td>
+<td>330</td>
+</tr>
+<tr>
+<td>F4</td>
+<td>65</td>
+<td>349.23</td>
+<td>64.922</td>
+<td>347.65</td>
+</tr>
+<tr>
+<td>E#4</td>
+<td>65</td>
+<td>349.23</td>
+<td>65.156</td>
+<td>352.4</td>
+</tr>
+<tr>
+<td>Gb4</td>
+<td>66</td>
+<td>369.99</td>
+<td>65.824</td>
+<td>366.25</td>
+</tr>
+<tr>
+<td>F#4</td>
+<td>66</td>
+<td>369.99</td>
+<td>66.059</td>
+<td>371.25</td>
+</tr>
+<tr>
+<td>G4</td>
+<td>67</td>
+<td>392</td>
+<td>66.961</td>
+<td>391.11</td>
+</tr>
+<tr>
+<td>Ab4</td>
+<td>68</td>
+<td>415.3</td>
+<td>67.863</td>
+<td>412.03</td>
+</tr>
+<tr>
+<td>G#4</td>
+<td>68</td>
+<td>415.3</td>
+<td>68.098</td>
+<td>417.66</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th>note</th>
+<th>midi-ET</th>
+<th>Hertz-ET</th>
+<th>midi-PT</th>
+<th>Hertz-PT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A4</td>
+<td>69</td>
+<td>440</td>
+<td>69.000</td>
+<td>440</td>
+</tr>
+<tr>
+<td>Bb4</td>
+<td>70</td>
+<td>466.16</td>
+<td>69.902</td>
+<td>463.54</td>
+</tr>
+<tr>
+<td>A#4</td>
+<td>70</td>
+<td>466.16</td>
+<td>70.137</td>
+<td>469.86</td>
+</tr>
+<tr>
+<td>Cb5</td>
+<td>71</td>
+<td>493.88</td>
+<td>70.804</td>
+<td>488.34</td>
+</tr>
+<tr>
+<td>B4</td>
+<td>71</td>
+<td>493.88</td>
+<td>71.039</td>
+<td>495</td>
+</tr>
+<tr>
+<td>C5</td>
+<td>72</td>
+<td>523.25</td>
+<td>71.941</td>
+<td>521.48</td>
+</tr>
+<tr>
+<td>B#4</td>
+<td>72</td>
+<td>523.25</td>
+<td>72.176</td>
+<td>528.6</td>
+</tr>
+<tr>
+<td>Db5</td>
+<td>73</td>
+<td>554.37</td>
+<td>72.844</td>
+<td>549.38</td>
+</tr>
+<tr>
+<td>C#5</td>
+<td>73</td>
+<td>554.37</td>
+<td>73.078</td>
+<td>556.88</td>
+</tr>
+<tr>
+<td>D5</td>
+<td>74</td>
+<td>587.33</td>
+<td>73.980</td>
+<td>586.67</td>
+</tr>
+<tr>
+<td>Eb5</td>
+<td>75</td>
+<td>622.25</td>
+<td>74.883</td>
+<td>618.05</td>
+</tr>
+<tr>
+<td>D#5</td>
+<td>75</td>
+<td>622.25</td>
+<td>75.117</td>
+<td>626.48</td>
+</tr>
+<tr>
+<td>Fb5</td>
+<td>76</td>
+<td>659.26</td>
+<td>75.785</td>
+<td>651.12</td>
+</tr>
+<tr>
+<td>E5</td>
+<td>76</td>
+<td>659.26</td>
+<td>76.020</td>
+<td>660</td>
+</tr>
+<tr>
+<td>F5</td>
+<td>77</td>
+<td>698.46</td>
+<td>76.922</td>
+<td>695.31</td>
+</tr>
+<tr>
+<td>E#5</td>
+<td>77</td>
+<td>698.46</td>
+<td>77.156</td>
+<td>704.79</td>
+</tr>
+<tr>
+<td>Gb5</td>
+<td>78</td>
+<td>739.99</td>
+<td>77.824</td>
+<td>732.51</td>
+</tr>
+<tr>
+<td>F#5</td>
+<td>78</td>
+<td>739.99</td>
+<td>78.059</td>
+<td>742.5</td>
+</tr>
+<tr>
+<td>G5</td>
+<td>79</td>
+<td>783.99</td>
+<td>78.961</td>
+<td>782.22</td>
+</tr>
+<tr>
+<td>Ab5</td>
+<td>80</td>
+<td>830.61</td>
+<td>79.863</td>
+<td>824.07</td>
+</tr>
+<tr>
+<td>G#5</td>
+<td>80</td>
+<td>830.61</td>
+<td>80.098</td>
+<td>835.31</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th>note</th>
+<th>midi-ET</th>
+<th>Hertz-ET</th>
+<th>midi-PT</th>
+<th>Hertz-PT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A5</td>
+<td>81</td>
+<td>880</td>
+<td>81.000</td>
+<td>880</td>
+</tr>
+<tr>
+<td>Bb5</td>
+<td>82</td>
+<td>932.33</td>
+<td>81.902</td>
+<td>927.08</td>
+</tr>
+<tr>
+<td>A#5</td>
+<td>82</td>
+<td>932.33</td>
+<td>82.137</td>
+<td>939.73</td>
+</tr>
+<tr>
+<td>Cb6</td>
+<td>83</td>
+<td>987.77</td>
+<td>82.804</td>
+<td>976.67</td>
+</tr>
+<tr>
+<td>B5</td>
+<td>83</td>
+<td>987.77</td>
+<td>83.039</td>
+<td>990</td>
+</tr>
+<tr>
+<td>C6</td>
+<td>84</td>
+<td>1046.5</td>
+<td>83.941</td>
+<td>1043</td>
+</tr>
+<tr>
+<td>B#5</td>
+<td>84</td>
+<td>1046.5</td>
+<td>84.176</td>
+<td>1057.2</td>
+</tr>
+<tr>
+<td>Db6</td>
+<td>85</td>
+<td>1108.7</td>
+<td>84.844</td>
+<td>1098.8</td>
+</tr>
+<tr>
+<td>C#6</td>
+<td>85</td>
+<td>1108.7</td>
+<td>85.078</td>
+<td>1113.8</td>
+</tr>
+<tr>
+<td>D6</td>
+<td>86</td>
+<td>1174.7</td>
+<td>85.980</td>
+<td>1173.3</td>
+</tr>
+<tr>
+<td>Eb6</td>
+<td>87</td>
+<td>1244.5</td>
+<td>86.883</td>
+<td>1236.1</td>
+</tr>
+<tr>
+<td>D#6</td>
+<td>87</td>
+<td>1244.5</td>
+<td>87.117</td>
+<td>1253</td>
+</tr>
+<tr>
+<td>Fb6</td>
+<td>88</td>
+<td>1318.5</td>
+<td>87.785</td>
+<td>1302.2</td>
+</tr>
+<tr>
+<td>E6</td>
+<td>88</td>
+<td>1318.5</td>
+<td>88.020</td>
+<td>1320</td>
+</tr>
+<tr>
+<td>F6</td>
+<td>89</td>
+<td>1396.9</td>
+<td>88.922</td>
+<td>1390.6</td>
+</tr>
+<tr>
+<td>E#6</td>
+<td>89</td>
+<td>1396.9</td>
+<td>89.156</td>
+<td>1409.6</td>
+</tr>
+<tr>
+<td>Gb6</td>
+<td>90</td>
+<td>1480</td>
+<td>89.824</td>
+<td>1465</td>
+</tr>
+<tr>
+<td>F#6</td>
+<td>90</td>
+<td>1480</td>
+<td>90.059</td>
+<td>1485</td>
+</tr>
+<tr>
+<td>G6</td>
+<td>91</td>
+<td>1568</td>
+<td>90.961</td>
+<td>1564.4</td>
+</tr>
+<tr>
+<td>Ab6</td>
+<td>92</td>
+<td>1661.2</td>
+<td>91.863</td>
+<td>1648.1</td>
+</tr>
+<tr>
+<td>G#6</td>
+<td>92</td>
+<td>1661.2</td>
+<td>92.098</td>
+<td>1670.6</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th>note</th>
+<th>midi-ET</th>
+<th>Hertz-ET</th>
+<th>midi-PT</th>
+<th>Hertz-PT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A6</td>
+<td>93</td>
+<td>1760</td>
+<td>93.000</td>
+<td>1760</td>
+</tr>
+<tr>
+<td>Bb6</td>
+<td>94</td>
+<td>1864.7</td>
+<td>93.902</td>
+<td>1854.2</td>
+</tr>
+<tr>
+<td>A#6</td>
+<td>94</td>
+<td>1864.7</td>
+<td>94.137</td>
+<td>1879.5</td>
+</tr>
+<tr>
+<td>Cb7</td>
+<td>95</td>
+<td>1975.5</td>
+<td>94.804</td>
+<td>1953.3</td>
+</tr>
+<tr>
+<td>B6</td>
+<td>95</td>
+<td>1975.5</td>
+<td>95.039</td>
+<td>1980</td>
+</tr>
+<tr>
+<td>C7</td>
+<td>96</td>
+<td>2093</td>
+<td>95.941</td>
+<td>2085.9</td>
+</tr>
+<tr>
+<td>B#6</td>
+<td>96</td>
+<td>2093</td>
+<td>96.176</td>
+<td>2114.4</td>
+</tr>
+<tr>
+<td>Db7</td>
+<td>97</td>
+<td>2217.5</td>
+<td>96.844</td>
+<td>2197.5</td>
+</tr>
+<tr>
+<td>C#7</td>
+<td>97</td>
+<td>2217.5</td>
+<td>97.078</td>
+<td>2227.5</td>
+</tr>
+<tr>
+<td>D7</td>
+<td>98</td>
+<td>2349.3</td>
+<td>97.980</td>
+<td>2346.7</td>
+</tr>
+<tr>
+<td>Eb7</td>
+<td>99</td>
+<td>2489</td>
+<td>98.883</td>
+<td>2472.2</td>
+</tr>
+<tr>
+<td>D#7</td>
+<td>99</td>
+<td>2489</td>
+<td>99.117</td>
+<td>2505.9</td>
+</tr>
+<tr>
+<td>Fb7</td>
+<td>100</td>
+<td>2637</td>
+<td>99.785</td>
+<td>2604.5</td>
+</tr>
+<tr>
+<td>E7</td>
+<td>100</td>
+<td>2637</td>
+<td>100.020</td>
+<td>2640</td>
+</tr>
+<tr>
+<td>F7</td>
+<td>101</td>
+<td>2793.8</td>
+<td>100.922</td>
+<td>2781.2</td>
+</tr>
+<tr>
+<td>E#7</td>
+<td>101</td>
+<td>2793.8</td>
+<td>101.156</td>
+<td>2819.2</td>
+</tr>
+<tr>
+<td>Gb7</td>
+<td>102</td>
+<td>2960</td>
+<td>101.824</td>
+<td>2930</td>
+</tr>
+<tr>
+<td>F#7</td>
+<td>102</td>
+<td>2960</td>
+<td>102.059</td>
+<td>2970</td>
+</tr>
+<tr>
+<td>G7</td>
+<td>103</td>
+<td>3136</td>
+<td>102.961</td>
+<td>3128.9</td>
+</tr>
+<tr>
+<td>Ab7</td>
+<td>104</td>
+<td>3322.4</td>
+<td>103.863</td>
+<td>3296.3</td>
+</tr>
+<tr>
+<td>G#7</td>
+<td>104</td>
+<td>3322.4</td>
+<td>104.098</td>
+<td>3341.2</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th>note</th>
+<th>midi-ET</th>
+<th>Hertz-ET</th>
+<th>midi-PT</th>
+<th>Hertz-PT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A7</td>
+<td>105</td>
+<td>3520</td>
+<td>105.000</td>
+<td>3520</td>
+</tr>
+<tr>
+<td>Bb7</td>
+<td>106</td>
+<td>3729.3</td>
+<td>105.902</td>
+<td>3708.3</td>
+</tr>
+<tr>
+<td>A#7</td>
+<td>106</td>
+<td>3729.3</td>
+<td>106.137</td>
+<td>3758.9</td>
+</tr>
+<tr>
+<td>Cb8</td>
+<td>107</td>
+<td>3951.1</td>
+<td>106.804</td>
+<td>3906.7</td>
+</tr>
+<tr>
+<td>B7</td>
+<td>107</td>
+<td>3951.1</td>
+<td>107.039</td>
+<td>3960</td>
+</tr>
+<tr>
+<td>C8</td>
+<td>108</td>
+<td>4186</td>
+<td>107.941</td>
+<td>4171.9</td>
+</tr>
+<tr>
+<td>B#7</td>
+<td>108</td>
+<td>4186</td>
+<td>108.176</td>
+<td>4228.8</td>
+</tr>
+<tr>
+<td>Db8</td>
+<td>109</td>
+<td>4434.9</td>
+<td>108.844</td>
+<td>4395</td>
+</tr>
+<tr>
+<td>C#8</td>
+<td>109</td>
+<td>4434.9</td>
+<td>109.078</td>
+<td>4455</td>
+</tr>
+<tr>
+<td>D8</td>
+<td>110</td>
+<td>4698.6</td>
+<td>109.980</td>
+<td>4693.3</td>
+</tr>
+<tr>
+<td>Eb8</td>
+<td>111</td>
+<td>4978</td>
+<td>110.883</td>
+<td>4944.4</td>
+</tr>
+<tr>
+<td>D#8</td>
+<td>111</td>
+<td>4978</td>
+<td>111.117</td>
+<td>5011.9</td>
+</tr>
+<tr>
+<td>Fb8</td>
+<td>112</td>
+<td>5274</td>
+<td>111.785</td>
+<td>5208.9</td>
+</tr>
+<tr>
+<td>E8</td>
+<td>112</td>
+<td>5274</td>
+<td>112.020</td>
+<td>5280</td>
+</tr>
+<tr>
+<td>F8</td>
+<td>113</td>
+<td>5587.7</td>
+<td>112.922</td>
+<td>5562.5</td>
+</tr>
+<tr>
+<td>E#8</td>
+<td>113</td>
+<td>5587.7</td>
+<td>113.156</td>
+<td>5638.4</td>
+</tr>
+<tr>
+<td>Gb8</td>
+<td>114</td>
+<td>5919.9</td>
+<td>113.824</td>
+<td>5860</td>
+</tr>
+<tr>
+<td>F#8</td>
+<td>114</td>
+<td>5919.9</td>
+<td>114.059</td>
+<td>5940</td>
+</tr>
+<tr>
+<td>G8</td>
+<td>115</td>
+<td>6271.9</td>
+<td>114.961</td>
+<td>6257.8</td>
+</tr>
+<tr>
+<td>Ab8</td>
+<td>116</td>
+<td>6644.9</td>
+<td>115.863</td>
+<td>6592.6</td>
+</tr>
+<tr>
+<td>G#8</td>
+<td>116</td>
+<td>6644.9</td>
+<td>116.098</td>
+<td>6682.5</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th>note</th>
+<th>midi-ET</th>
+<th>Hertz-ET</th>
+<th>midi-PT</th>
+<th>Hertz-PT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A8</td>
+<td>117</td>
+<td>7040</td>
+<td>117.000</td>
+<td>7040</td>
+</tr>
+<tr>
+<td>Bb8</td>
+<td>118</td>
+<td>7458.6</td>
+<td>117.902</td>
+<td>7416.6</td>
+</tr>
+<tr>
+<td>A#8</td>
+<td>118</td>
+<td>7458.6</td>
+<td>118.137</td>
+<td>7517.8</td>
+</tr>
+<tr>
+<td>Cb9</td>
+<td>119</td>
+<td>7902.1</td>
+<td>118.804</td>
+<td>7813.4</td>
+</tr>
+<tr>
+<td>B8</td>
+<td>119</td>
+<td>7902.1</td>
+<td>119.039</td>
+<td>7920</td>
+</tr>
+<tr>
+<td>C9</td>
+<td>120</td>
+<td>8372</td>
+<td>119.941</td>
+<td>8343.7</td>
+</tr>
+<tr>
+<td>B#8</td>
+<td>120</td>
+<td>8372</td>
+<td>120.176</td>
+<td>8457.5</td>
+</tr>
+<tr>
+<td>Db9</td>
+<td>121</td>
+<td>8869.8</td>
+<td>120.844</td>
+<td>8790.1</td>
+</tr>
+<tr>
+<td>C#9</td>
+<td>121</td>
+<td>8869.8</td>
+<td>121.078</td>
+<td>8910</td>
+</tr>
+<tr>
+<td>D9</td>
+<td>122</td>
+<td>9397.3</td>
+<td>121.980</td>
+<td>9386.7</td>
+</tr>
+<tr>
+<td>Eb9</td>
+<td>123</td>
+<td>9956.1</td>
+<td>122.883</td>
+<td>9888.8</td>
+</tr>
+<tr>
+<td>D#9</td>
+<td>123</td>
+<td>9956.1</td>
+<td>123.117</td>
+<td>10024</td>
+</tr>
+<tr>
+<td>Fb9</td>
+<td>124</td>
+<td>10548</td>
+<td>123.785</td>
+<td>10418</td>
+</tr>
+<tr>
+<td>E9</td>
+<td>124</td>
+<td>10548</td>
+<td>124.020</td>
+<td>10560</td>
+</tr>
+<tr>
+<td>F9</td>
+<td>125</td>
+<td>11175</td>
+<td>124.922</td>
+<td>11125</td>
+</tr>
+<tr>
+<td>E#9</td>
+<td>125</td>
+<td>11175</td>
+<td>125.156</td>
+<td>11277</td>
+</tr>
+<tr>
+<td>Gb9</td>
+<td>126</td>
+<td>11840</td>
+<td>125.824</td>
+<td>11720</td>
+</tr>
+<tr>
+<td>F#9</td>
+<td>126</td>
+<td>11840</td>
+<td>126.059</td>
+<td>11880</td>
+</tr>
+<tr>
+<td>G9</td>
+<td>127</td>
+<td>12544</td>
+<td>126.961</td>
+<td>12516</td>
+</tr>
+<tr>
+<td>Ab9</td>
+<td>128</td>
+<td>13290</td>
+<td>127.863</td>
+<td>13185</td>
+</tr>
+<tr>
+<td>G#9</td>
+<td>128</td>
+<td>13290</td>
+<td>128.098</td>
+<td>13365</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
+
+<div class="output_area">
+
+<div class="prompt"></div>
+
+
+
+<div class="output_markdown rendered_html output_subarea ">
+<table>
+<thead><tr>
+<th>note</th>
+<th>midi-ET</th>
+<th>Hertz-ET</th>
+<th>midi-PT</th>
+<th>Hertz-PT</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td>A9</td>
+<td>129</td>
+<td>14080</td>
+<td>129.000</td>
+<td>14080</td>
+</tr>
+<tr>
+<td>Bb9</td>
+<td>130</td>
+<td>14917</td>
+<td>129.902</td>
+<td>14833</td>
+</tr>
+<tr>
+<td>A#9</td>
+<td>130</td>
+<td>14917</td>
+<td>130.137</td>
+<td>15036</td>
+</tr>
+<tr>
+<td>B9</td>
+<td>131</td>
+<td>15804</td>
+<td>131.039</td>
+<td>15840</td>
+</tr>
+<tr>
+<td>B#9</td>
+<td>132</td>
+<td>16744</td>
+<td>132.176</td>
+<td>16915</td>
+</tr>
+</tbody>
+</table>
+
+</div>
+
+</div>
 
 </div>
 </div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Music-Representations">Music Representations<a class="anchor-link" href="#Music-Representations">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="sheet_music_representations.html">Sheet Music Representations</a> (<a href="sheet_music_representations.ipynb">ipynb</a>)</li>
-<li><a href="symbolic_representations.html">Symbolic Representations</a> (<a href="symbolic_representations.ipynb">ipynb</a>)</li>
-<li><a href="audio_representation.html">Audio Representation</a> (<a href="audio_representation.ipynb">ipynb</a>)</li>
-<li><a href="tuning_systems.html">Tuning Systems</a> (<a href="tuning_systems.ipynb">ipynb</a>)</li>
-<li><a href="midi_conversion_table.html">MIDI Note to Frequency Conversion Table</a> (<a href="midi_conversion_table.ipynb">ipynb</a>)</li>
-<li><a href="feature_sonification.html">Understanding Audio Features through Sonification</a> (<a href="feature_sonification.ipynb">ipynb</a>)</li>
-</ol>
 
 </div>
-</div>
-</div>
 <div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Signal-Analysis-and-Feature-Extraction">Signal Analysis and Feature Extraction<a class="anchor-link" href="#Signal-Analysis-and-Feature-Extraction">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="basic_feature_extraction.html">Basic Feature Extraction</a> (<a href="basic_feature_extraction.ipynb">ipynb</a>)</li>
-<li><a href="segmentation.html">Segmentation</a> (<a href="segmentation.ipynb">ipynb</a>)</li>
-<li><a href="energy.html">Energy and RMSE</a> (<a href="energy.ipynb">ipynb</a>)</li>
-<li><a href="zcr.html">Zero Crossing Rate</a> (<a href="zcr.ipynb">ipynb</a>)</li>
-<li><a href="fourier_transform.html">Fourier Transform</a> (<a href="fourier_transform.ipynb">ipynb</a>)</li>
-<li><a href="stft.html">Short-time Fourier Transform and Spectrogram</a> (<a href="stft.ipynb">ipynb</a>)</li>
-<li><a href="chroma.html">Constant-Q Transform and Chroma</a> (<a href="chroma.ipynb">ipynb</a>)</li>
-<li><a href="video_chroma.html">Video: Chroma Features</a> (<a href="video_chroma.ipynb">ipynb</a>)</li>
-<li><a href="magnitude_scaling.html">Magnitude Scaling</a> (<a href="magnitude_scaling.ipynb">ipynb</a>)</li>
-<li><a href="spectral_features.html">Spectral Features</a> (<a href="spectral_features.ipynb">ipynb</a>)</li>
-<li><a href="autocorrelation.html">Autocorrelation</a> (<a href="autocorrelation.ipynb">ipynb</a>)</li>
-<li><a href="pitch_transcription_exercise.html">Pitch Transcription Exercise</a> (<a href="pitch_transcription_exercise.ipynb">ipynb</a>)</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Rhythm,-Tempo,-and-Beat-Tracking">Rhythm, Tempo, and Beat Tracking<a class="anchor-link" href="#Rhythm,-Tempo,-and-Beat-Tracking">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="novelty_functions.html">Novelty Functions</a> (<a href="novelty_functions.ipynb">ipynb</a>)</li>
-<li><a href="peak_picking.html">Peak Picking</a> (<a href="peak_picking.ipynb">ipynb</a>)</li>
-<li><a href="onset_detection.html">Onset Detection</a> (<a href="onset_detection.ipynb">ipynb</a>)</li>
-<li><a href="onset_segmentation.html">Onset-based Segmentation with Backtracking</a> (<a href="onset_segmentation.ipynb">ipynb</a>)</li>
-<li><a href="tempo_estimation.html">Tempo Estimation</a> (<a href="tempo_estimation.ipynb">ipynb</a>)</li>
-<li><a href="beat_tracking.html">Beat Tracking</a> (<a href="beat_tracking.ipynb">ipynb</a>)</li>
-<li><a href="video_tempo_beat_tracking.html">Video: Tempo and Beat Tracking</a> (<a href="video_tempo_beat_tracking.ipynb">ipynb</a>)</li>
-<li><a href="adtlib.html">Drum Transcription using ADTLib</a> (<a href="adtlib.ipynb">ipynb</a>)</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Machine-Learning">Machine Learning<a class="anchor-link" href="#Machine-Learning">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="knn.html">K-Nearest Neighbor Classification</a> (<a href="knn.ipynb">ipynb</a>)</li>
-<li><a href="cross_validation.html">Cross Validation</a> (<a href="cross_validation.ipynb">ipynb</a>)</li>
-<li><a href="knn_instrument_classification.html">Exercise: K-Nearest Neighbor Instrument Classification</a> (<a href="knn_instrument_classification.ipynb">ipynb</a>)</li>
-<li><a href="kmeans.html">K-Means Clustering</a> (<a href="kmeans.ipynb">ipynb</a>)</li>
-<li><a href="kmeans_instrument_classification.html">Exercise: Unsupervised Instrument Classification using K-Means</a> (<a href="kmeans_instrument_classification.ipynb">ipynb</a>)</li>
-<li><a href="neural_networks.html">Neural Networks</a> (<a href="neural_networks.ipynb">ipynb</a>)</li>
-<li><a href="genre_recognition.html">Genre Recognition</a> (<a href="genre_recognition.ipynb">ipynb</a>)</li>
-<li><a href="exercise_genre_recognition.html">Exercise: Genre Recognition</a> (<a href="exercise_genre_recognition.ipynb">ipynb</a>)</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Evaluation">Evaluation<a class="anchor-link" href="#Evaluation">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="intro_mir_eval.html">Introduction to <code>mir_eval</code></a> (<a href="intro_mir_eval.ipynb">ipynb</a>)</li>
-<li><a href="evaluation_onset.html">Onset Detection</a> (<a href="evaluation_onset.ipynb">ipynb</a>)</li>
-<li><a href="evaluation_beat.html">Beat Tracking</a> (<a href="evaluation_beat.ipynb">ipynb</a>)</li>
-<li><a href="evaluation_chord.html">Chord Estimation</a> (<a href="evaluation_chord.ipynb">ipynb</a>)</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Music-Synchronization">Music Synchronization<a class="anchor-link" href="#Music-Synchronization">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="dp.html">Dynamic Programming</a> (<a href="dp.ipynb">ipynb</a>)</li>
-<li><a href="lcs.html">Longest Common Subsequence</a> (<a href="lcs.ipynb">ipynb</a>)</li>
-<li><a href="dtw.html">Dynamic Time Warping</a> (<a href="dtw.ipynb">ipynb</a>)</li>
-<li><a href="dtw_example.html">Dynamic Time Warping Example</a> (<a href="dtw_example.ipynb">ipynb</a>)</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Music-Structure-Analysis">Music Structure Analysis<a class="anchor-link" href="#Music-Structure-Analysis">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="mfcc.html">Mel-Frequency Cepstral Coefficients</a> (<a href="mfcc.ipynb">ipynb</a>)</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Content-Based-Audio-Retrieval">Content-Based Audio Retrieval<a class="anchor-link" href="#Content-Based-Audio-Retrieval">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="lsh_fingerprinting.html">Locality Sensitive Hashing</a> (<a href="lsh_fingerprinting.ipynb">ipynb</a>)</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Musically-Informed-Audio-Decomposition">Musically Informed Audio Decomposition<a class="anchor-link" href="#Musically-Informed-Audio-Decomposition">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="pca.html">Principal Component Analysis</a> (<a href="pca.ipynb">ipynb</a>)</li>
-<li><a href="nmf.html">Nonnegative Matrix Factorization</a> (<a href="nmf.ipynb">ipynb</a>)</li>
-<li><a href="nmf_audio_mosaic.html">NMF Audio Mosaicing</a> (<a href="nmf_audio_mosaic.ipynb">ipynb</a>)</li>
-<li><a href="hpss.html">Harmonic-Percussive Source Separation</a> (<a href="hpss.ipynb">ipynb</a>)</li>
-</ol>
-
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Just-For-Fun">Just For Fun<a class="anchor-link" href="#Just-For-Fun">&#182;</a></h2>
-</div>
-</div>
-</div>
-<div class="cell border-box-sizing text_cell rendered"><div class="prompt input_prompt">
-</div>
-<div class="inner_cell">
-<div class="text_cell_render border-box-sizing rendered_html">
-<ol>
-<li><a href="realtime_spectrogram.html">Real-time Spectrogram</a> (<a href="realtime_spectrogram.ipynb">ipynb</a>)</li>
-<li><a href="thx_logo_theme.html">THX Logo Theme</a> (<a href="thx_logo_theme.ipynb">ipynb</a>)</li>
-</ol>
+<p><a href="index.html">&larr; Back to Index</a></p>
 
 </div>
 </div>
