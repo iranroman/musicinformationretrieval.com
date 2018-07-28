@@ -11776,9 +11776,8 @@ div#notebook {
 <div class="prompt input_prompt">In&nbsp;[1]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
-<span class="kn">import</span> <span class="nn">seaborn</span>
-<span class="kn">import</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">scipy</span><span class="o">,</span> <span class="nn">scipy.spatial</span><span class="o">,</span> <span class="nn">matplotlib.pyplot</span> <span class="kn">as</span> <span class="nn">plt</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="o">%</span><span class="k">matplotlib</span> inline
+<span class="kn">import</span> <span class="nn">numpy</span><span class="o">,</span> <span class="nn">scipy</span><span class="o">,</span> <span class="nn">scipy.spatial</span><span class="o">,</span> <span class="nn">matplotlib.pyplot</span> <span class="k">as</span> <span class="nn">plt</span>
 <span class="n">plt</span><span class="o">.</span><span class="n">rcParams</span><span class="p">[</span><span class="s1">&#39;figure.figsize&#39;</span><span class="p">]</span> <span class="o">=</span> <span class="p">(</span><span class="mi">14</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
 </pre></div>
 
@@ -11800,7 +11799,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h1 id="Dynamic-Programming">Dynamic Programming<a class="anchor-link" href="#Dynamic-Programming">&#194;&#182;</a></h1>
+<h1 id="Dynamic-Programming">Dynamic Programming<a class="anchor-link" href="#Dynamic-Programming">&#182;</a></h1>
 </div>
 </div>
 </div>
@@ -11817,7 +11816,7 @@ div#notebook {
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h2 id="Example:-min-coin-sum">Example: min coin sum<a class="anchor-link" href="#Example:-min-coin-sum">&#194;&#182;</a></h2>
+<h2 id="Example:-min-coin-sum">Example: min coin sum<a class="anchor-link" href="#Example:-min-coin-sum">&#182;</a></h2>
 </div>
 </div>
 </div>
@@ -11877,8 +11876,8 @@ min_coin_sum(52) -&gt; 4 # 2*25 + 2*1</code></pre>
 <div class="prompt input_prompt">In&nbsp;[2]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">min_coin_sum</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">coins</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">coins</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">min_coin_sum</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">coins</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">coins</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">coins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
     <span class="k">if</span> <span class="n">val</span> <span class="o">==</span> <span class="mi">0</span><span class="p">:</span>
         <span class="k">return</span> <span class="mi">0</span>
@@ -11901,13 +11900,13 @@ min_coin_sum(52) -&gt; 4 # 2*25 + 2*1</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[3]:</div>
+<div class="prompt input_prompt">In&nbsp;[4]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">coins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
-<span class="k">print</span> <span class="s1">&#39;val num_coins&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">coins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;val num_coins&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">49</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s1">&#39;</span><span class="si">%3d</span><span class="s1"> </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">min_coin_sum</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">coins</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%3d</span><span class="s1"> </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">min_coin_sum</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">coins</span><span class="p">)))</span>
 </pre></div>
 
 </div>
@@ -11950,7 +11949,7 @@ min_coin_sum(52) -&gt; 4 # 2*25 + 2*1</code></pre>
 </div>
 <div class="inner_cell">
 <div class="text_cell_render border-box-sizing rendered_html">
-<h3 id="Memoization">Memoization<a class="anchor-link" href="#Memoization">&#194;&#182;</a></h3>
+<h3 id="Memoization">Memoization<a class="anchor-link" href="#Memoization">&#182;</a></h3>
 </div>
 </div>
 </div>
@@ -11965,11 +11964,11 @@ min_coin_sum(52) -&gt; 4 # 2*25 + 2*1</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[4]:</div>
+<div class="prompt input_prompt">In&nbsp;[5]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="k">def</span> <span class="nf">min_coin_sum</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">coins</span><span class="o">=</span><span class="bp">None</span><span class="p">):</span>
-    <span class="k">if</span> <span class="n">coins</span> <span class="ow">is</span> <span class="bp">None</span><span class="p">:</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="k">def</span> <span class="nf">min_coin_sum</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">coins</span><span class="o">=</span><span class="kc">None</span><span class="p">):</span>
+    <span class="k">if</span> <span class="n">coins</span> <span class="ow">is</span> <span class="kc">None</span><span class="p">:</span>
         <span class="n">coins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
 
     <span class="c1"># Initialize table.</span>
@@ -11988,13 +11987,13 @@ min_coin_sum(52) -&gt; 4 # 2*25 + 2*1</code></pre>
 </div>
 <div class="cell border-box-sizing code_cell rendered">
 <div class="input">
-<div class="prompt input_prompt">In&nbsp;[5]:</div>
+<div class="prompt input_prompt">In&nbsp;[6]:</div>
 <div class="inner_cell">
     <div class="input_area">
-<div class=" highlight hl-ipython2"><pre><span></span><span class="n">coins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
-<span class="k">print</span> <span class="s1">&#39;val num_coins&#39;</span>
+<div class=" highlight hl-ipython3"><pre><span></span><span class="n">coins</span> <span class="o">=</span> <span class="p">[</span><span class="mi">1</span><span class="p">,</span> <span class="mi">5</span><span class="p">,</span> <span class="mi">10</span><span class="p">,</span> <span class="mi">25</span><span class="p">]</span>
+<span class="nb">print</span><span class="p">(</span><span class="s1">&#39;val num_coins&#39;</span><span class="p">)</span>
 <span class="k">for</span> <span class="n">val</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">6</span><span class="p">,</span> <span class="mi">42</span><span class="p">,</span> <span class="mi">49</span><span class="p">,</span> <span class="mi">52</span><span class="p">):</span>
-    <span class="k">print</span> <span class="s1">&#39;</span><span class="si">%3d</span><span class="s1"> </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">min_coin_sum</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">coins</span><span class="p">))</span>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39;</span><span class="si">%3d</span><span class="s1"> </span><span class="si">%d</span><span class="s1">&#39;</span> <span class="o">%</span> <span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">min_coin_sum</span><span class="p">(</span><span class="n">val</span><span class="p">,</span> <span class="n">coins</span><span class="p">)))</span>
 </pre></div>
 
 </div>
