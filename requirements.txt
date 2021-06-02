@@ -1,0 +1,8 @@
+numpy>=1.14.2
+scipy>=1.0.0
+matplotlib>=2.2.0
+ipython>=6.2.1
+jupyter>=1.0.0
+librosa>=0.6.0
+scikit-learn>=0.19.1
+pandas>=0.22.0
