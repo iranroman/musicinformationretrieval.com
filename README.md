@@ -16,6 +16,14 @@ Introduction
 8.  [SoX and ffmpeg](sox_and_ffmpeg.ipynb)
 9.  [NumPy and SciPy Basics](numpy_basics.ipynb)
 
+Music Representations
+---------------------
+1.  [Sheet Music Representations](sheet_music_representations.ipynb)
+2.  [Symbolic Representations](symbolic_representations.ipynb)
+3.  [Audio Representation](audio_representation.ipynb)
+4.  [Tuning Systems](tuning_systems.ipynb)
+5.  [MIDI Note to Frequency Conversion Table]](midi_conversion_table.ipynb)
+6.  [Understanding Audio Features through Sonification](feature_sonification.ipynb)
 
 2021 June 2: I'm sorry that I haven't updated this repository lately. My career focus has drifted away from MIR, sadly. Therefore, please understand that I might not be checking this repo very frequently. However, I'm grateful that many of you still find this repo helpful. I encourage you to raise GitHub issues and participate in community discussions through the issue forums. If you want to submit a pull request, you can email steve at musicinformationretrieval dot com to let me know to check GitHub. 
 
