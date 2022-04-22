@@ -1,6 +1,22 @@
 musicinformationretrieval.com
 =============================
 
+2022 April 22: It's 2022, and Colab seems to be much more popular and usable than it was a few years ago. Therefore, I'm going to try migrating some notebooks to Colab. In the process, I will probably delete some of the static HTML files, since the roundabout process of editing a IPYNB and converting it to static HTML is unnecessary and annoying.
+
+Introduction
+------------
+
+1.  [About This Site](https://colab.research.google.com/github/stevetjoa/musicinformationretrieval.com/blob/gh-pages/about.ipynb) (Start here!)
+2.  [About the book <em>Fundamentals of Music Processing</em>](https://musicinformationretrieval.com/about_fmp.html)
+3.  [About the CCRMA Workshop on Music Information Retrieval](about_ccrma_workshop.ipynb)
+4.  [What is MIR?](why_mir.ipynb)
+5.  [Python Basics and Dependencies](python_basics.ipynb)
+6.  [Jupyter Basics](get_good_at_ipython.ipynb)
+7.  [Jupyter Audio Basics](ipython_audio.ipynb)
+8.  [SoX and ffmpeg](sox_and_ffmpeg.ipynb)
+9.  [NumPy and SciPy Basics](numpy_basics.ipynb)
+
+
 2021 June 2: I'm sorry that I haven't updated this repository lately. My career focus has drifted away from MIR, sadly. Therefore, please understand that I might not be checking this repo very frequently. However, I'm grateful that many of you still find this repo helpful. I encourage you to raise GitHub issues and participate in community discussions through the issue forums. If you want to submit a pull request, you can email steve at musicinformationretrieval dot com to let me know to check GitHub. 
 
 ---
