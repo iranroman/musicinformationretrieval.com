@@ -1,7 +1,6 @@
 musicinformationretrieval.com
 =============================
 
-2022 April 22: It's 2022, and Colab seems to be much more popular and usable than it was a few years ago. Therefore, I'm going to try migrating some notebooks to Colab. In the process, I will probably delete some of the static HTML files, since the roundabout process of editing a IPYNB and converting it to static HTML is unnecessary and annoying.
 
 Introduction
 ------------
@@ -16,8 +15,10 @@ Introduction
 8.  [SoX and ffmpeg](sox_and_ffmpeg.ipynb)
 9.  [NumPy and SciPy Basics](numpy_basics.ipynb)
 
+
 Music Representations
 ---------------------
+
 1.  [Sheet Music Representations](sheet_music_representations.ipynb)
 2.  [Symbolic Representations](symbolic_representations.ipynb)
 3.  [Audio Representation](audio_representation.ipynb)
@@ -25,8 +26,10 @@ Music Representations
 5.  [MIDI Note to Frequency Conversion Table](midi_conversion_table.ipynb)
 6.  [Understanding Audio Features through Sonification](feature_sonification.ipynb)
 
+
 Signal Analysis and Feature Extraction
 --------------------------------------
+
 1.  [Basic Feature Extraction](basic_feature_extraction.ipynb)
 2.  [Segmentation](segmentation.ipynb)
 3.  [Energy and RMSE](energy.ipynb)
@@ -40,13 +43,90 @@ Signal Analysis and Feature Extraction
 11. [Autocorrelation](autocorrelation.ipynb)
 12. [Pitch Transcription Exercise](pitch_transcription_exercise.ipynb)
 
-2021 June 2: I'm sorry that I haven't updated this repository lately. My career focus has drifted away from MIR, sadly. Therefore, please understand that I might not be checking this repo very frequently. However, I'm grateful that many of you still find this repo helpful. I encourage you to raise GitHub issues and participate in community discussions through the issue forums. If you want to submit a pull request, you can email steve at musicinformationretrieval dot com to let me know to check GitHub. 
+
+Rhythm, Tempo, and Beat Tracking
+--------------------------------
+
+1. [Novelty Functions](novelty_functions.ipynb)
+2. [Peak Picking](peak_picking.ipynb)
+3. [Onset Detection](onset_detection.ipynb)
+4. [Onset-based Segmentation with Backtracking](onset_segmentation.ipynb)
+5. [Tempo Estimation](tempo_estimation.ipynb)
+6. [Beat Tracking](beat_tracking.ipynb)
+7. [Video: Tempo and Beat Tracking](video_tempo_beat_tracking.ipynb)
+8. [Drum Transcription using ADTLib](adtlib.ipynb)
+
+
+Machine Learning
+----------------
+
+1. [K-Means Clustering](kmeans.ipynb)
+2. [Exercise: Unsupervised Instrument Classification using K-Means](kmeans_instrument_classification.ipynb)
+3. [Neural Networks](neural_networks.ipynb)
+4. [Genre Recognition](genre_recognition.ipynb)
+5. [Exercise: Genre Recognition](exercise_genre_recognition.ipynb)
+
+
+Evaluation
+----------
+
+1. [Introduction to <code>mir_eval</code>](intro_mir_eval.ipynb)
+2. [Onset Detection](evaluation_onset.ipynb)
+3. [Beat Tracking](evaluation_beat.ipynb)
+4. [Chord Estimation](evaluation_chord.ipynb)
+
+
+Music Synchronization
+---------------------
+
+1. [Dynamic Programming](dp.ipynb)
+2. [Longest Common Subsequence](lcs.ipynb)
+3. [Dynamic Time Warping](dtw.ipynb)
+4. [Dynamic Time Warping Example](dtw_example.ipynb)
+
+
+Music Structure Analysis
+------------------------
+
+1. [Mel-Frequency Cepstral Coefficients](mfcc.ipynb)
+
+
+Content-Based Audio Retrieval
+-----------------------------
+
+1. [Locality Sensitive Hashing](lsh_fingerprinting.ipynb)
+
+
+Musically Informed Audio Decomposition
+--------------------------------------
+
+1. [Principal Component Analysis](pca.ipynb)
+2. [Nonnegative Matrix Factorization](nmf.ipynb)
+3. [NMF Audio Mosaicing](nmf_audio_mosaic.ipynb)
+4. [Harmonic-Percussive Source Separation](hpss.ipynb)
+
+
+Just For Fun
+------------
+
+1. [Real-time Spectrogram](realtime_spectrogram.ipynb)
+2. [THX Logo Theme](thx_logo_theme.ipynb)
+
 
 ---
 
 This repository contains instructional Jupyter notebooks related to music information retrieval (MIR). Inside these notebooks are Python code snippets that illustrate basic MIR systems.
 
 The simplest way to use this repository is to (1) browse a read-only version of this repo at [musicinformationretrieval.com](https://musicinformationretrieval.com), and (2) follow along using a blank Jupyter notebook of your own.
+
+
+Updates
+-------
+
+2022 April 22: It's 2022, and Colab seems to be much more popular and usable than it was a few years ago. Therefore, I'm going to try migrating some notebooks to Colab. In the process, I will probably delete some of the static HTML files, since the roundabout process of editing a IPYNB and converting it to static HTML is unnecessary and annoying.
+
+2021 June 2: I'm sorry that I haven't updated this repository lately. My career focus has drifted away from MIR, sadly. Therefore, please understand that I might not be checking this repo very frequently. However, I'm grateful that many of you still find this repo helpful. I encourage you to raise GitHub issues and participate in community discussions through the issue forums. If you want to submit a pull request, you can email steve at musicinformationretrieval dot com to let me know to check GitHub. 
+
 
 Installation
 ------------
