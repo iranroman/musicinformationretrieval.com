@@ -22,8 +22,23 @@ Music Representations
 2.  [Symbolic Representations](symbolic_representations.ipynb)
 3.  [Audio Representation](audio_representation.ipynb)
 4.  [Tuning Systems](tuning_systems.ipynb)
-5.  [MIDI Note to Frequency Conversion Table]](midi_conversion_table.ipynb)
+5.  [MIDI Note to Frequency Conversion Table](midi_conversion_table.ipynb)
 6.  [Understanding Audio Features through Sonification](feature_sonification.ipynb)
+
+Signal Analysis and Feature Extraction
+--------------------------------------
+1.  [Basic Feature Extraction](basic_feature_extraction.ipynb)
+2.  [Segmentation](segmentation.ipynb)
+3.  [Energy and RMSE](energy.ipynb)
+4.  [Zero Crossing Rate](zcr.ipynb)
+5.  [Fourier Transform](fourier_transform.ipynb)
+6.  [Short-time Fourier Transform and Spectrogram](stft.ipynb)
+7.  [Constant-Q Transform and Chroma](chroma.ipynb)
+8.  [Video: Chroma Features](video_chroma.ipynb)
+9.  [Magnitude Scaling](magnitude_scaling.ipynb)
+10. [Spectral Features](spectral_features.ipynb)
+11. [Autocorrelation](autocorrelation.ipynb)
+12. [Pitch Transcription Exercise](pitch_transcription_exercise.ipynb)
 
 2021 June 2: I'm sorry that I haven't updated this repository lately. My career focus has drifted away from MIR, sadly. Therefore, please understand that I might not be checking this repo very frequently. However, I'm grateful that many of you still find this repo helpful. I encourage you to raise GitHub issues and participate in community discussions through the issue forums. If you want to submit a pull request, you can email steve at musicinformationretrieval dot com to let me know to check GitHub. 
 
