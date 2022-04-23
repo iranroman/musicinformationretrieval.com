@@ -115,9 +115,7 @@ Just For Fun
 
 ---
 
-This repository contains instructional Jupyter notebooks related to music information retrieval (MIR). Inside these notebooks are Python code snippets that illustrate basic MIR systems.
-
-The simplest way to use this repository is to (1) browse a read-only version of this repo at [musicinformationretrieval.com](https://musicinformationretrieval.com), and (2) follow along using a blank Jupyter notebook of your own.
+This repository contains instructional Colab notebooks related to music information retrieval (MIR). Inside these notebooks are Python code snippets that illustrate basic MIR systems. You can actually execute the code from inside the notebook.
 
 
 Updates
@@ -153,44 +151,6 @@ Installation
 -   scikit-learn 0.19.1
 -   scipy 1.0.0
 
-Usage
------
-
-1.  Start the [Jupyter notebook](https://jupyter.org/) server on your local machine. For Mac users, at the Terminal:
-
-        your-local-machine:~$ jupyter notebook
-
-    For Windows users, open the application "Jupyter Notebook". Alternatively for Windows: open the application "Anaconda Prompt" and type in `jupyter notebook`.
-
-    Jupyter should automatically open a new window in your web browser that resembles a directory tree.
-
-2.  To open a new notebook, in the new window of your web browser, click on *New* near the top right to open a new notebook.
-
-    -   To rename the notebook, click on "Untitled" in the top left, and choose a different name.
-    -   Inside a cell, run `1+2`. Press `<Shift-Enter>` on a cell to run that cell. Hopefully you get the output `3`.
-    -   Inside a cell, run `import scipy, sklearn, pandas, librosa`. Press `<Shift-Enter>` to run the cell. If that runs without error, congratulations, you have the necessary libraries installed properly.
-    -   Try executing the content from <https://musicinformationretrieval.com> inside this blank notebook.
-
-3.  To close the Jupyter notebook,
-
-    -   Save the notebook. (Either use keyboard shortcut `s`, or "File | Save" in the top menu.)
-    -   Close the browser window.
-    -   If you opened the notebook from a prompt/shell as indicated in Step 1 above, from that shell, press `<Ctrl-C>` twice to return to the prompt.
-
-Congratulations, you are now running a Jupyter notebook, and you can get started with the notebooks in this repository.
-
-After installing, if something doesn’t work, try closing the terminal or restarting the OS. Sometimes that can reset the necessary configurations.
-
-
-Troubleshooting
----------------
-
-[Issue #729](https://github.com/librosa/librosa/issues/729): `import librosa` causes `TypeError: expected string or buffer` 
-
--   Workaround: downgrade `joblib` to v0.11:
-
-        pip install joblib==0.11
-
 
 Contributions
 -------------
@@ -199,25 +159,5 @@ Your contributions are welcome! You can contribute in two ways:
 
 1. Submit an issue. Click on "[Issues](https://github.com/stevetjoa/musicinformationretrieval.com/issues)" in the right navigation bar, then "New Issue".  Issues can include Python bugs, spelling mistakes, broken links, requests for new content, and more.
 
-2. Submit changes to source code or documentation. [Fork this repo](https://help.github.com/articles/fork-a-repo), make edits, then [submit a pull request](https://help.github.com/articles/using-pull-requests).
-
-This repo is statically hosted using [GitHub Pages](https://pages.github.com/). Any changes to HTML files in the `gh-pages` branch will be seen on [musicinformationretrieval.com](https://musicinformationretrieval.com).
-
-To edit musicinformationretrieval.com:
-
-1.  Edit a notebook, e.g.:
-
-        $ jupyter notebook kmeans.ipynb
-
-2.  Convert notebook to HTML:
-
-        $ jupyter nbconvert kmeans.ipynb
-
-3.  Commit the notebook and the HTML:
-
-        $ git add kmeans.ipynb kmeans.html
-        $ git commit
-        $ git push
-
-    You may need to wait 1-2 minutes before the changes are live on GitHub Pages.
+2. Submit changes to source code or documentation. [Fork this repo](https://help.github.com/articles/fork-a-repo), make edits to your fork, then [submit a pull request](https://help.github.com/articles/using-pull-requests). `gh-pages` is the default branch for this repo.
 
