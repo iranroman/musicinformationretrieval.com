@@ -6,14 +6,14 @@ Introduction
 ------------
 
 1.  [About This Site](https://colab.research.google.com/github/stevetjoa/musicinformationretrieval.com/blob/gh-pages/about.ipynb) (Start here!)
-2.  [About the book <em>Fundamentals of Music Processing</em>](https://musicinformationretrieval.com/about_fmp.html)
-3.  [About the CCRMA Workshop on Music Information Retrieval](about_ccrma_workshop.ipynb)
-4.  [What is MIR?](why_mir.ipynb)
-5.  [Python Basics and Dependencies](python_basics.ipynb)
-6.  [Jupyter Basics](get_good_at_ipython.ipynb)
-7.  [Jupyter Audio Basics](ipython_audio.ipynb)
-8.  [SoX and ffmpeg](sox_and_ffmpeg.ipynb)
-9.  [NumPy and SciPy Basics](numpy_basics.ipynb)
+2.  [About the book <em>Fundamentals of Music Processing</em>](https://colab.research.google.com/github/stevetjoa/musicinformationretrieval.com/blob/gh-pages/about_fmp.ipynb)
+3.  [About the CCRMA Workshop on Music Information Retrieval](https://colab.research.google.com/github/stevetjoa/musicinformationretrieval.com/blob/gh-pages/about_ccrma_workshop.ipynb)
+4.  [What is MIR?](https://colab.research.google.com/github/stevetjoa/musicinformationretrieval.com/blob/gh-pages/why_mir.ipynb)
+5.  [Python Basics and Dependencies](https://colab.research.google.com/github/stevetjoa/musicinformationretrieval.com/blob/gh-pages/python_basics.ipynb)
+6.  [Jupyter Basics](https://colab.research.google.com/github/stevetjoa/musicinformationretrieval.com/blob/gh-pages/get_good_at_ipython.ipynb)
+7.  [Jupyter Audio Basics](https://colab.research.google.com/github/stevetjoa/musicinformationretrieval.com/blob/gh-pages/ipython_audio.ipynb)
+8.  [SoX and ffmpeg](https://colab.research.google.com/github/stevetjoa/musicinformationretrieval.com/blob/gh-pages/sox_and_ffmpeg.ipynb)
+9.  [NumPy and SciPy Basics](https://colab.research.google.com/github/stevetjoa/musicinformationretrieval.com/blob/gh-pages/numpy_basics.ipynb)
 
 
 Music Representations
