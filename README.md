@@ -121,7 +121,9 @@ This repository contains instructional Colab notebooks related to music informat
 Updates
 -------
 
-2022 April 22: It's 2022, and Colab seems to be much more popular and usable than it was a few years ago. **You can help me migrate musicinformationretrieval.com to Colab.** Edit a Colab notebook, and submit a pull request. Ping steve@musicinformationretrieval.com to let me know.
+2023 October 09: Hello everyone! I'm [Iran R. Roman](https://iranroman.github.io) and I'm honored to be [the new administrator](https://iranroman.github.io/2023/10/09/other-list-01.html) of [musicinformationretrieval.com](https://musicinformationretrieval.com). Feel free to reach out and say hi. I would love to hear from you. iran@ccrma.stanford.edu
+
+2022 April 22: It's 2022, and Colab seems to be much more popular and usable than it was a few years ago. **You can help me migrate musicinformationretrieval.com to Colab.** Edit a Colab notebook, and submit a pull request. Ping iran@ccrma.stanford.edu to let me know.
 
 2021 June 2: I'm sorry that I haven't updated this repository lately. My career focus has drifted away from MIR, sadly. Therefore, please understand that I might not be checking this repo very frequently. However, I'm grateful that many of you still find this repo helpful. I encourage you to raise GitHub issues and participate in community discussions through the issue forums. If you want to submit a pull request, you can email steve at musicinformationretrieval dot com to let me know to check GitHub. 
 
