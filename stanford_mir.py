@@ -8,7 +8,7 @@ import sklearn
 import urllib.request
 
 def init():
-    plt.style.use('seaborn-muted')
+    plt.style.use('seaborn-v0_8-muted')
     #plt.rcParams['figure.figsize'] = (14, 5)
     plt.rcParams['axes.grid'] = True
     plt.rcParams['axes.spines.left'] = False
@@ -18,7 +18,7 @@ def init():
     plt.rcParams['axes.xmargin'] = 0
     plt.rcParams['axes.ymargin'] = 0
     plt.rcParams['image.cmap'] = 'gray'
-    plt.rcParams['image.interpolation'] = None
+    plt.rcParams['image.interpolation'] = 'none'
 
 
 def extract_features(signal, features):
