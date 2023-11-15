@@ -14,3 +14,6 @@ ADTLib
 keras
 tensorflow
 essentia
+mir_eval
+pytest
+nbmake
