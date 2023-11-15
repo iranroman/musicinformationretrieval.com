@@ -1,13 +1,14 @@
 
 .PHONY: run install
 
-install: venv/bin/jupyter-lab
 
 run: venv/bin/jupyter-lab
 	venv/bin/jupyter-lab index.ipynb
 
+install: venv/bin/jupyter-lab
+
 test: venv/bin/jupyter-lab
-	venv/bin/pytest --nbmake *.ipynb
+	venv/bin/pytest --nbmake  -n=auto *.ipynb
 
 venv/:
 	python3 -m venv venv

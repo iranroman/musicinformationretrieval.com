@@ -57,3 +57,4 @@ coverage.xml
 docs/_build/
 
 venv/
+.idea/
