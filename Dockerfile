@@ -1,7 +1,9 @@
-FROM python:3.12-bookworm as base
+FROM python:3.11-bookworm as base
 
 RUN apt-get update && \
     apt-get dist-upgrade -y && \
+    apt-get clean && \
+    rm -rf /var/lib/apt/lists/*
 
 RUN pip install --upgrade pip
 
@@ -15,7 +17,5 @@ FROM base as test
 RUN make test
 
 FROM base as run
-RUN make
-
-
+RUN make install
 

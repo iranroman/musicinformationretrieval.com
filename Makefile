@@ -1,5 +1,7 @@
 
-.PHONY: run
+.PHONY: run install
+
+install: venv/bin/jupyter-lab
 
 run: venv/bin/jupyter-lab
 	venv/bin/jupyter-lab index.ipynb
