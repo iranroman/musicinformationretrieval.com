@@ -7,3 +7,10 @@ pandas>=0.22.0
 matplotlib<3.8
 jupyterlab
 seaborn
+ipywidgets
+mir_eval
+cython
+ADTLib
+keras
+tensorflow
+essentia
