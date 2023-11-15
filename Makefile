@@ -4,7 +4,7 @@
 run: venv/bin/jupyter-lab
 	venv/bin/jupyter-lab index.ipynb
 
-test: venv/
+test: venv/bin/jupyter-lab
 	venv/bin/pytest --nbmake *.ipynb
 
 venv/:
@@ -13,5 +13,6 @@ venv/:
 
 venv/bin/jupyter-lab: venv/
 	venv/bin/pip install -r requirements.txt
+	touch venv/bin/jupyter-lab
 
 

@@ -10,7 +10,7 @@ seaborn
 ipywidgets
 mir_eval
 cython
-ADTLib
+#ADTLib
 keras
 tensorflow
 essentia
