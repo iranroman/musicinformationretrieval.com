@@ -10,7 +10,8 @@ seaborn
 ipywidgets
 mir_eval
 cython
-#ADTLib
+madmom @ git+https://github.com/CPJKU/madmom@0551aa8
+ADTLib
 keras
 tensorflow
 essentia
