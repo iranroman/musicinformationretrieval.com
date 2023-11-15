@@ -17,3 +17,4 @@ tensorflow==2.15.0
 essentia==2.1b6.dev1110
 pytest==7.4.3
 nbmake==1.4.6
+pytest-xdist==3.4.0
