@@ -11,7 +11,7 @@ nbmake==1.4.6
 pytest-xdist==3.4.0
 seaborn==0.13.0
 ADTLib==2.1.2
-mir_eval==0.7
+mir_eval>0.7
 keras==2.15.0
 essentia==2.1b6.dev1110
 cython==3.0.5
@@ -19,3 +19,4 @@ madmom @ git+https://github.com/CPJKU/madmom@0551aa8
 tensorflow==2.15.0
 requests==2.32.5
 urlextract
+soundfile==0.13.1
