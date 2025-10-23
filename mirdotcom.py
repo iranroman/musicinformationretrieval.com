@@ -1,12 +1,15 @@
 """Utility files and functions used across all notebooks"""
 
 import os
+from time import sleep
 
 import matplotlib.pyplot as plt
 import requests
 
 API_URL = "https://api.github.com/repos/iranroman/musicinformationretrieval.com/git/trees/gh-pages?recursive=1"
 BASE_URL = "https://musicinformationretrieval.com"
+DOWNLOAD_ATTEMPTS = 100
+WAIT_SECONDS = 5
 
 
 def init():
@@ -33,44 +36,56 @@ def set_plt_style():
     plt.rcParams['image.interpolation'] = "none"
 
 
-def download_audio():
-    # Get the JSON tree data from GitHub API
-    response = requests.get(API_URL)
-    response.raise_for_status()
-    data = response.json()
+def download_tree_data(attempts: int = DOWNLOAD_ATTEMPTS):
+    for _ in range(attempts):
+        # Get the JSON tree data from GitHub API
+        try:
+            response = requests.get(API_URL)
+            response.raise_for_status()
+            data = response.json()
+        except:
+            sleep(WAIT_SECONDS)
+            continue
+        else:
+            return data
+    raise ValueError("No data returned, try again later")
 
+
+def download_file(path, attempts: int = DOWNLOAD_ATTEMPTS):
+    # Create directory if it doesn't exist
+    os.makedirs(os.path.dirname(path), exist_ok=True)
+
+    # Download file and save
+    file_url = f"{BASE_URL}/{path}"
+
+    for _ in range(attempts):
+        try:
+            r = requests.get(file_url)
+            r.raise_for_status()
+
+            with open(path, "wb") as f:
+                f.write(r.content)
+        except:
+            sleep(WAIT_SECONDS)
+            continue
+        else:
+            return
+    raise ValueError(f"Could not download {path}, try again later")
+
+
+def download_audio():
+    data = download_tree_data()
     # Filter paths that are blobs (files) and inside 'audio/' folder
     paths = [item['path'] for item in data['tree'] if item['type'] == 'blob' and item['path'].startswith('assets/audio/')]
 
     for path in paths:
-        # Create directory if it doesn't exist
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-
-        # Download file and save
-        file_url = f"{BASE_URL}/{path}"
-        r = requests.get(file_url)
-        r.raise_for_status()
-
-        with open(path, "wb") as f:
-            f.write(r.content)
-
+        download_file(path)
 
 def download_images():
-    response = requests.get(API_URL)
-    response.raise_for_status()
-    data = response.json()
+    data = download_tree_data()
 
     # Filter paths that are blobs (files) and inside 'audio/' folder
     paths = [item['path'] for item in data['tree'] if item['type'] == 'blob' and item['path'].startswith('assets/img/')]
 
     for path in paths:
-        # Create directory if it doesn't exist
-        os.makedirs(os.path.dirname(path), exist_ok=True)
-
-        # Download file and save
-        file_url = f"{BASE_URL}/{path}"
-        r = requests.get(file_url)
-        r.raise_for_status()
-
-        with open(path, "wb") as f:
-            f.write(r.content)
+        download_file(path)
