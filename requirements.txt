@@ -18,3 +18,4 @@ cython==3.0.5
 madmom @ git+https://github.com/CPJKU/madmom@0551aa8
 tensorflow==2.15.0
 requests==2.32.5
+urlextract
