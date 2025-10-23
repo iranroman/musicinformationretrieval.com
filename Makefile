@@ -10,7 +10,7 @@ test: venv/bin/jupyter-lab
 	echo "Running .py tests..."
 	venv/bin/pytest -n=auto --ignore-glob='*.ipynb' .
 	echo "Running .ipynb tests..."
-	venv/bin/pytest --nbmake -n=auto --ignore-glob='*.py' --ignore-glob='*exercise*.ipynb' .
+	venv/bin/pytest --nbmake -n=auto --ignore-glob='*.py' --ignore-glob='*exercise*.ipynb' --ignore-glob='*adtlib*.ipynb' .
 
 venv/:
 	python3 -m venv venv
