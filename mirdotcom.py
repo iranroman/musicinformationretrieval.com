@@ -8,8 +8,8 @@ import requests
 
 API_URL = "https://api.github.com/repos/iranroman/musicinformationretrieval.com/git/trees/gh-pages?recursive=1"
 BASE_URL = "https://musicinformationretrieval.com"
-DOWNLOAD_ATTEMPTS = 100
-WAIT_SECONDS = 5
+DOWNLOAD_ATTEMPTS = 10
+WAIT_SECONDS = 2
 
 
 def init():
@@ -55,6 +55,10 @@ def download_file(path, attempts: int = DOWNLOAD_ATTEMPTS):
     # Create directory if it doesn't exist
     os.makedirs(os.path.dirname(path), exist_ok=True)
 
+    # Skip files if they exist on disk
+    if os.path.isfile(path):
+        return
+
     # Download file and save
     file_url = f"{BASE_URL}/{path}"
 
@@ -70,6 +74,7 @@ def download_file(path, attempts: int = DOWNLOAD_ATTEMPTS):
             continue
         else:
             return
+
     raise ValueError(f"Could not download {path}, try again later")
 
 
