@@ -30,7 +30,7 @@ def set_plt_style():
     plt.rcParams['axes.xmargin'] = 0
     plt.rcParams['axes.ymargin'] = 0
     plt.rcParams['image.cmap'] = 'gray'
-    plt.rcParams['image.interpolation'] = None
+    plt.rcParams['image.interpolation'] = "none"
 
 
 def download_audio():
