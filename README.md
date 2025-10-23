@@ -59,7 +59,7 @@ Machine Learning
 ----------------
 
 1. [K-Means Clustering](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/5_machine_learning/kmeans.ipynb)
-2. [Exercise: Unsupervised Instrument Classification using K-Means](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/5_machine_learning/kmeans_instrument_classification.ipynb)
+2. [Exercise: Unsupervised Instrument Classification using K-Means](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/5_machine_learning/kmeans_instrument_classification_exercise.ipynb)
 3. [Neural Networks](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/5_machine_learning/neural_networks.ipynb)
 4. [Genre Recognition](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/5_machine_learning/genre_recognition.ipynb)
 5. [Exercise: Genre Recognition](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/5_machine_learning/exercise_genre_recognition.ipynb)
