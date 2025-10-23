@@ -6,14 +6,12 @@ Introduction
 ------------
 
 1.  [About This Site](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/about.ipynb) (Start here!)
-2.  [About the book <em>Fundamentals of Music Processing</em>](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/about_fmp.ipynb)
-3.  [About the CCRMA Workshop on Music Information Retrieval](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/about_ccrma_workshop.ipynb)
-4.  [What is MIR?](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/why_mir.ipynb)
-5.  [Python Basics and Dependencies](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/python_basics.ipynb)
-6.  [Jupyter Basics](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/get_good_at_ipython.ipynb)
-7.  [Jupyter Audio Basics](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/ipython_audio.ipynb)
-8.  [SoX and ffmpeg](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/sox_and_ffmpeg.ipynb)
-9.  [NumPy and SciPy Basics](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/numpy_basics.ipynb)
+2.  [What is MIR?](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/why_mir.ipynb)
+3.  [Python Basics and Dependencies](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/python_basics.ipynb)
+4.  [Jupyter Basics](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/get_good_at_ipython.ipynb)
+5.  [Jupyter Audio Basics](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/ipython_audio.ipynb)
+6.  [SoX and ffmpeg](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/sox_and_ffmpeg.ipynb)
+7.  [NumPy and SciPy Basics](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/numpy_basics.ipynb)
 
 
 Music Representations
@@ -113,6 +111,11 @@ Just For Fun
 2. [THX Logo Theme](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/11_fun/thx_logo_theme.ipynb)
 
 
+About
+-----
+1. [About the book <em>Fundamentals of Music Processing</em>](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/x1_about/about_fmp.ipynb)
+2. [About the CCRMA Workshop on Music Information Retrieval](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/x1_about/about_ccrma_workshop.ipynb)
+
 ---
 
 This repository contains instructional Colab notebooks related to music information retrieval (MIR). Inside these notebooks are Python code snippets that illustrate basic MIR systems. You can actually execute the code from inside the notebook.
@@ -135,4 +138,3 @@ Your contributions are welcome! You can contribute in two ways:
 1. Submit an issue. Click on "[Issues](https://github.com/iranroman/musicinformationretrieval.com/issues)" in the right navigation bar, then "New Issue".  Issues can include Python bugs, spelling mistakes, broken links, requests for new content, and more.
 
 2. Submit changes to source code or documentation. [Fork this repo](https://help.github.com/articles/fork-a-repo), make edits to your fork, then [submit a pull request](https://help.github.com/articles/using-pull-requests). `gh-pages` is the default branch for this repo. Try to follow the style conventions in the existing notebooks. Ping iran \<at\> ccrma \<dot\> stanford \<dot\> edu to let me know you submitted a pull request.
-
