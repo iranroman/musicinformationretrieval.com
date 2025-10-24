@@ -11,6 +11,7 @@ def init():
     Sets plotting style.
     """
     set_plt_style()
+    set_working_directory()
 
 
 def set_plt_style():
@@ -33,5 +34,7 @@ def set_working_directory():
     We need to set it correctly so that filepaths/assets can be loaded correctly
     """
     # Just change the directory so that ../../assets will work OK
-    if "mirdotcom" not in os.listdir(os.getcwd()):
-        os.chdir(os.path.join(os.getcwd(), "mirdotcom/content/1_introduction"))
+    if "mirdotcom" not in os.getcwd():
+        new_path = os.path.join(os.getcwd(), "mirdotcom/content/1_introduction")
+        if os.path.isdir(new_path):
+            os.chdir(new_path)
