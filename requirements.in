@@ -1,0 +1,23 @@
+numpy>=1.14.2
+scipy>=1.0.0
+matplotlib<3.8
+ipython>=6.2.1
+jupyter>=1.0.0
+librosa>=0.6.0
+scikit-learn>=0.19.1
+pandas>=0.22.0
+pytest==7.4.3
+nbmake==1.4.6
+pytest-xdist==3.4.0
+seaborn==0.13.0
+ADTLib==2.1.2
+mir_eval>0.7
+keras==2.15.0
+essentia==2.1b6.dev1110
+cython==3.0.5
+madmom @ git+https://github.com/CPJKU/madmom@0551aa8
+tensorflow==2.15.0
+requests==2.32.5
+urlextract
+soundfile==0.13.1
+pytest-rerunfailures
