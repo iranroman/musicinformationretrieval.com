@@ -1,6 +1,7 @@
 """Utility files and functions used across all notebooks"""
 
 import matplotlib.pyplot as plt
+import os
 
 
 def init():
@@ -23,3 +24,14 @@ def set_plt_style():
     plt.rcParams['axes.ymargin'] = 0
     plt.rcParams['image.cmap'] = 'gray'
     plt.rcParams['image.interpolation'] = "none"
+
+
+def set_working_directory():
+    """
+    Thebe working directory is by default set to the repository root
+
+    We need to set it correctly so that filepaths/assets can be loaded correctly
+    """
+    # Just change the directory so that ../../assets will work OK
+    if "mirdotcom" not in os.listdir(os.getcwd()):
+        os.chdir(os.path.join(os.getcwd(), "mirdotcom/content/1_introduction"))
