@@ -21,3 +21,5 @@ requests==2.32.5
 urlextract
 soundfile==0.13.1
 pytest-rerunfailures
+jupyter-book
+ghp-import
