@@ -5,6 +5,7 @@ run: venv/bin/jupyter-lab
 	venv/bin/jupyter-lab README.md
 
 install: venv/bin/jupyter-lab
+	venv/bin/pip install -e .
 
 test: venv/bin/jupyter-lab
 	echo "Running .py tests..."
