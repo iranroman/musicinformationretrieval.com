@@ -32,7 +32,9 @@ jobs:
           make install
 
       - name: Build the book
-        run: jupyter-book build mirdotcom
+        run: |
+          source venv/bin/activate
+          jupyter-book build mirdotcom
 
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
