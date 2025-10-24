@@ -1,6 +1,8 @@
 musicinformationretrieval.com
 =============================
 
+[![Binder](https://mybinder.org/badge_logo.svg)](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2FREADME.md)
+
 
 Introduction
 ------------
