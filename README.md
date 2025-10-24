@@ -92,6 +92,7 @@ About
 -----
 1. [About the book <em>Fundamentals of Music Processing</em>](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2Fx1_about%2Fabout_fmp.ipynb)
 2. [About the CCRMA Workshop on Music Information Retrieval](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2Fx1_about%2Fabout_ccrma_workshop.ipynb)
+
 ---
 
 This repository contains instructional notebooks related to music information retrieval (MIR). Inside these notebooks are Python code snippets that illustrate basic MIR systems. You can actually execute the code from inside the notebook.
