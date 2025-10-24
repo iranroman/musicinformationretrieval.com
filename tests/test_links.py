@@ -6,7 +6,7 @@ import pytest
 from pathlib import Path
 from urlextract import URLExtract
 
-NOTEBOOKS = Path("content").rglob("*.ipynb")
+NOTEBOOKS = Path("mirdotcom/content").rglob("*.ipynb")
 
 
 def extract_links_from_notebook(nb_path: Path):
