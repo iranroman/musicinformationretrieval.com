@@ -1,0 +1,99 @@
+# Table of contents
+# Learn more at https://jupyterbook.org/customize/toc.html
+
+format: jb-book
+root: intro
+
+parts:
+  - caption: Introduction
+    numbered: false
+    chapters:
+      - file: content/1_introduction/about
+      - file: content/1_introduction/why_mir
+      - file: content/1_introduction/python_basics
+      - file: content/1_introduction/get_good_at_ipython
+      - file: content/1_introduction/ipython_audio
+      - file: content/1_introduction/sox_and_ffmpeg
+      - file: content/1_introduction/numpy_basics
+  - caption: Music Representations
+    numbered: false
+    chapters:
+      - file: content/2_music_representations/sheet_music_representations
+      - file: content/2_music_representations/symbolic_representations
+      - file: content/2_music_representations/audio_representation
+      - file: content/2_music_representations/tuning_systems
+      - file: content/2_music_representations/midi_conversion_table
+      - file: content/2_music_representations/feature_sonification
+  - caption: Signal Analysis and Feature Extraction
+    numbered: false
+    chapters:
+      - file: content/3_signal_analysis/basic_feature_extraction
+      - file: content/3_signal_analysis/segmentation
+      - file: content/3_signal_analysis/energy
+      - file: content/3_signal_analysis/zcr
+      - file: content/3_signal_analysis/fourier_transform
+      - file: content/3_signal_analysis/stft
+      - file: content/3_signal_analysis/chroma
+      - file: content/3_signal_analysis/video_chroma
+      - file: content/3_signal_analysis/magnitude_scaling
+      - file: content/3_signal_analysis/spectral_features
+      - file: content/3_signal_analysis/autocorrelation
+      - file: content/3_signal_analysis/pitch_transcription_exercise
+  - caption: Rhythm, Tempo, and Beat Tracking
+    numbered: false
+    chapters:
+      - file: content/4_rhythm_tempo_beat/novelty_functions
+      - file: content/4_rhythm_tempo_beat/peak_picking
+      - file: content/4_rhythm_tempo_beat/onset_detection
+      - file: content/4_rhythm_tempo_beat/onset_segmentation
+      - file: content/4_rhythm_tempo_beat/tempo_estimation
+      - file: content/4_rhythm_tempo_beat/beat_tracking
+      - file: content/4_rhythm_tempo_beat/video_tempo_beat_tracking
+      - file: content/4_rhythm_tempo_beat/adtlib
+  - caption: Machine Learning
+    numbered: false
+    chapters:
+      - file: content/5_machine_learning/kmeans
+      - file: content/5_machine_learning/kmeans_instrument_classification_exercise
+      - file: content/5_machine_learning/neural_networks
+      - file: content/5_machine_learning/genre_recognition
+      - file: content/5_machine_learning/exercise_genre_recognition
+  - caption: Evaluation
+    numbered: false
+    chapters:
+      - file: content/6_evaluation/intro_mir_eval
+      - file: content/6_evaluation/evaluation_onset
+      - file: content/6_evaluation/evaluation_beat
+      - file: content/6_evaluation/evaluation_chord
+  - caption: Music Synchronization
+    numbered: false
+    chapters:
+      - file: content/7_music_synchronization/dp
+      - file: content/7_music_synchronization/lcs
+      - file: content/7_music_synchronization/dtw
+      - file: content/7_music_synchronization/dtw_example
+  - caption: Music Structure Analysis
+    numbered: false
+    chapters:
+      - file: content/8_music_structure_analysis/mfcc
+  - caption: Content-Based Audio Retrieval
+    numbered: false
+    chapters:
+      - file: content/9_retrieval/lsh_fingerprinting
+  - caption: Musically Informed Audio Decomposition
+    numbered: false
+    chapters:
+      - file: content/10_decomposition/pca
+      - file: content/10_decomposition/nmf
+      - file: content/10_decomposition/nmf_audio_mosaic
+      - file: content/10_decomposition/hpss
+  - caption: Just For Fun
+    numbered: false
+    chapters:
+      - file: content/11_fun/realtime_spectrogram
+      - file: content/11_fun/thx_logo_theme
+  - caption: About
+    numbered: false
+    chapters:
+      - file: content/x1_about/about_fmp
+      - file: content/x1_about/about_ccrma_workshop
