@@ -1,0 +1,4 @@
+#!/bin/bash
+set -e
+echo `which pip`
+pip install -e mirdotcom/
