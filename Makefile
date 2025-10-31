@@ -1,4 +1,4 @@
-.PHONY: run install
+.PHONY: run install build
 
 
 run: venv/bin/jupyter-lab
@@ -20,3 +20,6 @@ venv/:
 venv/bin/jupyter-lab: venv/
 	venv/bin/pip install -r requirements.txt
 	touch venv/bin/jupyter-lab
+
+build:
+	jupyter-book build mirdotcom
