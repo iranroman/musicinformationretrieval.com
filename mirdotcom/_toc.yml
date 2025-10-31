@@ -97,3 +97,4 @@ parts:
     chapters:
       - file: content/x1_about/about_fmp
       - file: content/x1_about/about_ccrma_workshop
+      - file: content/x1_about/people_who_use_mirdotcom
