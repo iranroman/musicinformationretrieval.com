@@ -46,6 +46,8 @@ beautifulsoup4==4.14.2
     # via
     #   nbconvert
     #   pydata-sphinx-theme
+black[jupyter]==25.9.0
+    # via -r requirements.in
 bleach[css]==6.3.0
     # via nbconvert
 cachetools==6.2.1
@@ -63,6 +65,7 @@ charset-normalizer==3.4.4
     # via requests
 click==8.3.0
     # via
+    #   black
     #   jupyter-book
     #   jupyter-cache
     #   sphinx-external-toc
@@ -170,6 +173,7 @@ ipykernel==7.1.0
 ipython==8.37.0
     # via
     #   -r requirements.in
+    #   black
     #   ipykernel
     #   ipywidgets
     #   jupyter-console
@@ -310,6 +314,8 @@ ml-dtypes==0.2.0
     # via tensorflow
 msgpack==1.1.2
     # via librosa
+mypy-extensions==1.1.0
+    # via black
 myst-nb==1.3.0
     # via jupyter-book
 myst-parser==3.0.1
@@ -377,6 +383,7 @@ overrides==7.7.0
     # via jupyter-server
 packaging==25.0
     # via
+    #   black
     #   ipykernel
     #   jupyter-events
     #   jupyter-server
@@ -401,12 +408,15 @@ pandocfilters==1.5.1
     # via nbconvert
 parso==0.8.5
     # via jedi
+pathspec==0.12.1
+    # via black
 pexpect==4.9.0
     # via ipython
 pillow==12.0.0
     # via matplotlib
 platformdirs==4.5.0
     # via
+    #   black
     #   jupyter-core
     #   pooch
     #   urlextract
@@ -478,6 +488,8 @@ python-dateutil==2.9.0.post0
     #   pandas
 python-json-logger==4.0.0
     # via jupyter-events
+pytokens==0.2.0
+    # via black
 pytz==2025.2
     # via pandas
 pyyaml==6.0.3
@@ -638,8 +650,11 @@ threadpoolctl==3.6.0
     # via scikit-learn
 tinycss2==1.4.0
     # via bleach
+tokenize-rt==6.2.0
+    # via black
 tomli==2.3.0
     # via
+    #   black
     #   jupyterlab
     #   pytest
     #   sphinx
@@ -671,6 +686,7 @@ typing-extensions==4.15.0
     #   anyio
     #   async-lru
     #   beautifulsoup4
+    #   black
     #   exceptiongroup
     #   grpcio
     #   ipython

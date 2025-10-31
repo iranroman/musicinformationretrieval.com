@@ -1,4 +1,4 @@
-.PHONY: run install build
+.PHONY: run install build fix
 
 
 run: venv/bin/jupyter-lab
@@ -23,3 +23,6 @@ venv/bin/jupyter-lab: venv/
 
 build:
 	jupyter-book build mirdotcom
+
+fix:
+	black mirdotcom/content --target-version=py310
