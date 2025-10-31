@@ -4,6 +4,9 @@ import matplotlib.pyplot as plt
 import os
 
 
+AUDIO_DIRECTORY = "../../assets/audio/"
+
+
 def init():
     """
     Initialisation function called inside many notebooks.
@@ -38,3 +41,14 @@ def set_working_directory():
         new_path = os.path.join(os.getcwd(), "mirdotcom/content/1_introduction")
         if os.path.isdir(new_path):
             os.chdir(new_path)
+
+
+def get_audio(filename: str) -> str:
+    return AUDIO_DIRECTORY + filename
+
+
+def list_audio(prefix: str = None) -> list[str]:
+    fout = [f for f in os.listdir(AUDIO_DIRECTORY) if f.endswith((".wav", ".mp3"))]
+    if prefix:
+        fout = [f for f in fout if f.startswith(prefix)]
+    print("\n".join(fout))
