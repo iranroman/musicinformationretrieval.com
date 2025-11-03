@@ -1,0 +1,35 @@
+title: mirdotcom
+author: musicinformationretrieval.com contributors
+copyright: "2025"
+logo: ""
+
+execute:
+  execute_notebooks: off
+  timeout: 100
+
+# Define the name of the latex output file for PDF builds
+latex:
+  latex_documents:
+    targetname: book.tex
+
+# Add a bibtex file so that we can create citations
+bibtex_bibfiles:
+  - references.bib
+
+# Information about where the book exists on the web
+repository:
+  url: https://github.com/HuwCheston/musicinformationretrieval.com
+  path_to_book: mirdotcom
+  branch: gh-pages
+
+# Add GitHub buttons to your book
+html:
+  use_issues_button: true
+  use_repository_button: true
+  use_multitoc_numbering: true
+
+launch_buttons:
+  notebook_interface: classic
+  binderhub_url: "https://mybinder.org"
+  colab_url: "https://colab.research.google.com"
+  thebe: true
