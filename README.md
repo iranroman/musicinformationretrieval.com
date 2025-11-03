@@ -1,124 +1,103 @@
 musicinformationretrieval.com
 =============================
 
-
 Introduction
 ------------
-
-1.  [About This Site](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/about.ipynb) (Start here!)
-2.  [What is MIR?](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/why_mir.ipynb)
-3.  [Python Basics and Dependencies](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/python_basics.ipynb)
-4.  [Jupyter Basics](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/get_good_at_ipython.ipynb)
-5.  [Jupyter Audio Basics](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/ipython_audio.ipynb)
-6.  [SoX and ffmpeg](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/sox_and_ffmpeg.ipynb)
-7.  [NumPy and SciPy Basics](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/1_introduction/numpy_basics.ipynb)
-
+1.  [About This Site](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F1_introduction%2Fabout.ipynb)
+2.  [What is MIR?](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F1_introduction%2Fwhy_mir.ipynb)
+3.  [Python Basics and Dependencies](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F1_introduction%2Fpython_basics.ipynb)
+4.  [Jupyter Basics](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F1_introduction%2Fget_good_at_ipython.ipynb)
+5.  [Jupyter Audio Basics](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F1_introduction%2Fipython_audio.ipynb)
+6.  [SoX and ffmpeg](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F1_introduction%2Fsox_and_ffmpeg.ipynb)
+7.  [NumPy and SciPy Basics](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F1_introduction%2Fnumpy_basics.ipynb)
 
 Music Representations
 ---------------------
-
-1.  [Sheet Music Representations](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/2_music_representations/sheet_music_representations.ipynb)
-2.  [Symbolic Representations](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/2_music_representations/symbolic_representations.ipynb)
-3.  [Audio Representation](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/2_music_representations/audio_representation.ipynb)
-4.  [Tuning Systems](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/2_music_representations/tuning_systems.ipynb)
-5.  [MIDI Note to Frequency Conversion Table](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/2_music_representations/midi_conversion_table.ipynb)
-6.  [Understanding Audio Features through Sonification](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/2_music_representations/feature_sonification.ipynb)
-
+1.  [Sheet Music Representations](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F2_music_representations%2Fsheet_music_representations.ipynb)
+2.  [Symbolic Representations](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F2_music_representations%2Fsymbolic_representations.ipynb)
+3.  [Audio Representation](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F2_music_representations%2Faudio_representation.ipynb)
+4.  [Tuning Systems](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F2_music_representations%2Ftuning_systems.ipynb)
+5.  [MIDI Note to Frequency Conversion Table](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F2_music_representations%2Fmidi_conversion_table.ipynb)
+6.  [Understanding Audio Features through Sonification](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F2_music_representations%2Ffeature_sonification.ipynb)
 
 Signal Analysis and Feature Extraction
 --------------------------------------
-
-1.  [Basic Feature Extraction](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/3_signal_analysis/basic_feature_extraction.ipynb)
-2.  [Segmentation](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/3_signal_analysis/segmentation.ipynb)
-3.  [Energy and RMSE](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/3_signal_analysis/energy.ipynb)
-4.  [Zero Crossing Rate](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/3_signal_analysis/zcr.ipynb)
-5.  [Fourier Transform](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/3_signal_analysis/fourier_transform.ipynb)
-6.  [Short-time Fourier Transform and Spectrogram](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/3_signal_analysis/stft.ipynb)
-7.  [Constant-Q Transform and Chroma](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/3_signal_analysis/chroma.ipynb)
-8.  [Video: Chroma Features](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/3_signal_analysis/video_chroma.ipynb)
-9.  [Magnitude Scaling](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/3_signal_analysis/magnitude_scaling.ipynb)
-10. [Spectral Features](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/3_signal_analysis/spectral_features.ipynb)
-11. [Autocorrelation](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/3_signal_analysis/autocorrelation.ipynb)
-12. [Pitch Transcription Exercise](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/3_signal_analysis/pitch_transcription_exercise.ipynb)
-
+1.  [Basic Feature Extraction](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F3_signal_analysis%2Fbasic_feature_extraction.ipynb)
+2.  [Segmentation](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F3_signal_analysis%2Fsegmentation.ipynb)
+3.  [Energy and RMSE](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F3_signal_analysis%2Fenergy.ipynb)
+4.  [Zero Crossing Rate](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F3_signal_analysis%2Fzcr.ipynb)
+5.  [Fourier Transform](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F3_signal_analysis%2Ffourier_transform.ipynb)
+6.  [Short-time Fourier Transform and Spectrogram](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F3_signal_analysis%2Fstft.ipynb)
+7.  [Constant-Q Transform and Chroma](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F3_signal_analysis%2Fchroma.ipynb)
+8.  [Video: Chroma Features](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F3_signal_analysis%2Fvideo_chroma.ipynb)
+9.  [Magnitude Scaling](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F3_signal_analysis%2Fmagnitude_scaling.ipynb)
+10. [Spectral Features](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F3_signal_analysis%2Fspectral_features.ipynb)
+11. [Autocorrelation](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F3_signal_analysis%2Fautocorrelation.ipynb)
+12. [Pitch Transcription Exercise](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F3_signal_analysis%2Fpitch_transcription_exercise.ipynb)
 
 Rhythm, Tempo, and Beat Tracking
 --------------------------------
-
-1. [Novelty Functions](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/4_rhythm_tempo_beat/novelty_functions.ipynb)
-2. [Peak Picking](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/4_rhythm_tempo_beat/peak_picking.ipynb)
-3. [Onset Detection](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/4_rhythm_tempo_beat/onset_detection.ipynb)
-4. [Onset-based Segmentation with Backtracking](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/4_rhythm_tempo_beat/onset_segmentation.ipynb)
-5. [Tempo Estimation](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/4_rhythm_tempo_beat/tempo_estimation.ipynb)
-6. [Beat Tracking](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/4_rhythm_tempo_beat/beat_tracking.ipynb)
-7. [Video: Tempo and Beat Tracking](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/4_rhythm_tempo_beat/video_tempo_beat_tracking.ipynb)
-8. [Drum Transcription using ADTLib](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/4_rhythm_tempo_beat/adtlib.ipynb)
-
+1. [Novelty Functions](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F4_rhythm_tempo_beat%2Fnovelty_functions.ipynb)
+2. [Peak Picking](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F4_rhythm_tempo_beat%2Fpeak_picking.ipynb)
+3. [Onset Detection](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F4_rhythm_tempo_beat%2Fonset_detection.ipynb)
+4. [Onset-based Segmentation with Backtracking](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F4_rhythm_tempo_beat%2Fonset_segmentation.ipynb)
+5. [Tempo Estimation](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F4_rhythm_tempo_beat%2Ftempo_estimation.ipynb)
+6. [Beat Tracking](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F4_rhythm_tempo_beat%2Fbeat_tracking.ipynb)
+7. [Video: Tempo and Beat Tracking](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F4_rhythm_tempo_beat%2Fvideo_tempo_beat_tracking.ipynb)
+8. [Drum Transcription using ADTLib](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F4_rhythm_tempo_beat%2Fadtlib.ipynb)
 
 Machine Learning
 ----------------
-
-1. [K-Means Clustering](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/5_machine_learning/kmeans.ipynb)
-2. [Exercise: Unsupervised Instrument Classification using K-Means](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/5_machine_learning/kmeans_instrument_classification_exercise.ipynb)
-3. [Neural Networks](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/5_machine_learning/neural_networks.ipynb)
-4. [Genre Recognition](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/5_machine_learning/genre_recognition.ipynb)
-5. [Exercise: Genre Recognition](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/5_machine_learning/exercise_genre_recognition.ipynb)
-
+1. [K-Means Clustering](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F5_machine_learning%2Fkmeans.ipynb)
+2. [Exercise: Unsupervised Instrument Classification using K-Means](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F5_machine_learning%2Fkmeans_instrument_classification_exercise.ipynb)
+3. [Neural Networks](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F5_machine_learning%2Fneural_networks.ipynb)
+4. [Genre Recognition](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F5_machine_learning%2Fgenre_recognition.ipynb)
+5. [Exercise: Genre Recognition](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F5_machine_learning%2Fexercise_genre_recognition.ipynb)
 
 Evaluation
 ----------
-
-1. [Introduction to <code>mir_eval</code>](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/6_evaluation/intro_mir_eval.ipynb)
-2. [Onset Detection](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/6_evaluation/evaluation_onset.ipynb)
-3. [Beat Tracking](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/6_evaluation/evaluation_beat.ipynb)
-4. [Chord Estimation](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/6_evaluation/evaluation_chord.ipynb)
-
+1. [Introduction to <code>mir_eval</code>](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F6_evaluation%2Fintro_mir_eval.ipynb)
+2. [Onset Detection](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F6_evaluation%2Fevaluation_onset.ipynb)
+3. [Beat Tracking](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F6_evaluation%2Fevaluation_beat.ipynb)
+4. [Chord Estimation](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F6_evaluation%2Fevaluation_chord.ipynb)
 
 Music Synchronization
 ---------------------
-
-1. [Dynamic Programming](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/7_music_synchronization/dp.ipynb)
-2. [Longest Common Subsequence](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/7_music_synchronization/lcs.ipynb)
-3. [Dynamic Time Warping](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/7_music_synchronization/dtw.ipynb)
-4. [Dynamic Time Warping Example](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/7_music_synchronization/dtw_example.ipynb)
-
+1. [Dynamic Programming](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F7_music_synchronization%2Fdp.ipynb)
+2. [Longest Common Subsequence](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F7_music_synchronization%2Flcs.ipynb)
+3. [Dynamic Time Warping](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F7_music_synchronization%2Fdtw.ipynb)
+4. [Dynamic Time Warping Example](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F7_music_synchronization%2Fdtw_example.ipynb)
 
 Music Structure Analysis
 ------------------------
-
-1. [Mel-Frequency Cepstral Coefficients](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/8_music_structure_analysis/mfcc.ipynb)
-
+1. [Mel-Frequency Cepstral Coefficients](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F8_music_structure_analysis%2Fmfcc.ipynb)
 
 Content-Based Audio Retrieval
 -----------------------------
-
-1. [Locality Sensitive Hashing](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/9_retrieval/lsh_fingerprinting.ipynb)
-
+1. [Locality Sensitive Hashing](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F9_retrieval%2Flsh_fingerprinting.ipynb)
 
 Musically Informed Audio Decomposition
 --------------------------------------
-
-1. [Principal Component Analysis](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/10_decomposition/pca.ipynb)
-2. [Nonnegative Matrix Factorization](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/10_decomposition/nmf.ipynb)
-3. [NMF Audio Mosaicing](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/10_decomposition/nmf_audio_mosaic.ipynb)
-4. [Harmonic-Percussive Source Separation](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/10_decomposition/hpss.ipynb)
-
+1. [Principal Component Analysis](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F10_decomposition%2Fpca.ipynb)
+2. [Nonnegative Matrix Factorization](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F10_decomposition%2Fnmf.ipynb)
+3. [NMF Audio Mosaicing](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F10_decomposition%2Fnmf_audio_mosaic.ipynb)
+4. [Harmonic-Percussive Source Separation](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F10_decomposition%2Fhpss.ipynb)
 
 Just For Fun
 ------------
-
-1. [Real-time Spectrogram](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/11_fun/realtime_spectrogram.ipynb)
-2. [THX Logo Theme](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/11_fun/thx_logo_theme.ipynb)
-
+1. [Real-time Spectrogram](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F11_fun%2Frealtime_spectrogram.ipynb)
+2. [THX Logo Theme](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2F11_fun%2Fthx_logo_theme.ipynb)
 
 About
 -----
-1. [About the book <em>Fundamentals of Music Processing</em>](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/x1_about/about_fmp.ipynb)
-2. [About the CCRMA Workshop on Music Information Retrieval](https://colab.research.google.com/github/iranroman/musicinformationretrieval.com/blob/gh-pages/content/x1_about/about_ccrma_workshop.ipynb)
+1. [About the book <em>Fundamentals of Music Processing</em>](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2Fx1_about%2Fabout_fmp.ipynb)
+2. [About the CCRMA Workshop on Music Information Retrieval](https://mybinder.org/v2/gh/HuwCheston/musicinformationretrieval.com/HEAD?urlpath=%2Fdoc%2Ftree%2Fcontent%2Fx1_about%2Fabout_ccrma_workshop.ipynb)
 
 ---
 
-This repository contains instructional Colab notebooks related to music information retrieval (MIR). Inside these notebooks are Python code snippets that illustrate basic MIR systems. You can actually execute the code from inside the notebook.
+This repository contains instructional notebooks related to music information retrieval (MIR). Inside these notebooks are Python code snippets that illustrate basic MIR systems. You can actually execute the code from inside the notebook.
+
+The notebooks run on [`binder`](https://mybinder.org) to enable reproducible results in a consistent computational environment.
 
 
 Updates
