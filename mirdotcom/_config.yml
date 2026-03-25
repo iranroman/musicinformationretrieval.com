@@ -18,7 +18,7 @@ bibtex_bibfiles:
 
 # Information about where the book exists on the web
 repository:
-  url: https://github.com/HuwCheston/musicinformationretrieval.com
+  url: https://github.com/musicinformationretrieval/musicinformationretrieval.com
   path_to_book: mirdotcom
   branch: gh-pages
 
