@@ -27,6 +27,14 @@ html:
   use_issues_button: true
   use_repository_button: true
   use_multitoc_numbering: true
+  extra_footer: |
+    <div id="survey-popup" style="position:fixed;bottom:20px;right:20px;background:#fff;border:1px solid #ccc;padding:20px;z-index:9999;border-radius:8px;max-width:300px;">
+      <p style="color:#000;"><strong>We are redesigning mirdotcom and... We Need You!</strong></p>
+      <p style="color:#000;">Got 5 minutes? Please take our survey and help us improve MIR learning.</p>
+      <a href="https://forms.office.com/e/XFcpGE23PQ" target="_blank" style="font-weight:bold;">Take the survey</a><br><br>
+      <button onclick="document.getElementById('survey-popup').style.display='none'">No thanks</button>
+    </div>
+  
 
 launch_buttons:
   notebook_interface: classic
