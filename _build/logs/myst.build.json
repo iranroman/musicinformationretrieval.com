@@ -1,0 +1,32 @@
+{
+  "input": {
+    "files": [
+      "."
+    ],
+    "opts": {
+      "execute": false,
+      "executeParallel": 9,
+      "pdf": false,
+      "tex": false,
+      "typst": false,
+      "docx": false,
+      "md": false,
+      "xml": false,
+      "meca": false,
+      "cff": false,
+      "site": false,
+      "html": false,
+      "all": true,
+      "doiBib": false,
+      "watch": false,
+      "force": false,
+      "checkLinks": false,
+      "strict": false,
+      "ci": false,
+      "maxSizeWebp": 1572864,
+      "keepHost": false
+    },
+    "performSiteBuild": true
+  },
+  "exports": []
+}
