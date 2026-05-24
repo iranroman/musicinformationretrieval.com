@@ -1,4 +1,4 @@
-.PHONY: run install build fix
+.PHONY: run install build fix clean
 
 
 run: venv/bin/jupyter-lab
@@ -26,3 +26,6 @@ build:
 
 fix:
 	black mirdotcom/content --target-version=py310
+
+clean:
+	jupyter nbconvert --clear-output --inplace mirdotcom/content/**/*.ipynb

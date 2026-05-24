@@ -4,13 +4,19 @@ copyright: "2025"
 logo: ""
 
 execute:
-  execute_notebooks: off
+  execute_notebooks: "auto"
   timeout: 100
+  exclude_patterns:
+    - 'content/4_rhythm_tempo_beat/adtlib.ipynb'
+    - '*exercise*'
+  only_build_toc_files: true
 
 # Define the name of the latex output file for PDF builds
 latex:
   latex_documents:
     targetname: book.tex
+
+
 
 # Add a bibtex file so that we can create citations
 bibtex_bibfiles:
