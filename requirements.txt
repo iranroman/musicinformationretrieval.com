@@ -328,7 +328,7 @@ nbclient==0.6.8
     #   myst-nb
     #   nbconvert
     #   nbmake
-nbconvert==7.16.6
+nbconvert==7.17.0
     # via
     #   jupyter
     #   jupyter-server
