@@ -116,7 +116,7 @@ filelock==3.20.0
     # via urlextract
 flatbuffers==25.9.23
     # via tensorflow
-fonttools==4.60.1
+fonttools==4.61.0
     # via matplotlib
 fpdf==1.7.2
     # via adtlib
